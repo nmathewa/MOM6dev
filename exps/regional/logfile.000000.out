@@ -334,8 +334,8 @@ MOM_state_initialization: unknown
   MOM_state_initialization INIT_LAYERS_FROM_Z_FILE: False
   MOM_state_initialization THICKNESS_CONFIG: file
   initialize_thickness_from_file INPUTDIR: INPUT
-  initialize_thickness_from_file THICKNESS_FILE: GOLD_IC.2010.11.15.nc
-  initialize_thickness_from_file INPUTDIR/THICKNESS_FILE: INPUT/GOLD_IC.2010.11.15.nc
+  initialize_thickness_from_file THICKNESS_FILE: samplein.nc
+  initialize_thickness_from_file INPUTDIR/THICKNESS_FILE: INPUT/samplein.nc
   initialize_thickness_from_file ADJUST_THICKNESS: True
   MOM_state_initialization TS_CONFIG: file
   initialize_temp_salt_from_file TS_FILE: GOLD_IC.2010.11.15.nc
@@ -935,46 +935,46 @@ DIAG_OUTPUT_MOD
 unknown
 
                                      time
-Total runtime                       425.150519
-Initialization                        3.990066
-Main loop                           404.537462
-Termination                          15.613702
-Ocean Initialization                 12.921232
-Ocean                               395.378642
-Ocean dynamics                      294.607704
-Ocean thermodynamics and tracers     81.824492
-Ocean Other                          18.535202
-(Ocean tracer advection)             28.920551
-(Ocean diabatic driver)              52.903922
+Total runtime                       344.872157
+Initialization                        3.482404
+Main loop                           326.555435
+Termination                          14.547322
+Ocean Initialization                 10.703739
+Ocean                               319.159759
+Ocean dynamics                      240.731035
+Ocean thermodynamics and tracers     64.585331
+Ocean Other                          13.465010
+(Ocean tracer advection)             24.504494
+(Ocean diabatic driver)              40.080820
 (Ocean continuity equation *)         0.000000
-(Ocean set BBL viscosity)             4.617502
-(Ocean message passing *)             0.201000
-(Ocean MOM_initialize_state)          0.728119
-(Ocean thickness diffusion *)        21.199543
-(Ocean mixed layer restrat)           0.294569
-(Ocean collective diagnostics)       14.144181
+(Ocean set BBL viscosity)             3.675069
+(Ocean message passing *)             0.171748
+(Ocean MOM_initialize_state)          0.198321
+(Ocean thickness diffusion *)        14.873191
+(Ocean mixed layer restrat)           0.238479
+(Ocean collective diagnostics)       10.193295
 (Ocean Z-space diagnostics)           0.000000
 (Ocean ALE)                           0.000000
-(Ocean diagnostics framework)        12.505419
-(Ocean tides)                         0.014041
-(Ocean Coriolis & mom advection)     17.789053
-(Ocean continuity equation)          95.922396
-(Ocean pressure force)               23.779862
-(Ocean vertical viscosity)           46.488920
-(Ocean horizontal viscosity)         23.982666
-(Ocean momentum increments)           3.248750
-(Ocean message passing)               0.907699
-(Ocean barotropic mode calc)          0.339566
-(Ocean barotropic mode stepping)     42.368135
-(Ocean barotropic forcing calc)       4.393673
-(Ocean kappa_shear)                  10.165274
-(Ocean diabatic entrain)             13.286249
-(Ocean mixed layer)                   6.669365
-(Ocean vert remap)                    0.000007
-(Ocean set_diffusivity)              19.111716
+(Ocean diagnostics framework)         9.492001
+(Ocean tides)                         0.013262
+(Ocean Coriolis & mom advection)     15.388188
+(Ocean continuity equation)          76.530150
+(Ocean pressure force)               19.660363
+(Ocean vertical viscosity)           38.223079
+(Ocean horizontal viscosity)         20.468569
+(Ocean momentum increments)           2.621548
+(Ocean message passing)               0.846430
+(Ocean barotropic mode calc)          0.297530
+(Ocean barotropic mode stepping)     36.253618
+(Ocean barotropic forcing calc)       3.726982
+(Ocean kappa_shear)                   8.158803
+(Ocean diabatic entrain)              9.505019
+(Ocean mixed layer)                   4.960196
+(Ocean vert remap)                    0.000008
+(Ocean set_diffusivity)              15.074320
 (Ocean KPP)                           0.000000
-(Ocean tracer_columns)                1.439454
-(Ocean advect tracer)                16.181840
-(Ocean diffuse tracer)                3.662875
-(Ocean epipycnal diffuse tracer)      8.776220
-(Ocean surface forcing)               0.103972
+(Ocean tracer_columns)                1.104468
+(Ocean advect tracer)                13.934660
+(Ocean diffuse tracer)                2.997139
+(Ocean epipycnal diffuse tracer)      7.318281
+(Ocean surface forcing)               0.083344

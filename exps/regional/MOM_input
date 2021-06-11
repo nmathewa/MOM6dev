@@ -154,7 +154,7 @@ GRID_FILE = "ocean_hgrid.nc"    !
                                 ! Name of the file from which to read horizontal grid data.
 TOPO_CONFIG = "file"            !
                                 ! This specifies how bathymetry is specified:
-                                !     file - read bathymetric information from the file
+                                !     file - read bathymetricgolf information from the file
                                 !       specified by (TOPO_FILE).
                                 !     flat - flat bottom set to MAXIMUM_DEPTH.
                                 !     bowl - an analytically specified bowl-shaped basin
@@ -208,7 +208,7 @@ THICKNESS_CONFIG = "file"       !
                                 !     seamount - TBD AJA.
                                 !     rossby_front - a mixed layer front in thermal wind balance.
                                 !     USER - call a user modified routine.
-THICKNESS_FILE = "GOLD_IC.2010.11.15.nc" !
+THICKNESS_FILE = "samplein.nc" !
                                 ! The name of the thickness file.
 ADJUST_THICKNESS = True         !   [Boolean] default = False
                                 ! If true, all mass below the bottom removed if the
@@ -727,3 +727,4 @@ RESTINT = 365.0                 !   [days] default = 0.0
 ENERGYSAVEDAYS = 0.5            !   [days] default = 7200.0
                                 ! The interval in units of TIMEUNIT between saves of the
                                 ! energies of the run and other globally summed diagnostics.
+
