@@ -14,7 +14,7 @@ jobs:
           command: pip install -U pip     
 
       - name: Install dependencies
-        run: pip install -r /scripts/mom6nma/requirements.txt --upgrade pip
+        run: pip install -r scripts/mom6nma/requirements.txt --upgrade pip
 
       - name: test
-        run: python /scripts/mom6nma/main.py
+        run: python scripts/mom6nma/main.py
