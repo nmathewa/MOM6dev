@@ -1,9 +1,5 @@
 name: pytest
-on:
-  push:
-    branches: [ pytest ]
-  pull_request:
-    branches: [ pytest ]
+on: [push, pull_request]
 
 jobs:
   install-python:
