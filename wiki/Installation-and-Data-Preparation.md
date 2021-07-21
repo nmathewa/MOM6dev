@@ -15,6 +15,13 @@ wget -nv ftp://ftp.gfdl.noaa.gov/perm/Alistair.Adcroft/MOM6-testing/global.tgz -
 ```
 
 
+# SIS mod
+
+add this line 
+
+```BASH
+make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 MOM6 -j
+```
 
 # References
 
