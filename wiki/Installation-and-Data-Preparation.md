@@ -1,5 +1,28 @@
 ## Cloning and compiling
 
+### 1. Libraries installtion (Ubuntu)
+
+```BASH
+
+sudo apt-get install csh
+sudo apt-get install make
+sudo apt-get install gfortran
+sudo apt-get install openmpi-bin
+sudo apt-get install libopenmpi-dev
+sudo apt-get install libnetcdf-dev
+sudo apt-get install libnetcdff-dev
+sudo apt-get install netcdf-bin
+
+```
+
+### 2. FMS shared library
+
+```BASH
+mkdir -p build/intel/shared/repro/
+cd build/intel/shared/repro/
+../../../../src/mkmf/bin/list_paths -l ../../../../src/FMS
+```
+
 ## Running Examples
 
 - The examples input datasets are located inside ocean_only/INPUT/
