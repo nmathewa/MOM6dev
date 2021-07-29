@@ -7,7 +7,7 @@ MOM6 development private
 
 [Current data OSCAR earthdata](https://podaac-tools.jpl.nasa.gov/drive/files/allData/oscar/preview/L4/oscar_third_deg)
 
-
+[GEBCO bathymetry dataset](https://www.gebco.net/data_and_products/gridded_bathymetry_data/)
 
 
 ```BASH
