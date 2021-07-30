@@ -25,6 +25,8 @@ sam_files = glob.glob(sam_dir+"*.nc")
 out_dir = "../../exps/regional2/INPUT/test_ins/"
 
 #%%
+
+""" Sponge rmu files are not used"""
     
 dt_names = []
 for ii in range(len(sam_files)):
@@ -110,6 +112,16 @@ resy = np.round(np.mean(nn),3)
 x,y,area,dx,dy,angle = create_lat_lon_regular(lon_min, lon_max, lat_min, lat_max, resx, resy)
 
 
+region_bob = xr.Dataset({
+    "x" : (["nyp","nxp"],x),
+    "y" : (["nyp","nxp"],y),
+    "angle_dx" : (["nyp","nxp"],angle),
+    "dx" : (["nyp","nx"],dx),
+    "dy" : (["ny","nxp"],dy),
+    "area" : (["ny","nx"],area),})
+
+region_bob.to_netcdf(out_dir+"regional_bob.nc")
+
 #%% sponge preparation
 
 
@@ -155,8 +167,8 @@ n_wet = np.where(abs_bath > 0,1,0)
 
 wets = depth.wet.values
 
-plt.contourf(n_wet,levels=1)
-plt.colorbar()
+#plt.contourf(n_wet,levels=1)
+#plt.colorbar()
 
 
 
@@ -166,15 +178,176 @@ plt.colorbar()
 #plt.ylabel("Latitude")
 #plt.savefig("Bath.png")
 
+dset = xr.Dataset({
+    "depth" : (["nx","ny"],abs_bath),
+    "wet" : (["nx","ny"],n_wet)})
+
+dset.to_netcdf(out_dir+"depth_bob.nc")
+#%%
+
+
+figure,axis = plt.subplots(2,2)
+
+
+axis[1,0].contourf(xx,yy,n_bath)
+axis[1,0].set_title("BOB_depth")
 
 
 
+axis[1,1].contourf(xx,yy,n_wet)
+axis[1,1].set_title("wetness BOB")
 
 
-
-
-
-
-
-
+axis[0,0].contourf(depth.depth.values)
+axis[0,0].set_title("COAPS")
     
+
+
+axis[0,1].contourf(depth.wet.values)
+axis[0,1].set_title("COAPS wetness")
+
+
+plt.suptitle("Depth data creation")
+
+
+plt.savefig("depth_create.png")
+
+#%% Sponge_m or initial conditions sponge files
+
+""" Ptemp , salinity , water_u, water_v 11 layer """
+
+
+lons = np.arange(lon_min,lon_max,resx)
+lats = np.arange(lat_min,lat_max,resy)
+
+saline_glo = xr.open_dataset("/home/vinay/Downloads/vosaline_ORAS5_1m_201812_r1x1.nc")
+
+saline_bob = saline_glo.sel(lat = slice(lat_min-1,lat_max+1),lon = slice(lon_min-1,lon_max+1))
+
+#plt.contourf(saline_bob.vosaline[0,0,:,:])
+
+
+
+xlat = saline_bob.lat.values
+ylon = saline_bob.lon.values
+
+depth = saline_bob.deptht.values
+
+dep_merge = []
+for ii in range(11):
+    vals = saline_bob.vosaline.values[0,ii,:,:]
+    xm,ym = np.meshgrid(ylon,xlat)
+    xf = xm.flatten()
+    yf = ym.flatten()
+    saline_n = griddata((xf,yf),valsf,(lons[None,:],lats[:,None]),method="linear")
+    dep_merge += [saline_n]
+    
+saline_new = np.array(dep_merge)
+
+#vals = saline_bob.vosaline.values[0,0,:,:]
+
+
+#xm,ym = np.meshgrid(ylon,xlat) 
+#xf = xm.flatten()
+#yf = ym.flatten()
+#valsf = vals.flatten()
+
+
+
+#saline_n = griddata((xf,yf),valsf,(lons[None,:],lats[:,None]),method="linear")
+
+
+"""Ptemp"""
+
+
+potemp_glo = xr.open_dataset("/home/vinay/Downloads/votemper_ORAS5_1m_201812_r1x1.nc")
+
+potemp_bob = potemp_glo.sel(lat = slice(lat_min-1,lat_max+1),lon = slice(lon_min-1,lon_max+1))
+
+#xlat = potemp_bob.lat.values
+#ylon = potemp_bob.lon.values
+#vals = potemp_bob.votemper.values[0,0,:,:]
+
+
+#xm,ym = np.meshgrid(ylon,xlat) 
+#xf = xm.flatten()
+#yf = ym.flatten()
+#valsf = vals.flatten()
+
+
+#pot_n = griddata((xf,yf),valsf,(lons[None,:],lats[:,None]),method="linear")
+
+dept_merge = []
+for jj in range(11):
+    vals = potemp_bob.votemper.values[0,ii,:,:]
+    xm,ym = np.meshgrid(ylon,xlat)
+    xf = xm.flatten()
+    yf = ym.flatten()
+    valsf = vals.flatten()
+    potemp_n = griddata((xf,yf),valsf,(lons[None,:],lats[:,None]),method="linear")
+    dept_merge += [potemp_n]
+    
+pot_new_fin = np.array(dept_merge)
+
+#%%"""water u and water_v"""
+
+cur_data = xr.open_dataset("/home/vinay/Downloads/oscar_vel10004.nc")
+
+cur_bob = cur_data.sel(latitude = slice(lat_max + 1,lat_min - 1),longitude = slice(lon_min - 1,lon_max + 1))
+
+
+xlat = cur_bob.latitude.values
+ylon = cur_bob.longitude.values
+valsu = cur_bob.u.values[0,0,:,:]
+valsv = cur_bob.v.values[0,0,:,:]
+
+xm,ym = np.meshgrid(ylon,xlat) 
+xf = xm.flatten()
+yf = ym.flatten()
+valsfu = valsu.flatten()
+valsfv = valsv.flatten()
+
+u_val = griddata((xf,yf),valsfu,(lons[None,:],lats[:,None]),method="linear")
+
+v_val = griddata((xf,yf),valsfv,(lons[None,:],lats[:,None]),method="linear")
+
+
+
+
+
+#plt.contourf(u_val)
+
+
+#plt.contourf(ylon,xlat,valsu)
+
+dd = sponge_m.water_u.values[0,0,:,:]
+
+
+sponge_new = xr.Dataset({
+    "values" : (["time","lon","lat"],vals),},
+    coords = {"lon":(["time",],time),
+              "lat":(["lon",],lon),
+              "depth":(["lat",],lats),})
+
+#%% vgrid
+
+
+dz = vgrid.dz.values
+
+sigma = vgrid.sigma2.values
+layer = vgrid.Layer.values
+
+
+n_layer = np.linspace(layer[0],layer[-1],11)
+n_dz = np.linspace(dz[0],dz[-1],11)
+n_sigma = np.linspace(sigma[0],sigma[-1],12)
+
+layer_n = xr.Dataset({
+    "dz" : (["Layer"],n_dz),
+    "sigma2": (["interfaces"],n_sigma)},
+    coords = {"Layer":(["Layer",],n_layer)})
+
+layer_n.to_netcdf(out_dir+"vgridbob.nc")
+
+
+#%% tsuv filled

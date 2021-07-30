@@ -14,6 +14,9 @@ MOM6 development private
 
 # Depth preparation
 
+
+![](data_ana/depth_create.png)
+
 ```python
 n_bath = griddata((xf,yf),valsf,(xx[None,:],yy[:,None]),method="linear")
 ```
