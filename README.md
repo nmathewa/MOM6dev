@@ -10,6 +10,7 @@ MOM6 development private
 [GEBCO bathymetry dataset](https://www.gebco.net/data_and_products/gridded_bathymetry_data/)
 
 [Initial conditions ](https://www.ecmwf.int/en/research/climate-reanalysis/ocean-reanalysis)
+  - [hamberg link](https://www.cen.uni-hamburg.de/en/icdc/data/ocean/easy-init-ocean/ecmwf-oras5.html)
 
 
 # Depth preparation
