@@ -16,13 +16,15 @@ import glob
 import matplotlib.pyplot as plt
 
 
-os.chdir("/home/vinay/nma/MOM6dev/data_ana/")
+#os.chdir("/home/vinay/nma/MOM6dev/data_ana/")
+os.chdir("/home/mathew/hdd/UBU20/hdd/GIT/MOM6dev/data_ana/")
 
+#sam_dir = "../../exps/regional2/INPUT/"
+sam_dir = "/home/mathew/hdd/UBU20/hdd/IISC_PA/exps/regional2/INPUT/"
 
-sam_dir = "../../exps/regional2/INPUT/"
 sam_files = glob.glob(sam_dir+"*.nc")
 
-out_dir = "../../exps/regional2/INPUT/test_ins/"
+out_dir = "/home/mathew/hdd/UBU20/hdd/IISC_PA/exps/regional2/INPUT/test_ins/"
 
 #%%
 
@@ -35,8 +37,9 @@ for ii in range(len(sam_files)):
 
 #dt_names = ["sponge","depth","sponge_mask","tsuv_filled","regional","vgrid"]
     
-sponge,depth,sponge_m,tsuv_filled,regional,vgrid = dt_names[0],dt_names[1],dt_names[2],dt_names[3],dt_names[4],dt_names[5]
+#sponge,depth,sponge_m,tsuv_filled,regional,vgrid = dt_names[0],dt_names[1],dt_names[2],dt_names[3],dt_names[4],dt_names[5]
 
+tsuv_filled,sponge_m,depth,vgrid,regional,sponge,sponge_rmu,test = dt_names[0],dt_names[1],dt_names[2],dt_names[3],dt_names[4],dt_names[5],dt_names[6],dt_names[7]
 
 #%%region and regional.mom
 
@@ -133,8 +136,9 @@ from scipy.interpolate import griddata
 
 dep_vals = depth.depth.values
 
-gtopo = xr.open_dataset(out_dir+"bath/gebco_2020_n24.290771484375_s9.195556640625_w78.46435546875001_e100.63476562500001.nc")
+#gtopo = xr.open_dataset(out_dir+"bath/gebco_2020_n24.290771484375_s9.195556640625_w78.46435546875001_e100.63476562500001.nc")
 
+gtopo = xr.open_dataset("/home/mathew/hdd/UBU20/hdd/IISC_PA/exps/regional2/INPUT/n_folder/gebco_2020_tid_netcdf/GEBCO_2020_TID.nc")
 
 n_dset = gtopo.sel(lat = slice(lat_min-1,lat_max+1),lon = slice(lon_min-1,lon_max+1)) #subsetting the netcdf using xarrray.sel
 xlat = n_dset.lat.values
