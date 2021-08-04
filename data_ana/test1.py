@@ -31,7 +31,7 @@ out_dir = "/home/vinay/nma/exps/regional2/INPUT/test_ins/"
 #%%
 
 """ Sponge rmu files are not used"""
-    
+
 dt_names = []
 for ii in range(len(sam_files)):
     print (sam_files[ii])
@@ -43,6 +43,13 @@ sponge,depth,sponge_m,tsuv_filled,regional,vgrid = dt_names[0],dt_names[1],dt_na
 
 #tsuv_filled,sponge_m,depth,vgrid,regional,sponge,sponge_rmu,test = dt_names[0],dt_names[1],dt_names[2],dt_names[3],dt_names[4],dt_names[5],dt_names[6],dt_names[7]
 
+
+
+#%%
+
+u = sponge_m.water_u.values[0,38,:,:]
+
+plt.contourf(u)
 #%%region and regional.mom
 
 lon_min,lon_max = 75.6,90.5
@@ -257,7 +264,7 @@ ylon = saline_bob.lon.values
 depth = saline_bob.deptht.values
 
 dep_merge = []
-for ii in range(11):
+for ii in range(40):
     vals = saline_bob.vosaline.values[0,ii,:,:]
     xm,ym = np.meshgrid(ylon,xlat)
     xf = xm.flatten()
@@ -304,7 +311,7 @@ potemp_bob = potemp_glo.sel(lat = slice(lat_min-1,lat_max+1),lon = slice(lon_min
 #pot_n = griddata((xf,yf),valsf,(lons[None,:],lats[:,None]),method="linear")n_dep
 
 dept_merge = []
-for jj in range(11):
+for jj in range(40):
     vals = potemp_bob.votemper.values[0,ii,:,:]
     xm,ym = np.meshgrid(ylon,xlat)
     xf = xm.flatten()
@@ -343,7 +350,7 @@ v_val = griddata((xf,yf),valsfv,(lons[None,:],lats[:,None]),method="linear")
 u_nvals = []
 v_nvals = []
 
-for ii in range(11):
+for ii in range(40):
     u_nvals += [u_val]
     v_nvals += [v_val]
 
@@ -363,7 +370,7 @@ dd = sponge_m.water_u.values[0,0,:,:]
 
 depth = sponge_m.depth.values
 
-n_dep = np.linspace(depth[0],depth[-1],11)
+n_dep = np.linspace(depth[0],depth[-1],40)
 
 
 time = np.datetime64('2005-02-25')
@@ -403,9 +410,9 @@ sigma = vgrid.sigma2.values
 layer = vgrid.Layer.values
 
 
-n_layer = np.linspace(layer[0],layer[-1],11)
-n_dz = np.linspace(dz[0],dz[-1],11)
-n_sigma = np.linspace(sigma[0],sigma[-1],12)
+n_layer = np.linspace(layer[0],layer[-1],41)
+n_dz = np.linspace(dz[0],dz[-1],41)
+n_sigma = np.linspace(sigma[0],sigma[-1],42)
 
 layer_n = xr.Dataset({
     "dz" : (["Layer"],n_dz),
@@ -445,7 +452,7 @@ depth = saline_bob.deptht.values
 
 
 dep_merge = []
-for ii in range(11):
+for ii in range(40):
     vals = saline_bob.vosaline.values[0,ii,:,:]
     xm,ym = np.meshgrid(ylon,xlat)
     xf = xm.flatten()
@@ -476,7 +483,7 @@ saline_new = np.nan_to_num(saline_new)
 
 potemp_glo = xr.open_dataset("/home/vinay/Downloads/votemper_ORAS5_1m_201812_r1x1.nc")
 
-potemp_bob = potemp_glo.sel(lat = slice(lat = slice(lat_min-10,lat_max+10),lon = slice(lon_min-10,lon_max+10)))
+potemp_bob = potemp_glo.sel(lat = slice(lat_min-10,lat_max+10),lon = slice(lon_min-10,lon_max+10))
 
 #xlat = potemp_bob.lat.values
 #ylon = potemp_bob.lon.values
@@ -494,7 +501,7 @@ potemp_bob = potemp_glo.sel(lat = slice(lat = slice(lat_min-10,lat_max+10),lon =
 dept_merge = []
 
 
-for jj in range(11):
+for jj in range(40):
     vals = potemp_bob.votemper.values[0,ii,:,:]
     xm,ym = np.meshgrid(ylon,xlat)
     xf = xm.flatten()
@@ -515,7 +522,7 @@ pot_new_fin = np.nan_to_num(pot_new_fin)
 
 cur_data = xr.open_dataset("/home/vinay/Downloads/oscar_vel10004.nc")
 
-cur_bob = cur_data.sel(latitude = slice(lat = slice(lat_min-10,lat_max+10),lon = slice(lon_min-10,lon_max+10))
+cur_bob = cur_data.sel(latitude = slice(lat_max+10,lat_min-10),longitude = slice(lon_min-10,lon_max+10))
 
 
 
@@ -541,7 +548,7 @@ u_nvals = []
 v_nvals = []
 
 
-for ii in range(11):
+for ii in range(40):
     u_nvals += [u_val]
     v_nvals += [v_val]
 
@@ -561,12 +568,13 @@ dd = sponge_m.water_u.values[0,0,:,:]
 
 depth = sponge_m.depth.values
 
-n_dep = np.linspace(depth[0],depth[-1],11)
+n_dep = np.linspace(depth[0],depth[-1],40)
 
 
 time = np.datetime64('2005-02-25')
 
 #%%
+
 saline_new = np.expand_dims(saline_new,0)
 
 #%%
@@ -590,4 +598,10 @@ tsuv_filled = xr.Dataset({
               "time":(["time",],[np.datetime64("2005-02-25")])})
 
 sponge_new.to_netcdf(out_dir+"tsuv_init.nc")
+
+#%%
+
+
+
+u = sponge_m.water_u.values[0,:,:]
 
