@@ -1,3 +1,5 @@
+# UBUNTU
+
 ## Cloning and compiling
 
 ### 1. Libraries installtion (Ubuntu)
@@ -17,11 +19,20 @@ sudo apt-get install netcdf-bin
 
 ### 2. FMS shared library
 
+- Setting up the paths and make file
 ```BASH
 mkdir -p build/intel/shared/repro/
 cd build/intel/shared/repro/
 ../../../../src/mkmf/bin/list_paths -l ../../../../src/FMS
+../../../../src/mkmf/bin/mkmf -t ../../../../src/mkmf/templates/linux-gnu.mk -p libfms.a -c "-Duse_libMPI -Duse_netCDF" path_names)
 ```
+
+- Compiling 
+```BASH
+make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 MOM6 -j
+```
+
+
 
 ## Running Examples
 
