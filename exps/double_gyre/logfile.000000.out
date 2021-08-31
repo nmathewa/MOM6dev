@@ -5,7 +5,7 @@ READ_ASCII_FILE: File: input.nml
 READ_INPUT_NML: unknown
 READ_INPUT_NML: input.nml 
   &MOM_input_nml
-          output_directory = 'OUTPUT/',
+          output_directory = './',
           input_filename = 'n'
           restart_input_dir = 'INPUT/',
           restart_output_dir = 'RESTART/',
@@ -19,8 +19,8 @@ READ_INPUT_NML: input.nml
 MPP module unknown
 MPP started with NPES=     1
 Using MPI library for message passing...
-Realtime clock resolution=  1.0000E-09 sec ( 999999999 ticks/sec)
-Clock rolls over after   9.2234E+09 sec ( 9223372036854775806 ticks)
+Realtime clock resolution=  1.3000E-08 sec (  76923076 ticks/sec)
+Clock rolls over after   1.1990E+11 sec ( 9223372036854775806 ticks)
 
 MPP Parameter module unknown
 
@@ -138,8 +138,8 @@ MOM_domains: unknown
   MOM_domains NONBLOCKING_UPDATES: False
   MOM_domains THIN_HALO_UPDATES: True
   MOM_domains !STATIC_MEMORY_: False
-  MOM_domains NIGLOBAL: 44
-  MOM_domains NJGLOBAL: 40
+  MOM_domains NIGLOBAL: 262
+  MOM_domains NJGLOBAL: 192
   MOM_domains NIHALO: 4
   MOM_domains NJHALO: 4
   MOM_domains MASKTABLE: MOM_mask_table
@@ -213,30 +213,25 @@ MOM_fixed_initialization: unknown
   MOM_fixed_initialization DEBUG: False
   MOM_fixed_initialization INPUTDIR: INPUT
 MOM_grid_init: unknown
-  MOM_grid_init GRID_CONFIG: cartesian
+  MOM_grid_init GRID_CONFIG: spherical
   MOM_grid_init DEBUG: False
-  MOM_grid_init set_grid_metrics_cartesian AXIS_UNITS: degrees
-  MOM_grid_init set_grid_metrics_cartesian SOUTHLAT: 30.0
-  MOM_grid_init set_grid_metrics_cartesian LENLAT: 20.0
-  MOM_grid_init set_grid_metrics_cartesian WESTLON: 0.0
-  MOM_grid_init set_grid_metrics_cartesian LENLON: 22.0
-  MOM_grid_init set_grid_metrics_cartesian RAD_EARTH: 6.378E+06
-  MOM_grid_init set_grid_metrics_cartesian explicit AXIS_UNITS: degrees_east
-  MOM_initialize_topography TOPO_CONFIG: spoon
-  initialize_topography_named MINIMUM_DEPTH: 1.0
-  initialize_topography_named EDGE_DEPTH: 100.0
-  initialize_topography_named TOPOG_SLOPE_SCALE: 4.0E+05
-  MOM_initialize_topography MAXIMUM_DEPTH: 2000.0
-  limit_topography MINIMUM_DEPTH: 1.0
+  MOM_grid_init set_grid_metrics_spherical SOUTHLAT: 10.0
+  MOM_grid_init set_grid_metrics_spherical LENLAT: 10.0
+  MOM_grid_init set_grid_metrics_spherical WESTLON: 77.0
+  MOM_grid_init set_grid_metrics_spherical LENLON: 10.0
+  MOM_grid_init set_grid_metrics_spherical RAD_EARTH: 6.378E+06
+  MOM_initialize_topography TOPO_CONFIG: flat
+  initialize_topography_named MINIMUM_DEPTH: 3.0
+  MOM_initialize_topography MAXIMUM_DEPTH: 8200.0
+  limit_topography MINIMUM_DEPTH: 3.0
 MOM_open_boundary: unknown
   MOM_open_boundary OBC_NUMBER_OF_SEGMENTS: 0
-  MOM_grid_init initialize_masks MINIMUM_DEPTH: 1.0
+  MOM_grid_init initialize_masks MINIMUM_DEPTH: 3.0
   MOM_grid_init initialize_masks MASKING_DEPTH: -9999.0
   MOM_fixed_initialization CHANNEL_CONFIG: none
   MOM_initialize_rotation ROTATION: 2omegasinlat
   set_rotation_planetary OMEGA: 7.2921E-05
   initialize_grid_rotation_angle GRID_ROTATION_ANGLE_BUGS: False
-  write_ocean_geometry_file PARALLEL_RESTARTFILES: False
 MOM_verticalGrid: unknown
   MOM_verticalGrid G_EARTH: 9.8
   MOM_verticalGrid RHO_0: 1035.0
@@ -275,15 +270,15 @@ MOM_tracer_flow_control: unknown
   MOM_tracer_flow_control USE_PSEUDO_SALT_TRACER: False
   MOM_tracer_flow_control USE_BOUNDARY_IMPULSE_TRACER: False
   MOM_tracer_flow_control USE_DYED_OBC_TRACER: False
-MOM_coord_initialization: unknown
-  MOM_coord_initialization DEBUG: False
-  MOM_coord_initialization COORD_CONFIG: gprime
-  set_coord_from_gprime GFS: 0.98
-  set_coord_from_gprime GINT: 0.0098
 MOM_grid: unknown
   MOM_grid NIBLOCK: 1
   MOM_grid NJBLOCK: 1
   MOM_grid REFERENCE_HEIGHT: 0.0
+  write_ocean_geometry_file PARALLEL_RESTARTFILES: False
+MOM_coord_initialization: unknown
+  MOM_coord_initialization DEBUG: False
+  MOM_coord_initialization COORD_CONFIG: ALE
+  set_coord_to_none GFS: 0.98
 
 MOM_in domain decomposition:     1 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
@@ -300,6 +295,7 @@ MOM_state_initialization: unknown
   MOM_state_initialization CONVERT_THICKNESS_UNITS: False
   MOM_state_initialization DEPRESS_INITIAL_SURFACE: False
   MOM_state_initialization TRIM_IC_FOR_P_SURF: False
+  MOM_state_initialization ODA_INCUPD: False
   MOM_state_initialization SPONGE: False
 MOM_diag_mediator: unknown
   MOM_diag_mediator NUM_DIAG_COORDS: 1
@@ -311,7 +307,7 @@ MOM_diag_mediator: unknown
   MOM_diag_mediator DIAG_AS_CHKSUM: False
   MOM_diag_mediator AVAILABLE_DIAGS_FILE: available_diags.000000
   MOM_diag_remap INPUTDIR: INPUT
-  MOM_diag_remap DIAG_COORD_DEF_Z: UNIFORM
+  MOM_diag_remap DIAG_COORD_DEF_Z: WOA09
 MOM_MEKE: unknown
   MOM_MEKE USE_MEKE: False
 MOM_lateral_mixing_coeffs: unknown
@@ -507,8 +503,8 @@ MOM_in domain decomposition:     1 X    1
 
 MOM_in domain decomposition:     1 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
-  MOM_barotropic DTBT as used: 666.1874534342164
-  MOM_barotropic estimated maximum DTBT: 740.2082815935738
+  MOM_barotropic DTBT as used: 27.893622112812295
+  MOM_barotropic estimated maximum DTBT: 30.992913458680327
 MOM_mixed_layer_restrat: unknown
   MOM_mixed_layer_restrat MIXEDLAYER_RESTRAT: False
 MOM_diagnostics: unknown
@@ -552,13 +548,14 @@ MOM_sum_output: unknown
   MOM_sum_output MAXVEL: 6.0
   MOM_sum_output MAX_ENERGY as used: 360.0
   MOM_sum_output ENERGYFILE: ocean.stats
-  MOM_sum_output output_path/ENERGYFILE: OUTPUT/ocean.stats
+  MOM_sum_output output_path/ENERGYFILE: ./ocean.stats
   MOM_sum_output DATE_STAMPED_STDOUT: False
   MOM_sum_output TIMEUNIT: 8.64E+04
   MOM_sum_output READ_DEPTH_LIST: True
   MOM_sum_output DEPTH_LIST_MIN_INC: 1.0E-06
   MOM_sum_output DEPTH_LIST_FILE: Depth_list.nc
-  MOM_sum_output REQUIRE_DEPTH_LIST_CHECKSUMS: True
+  MOM_sum_output REQUIRE_DEPTH_LIST_CHECKSUMS: False
+  MOM_sum_output UPDATE_DEPTH_LIST_CHECKSUMS: True
   MOM_sum_output TIMEUNIT: 8.64E+04
   MOM_sum_output ENERGYSAVEDAYS (Time): 1:0
   MOM_sum_output ENERGYSAVEDAYS_GEOMETRIC (Time): 0:0
@@ -586,7 +583,7 @@ MOM_restart: unknown
   MOM_restart RESTART_CHECKSUMS_REQUIRED: True
 user_revise_forcing: unknown
   MOM_main (MOM_driver) USE_WAVES: False
-  MOM_wave_interface LA_DEPTH_RATIO: 0.04
+  MOM_wave_interface USE_WAVES: False
 MOM_main (MOM_driver): unknown
   MOM_main (MOM_driver) DT: 1200.0
   MOM_main (MOM_driver) DT_FORCING: 2400.0
@@ -603,7 +600,7 @@ MOM_main (MOM_driver): unknown
 MOM_write_cputime: unknown
   MOM_write_cputime MAXCPU: -1.0
   MOM_write_cputime CPU_TIME_FILE: CPU_stats
-  MOM_write_cputime directory/CPU_TIME_FILE: OUTPUT/CPU_stats
+  MOM_write_cputime directory/CPU_TIME_FILE: ./CPU_stats
 MOM_file_parser: unknown
   MOM_file_parser SEND_LOG_TO_STDOUT: False
   MOM_file_parser REPORT_UNUSED_PARAMS: True
@@ -617,7 +614,7 @@ DIAG_OUTPUT_MOD
 unknown
 
                                      time
-Total runtime                         8.178605
-Initialization                        0.156864
-Main loop                             8.003295
-Termination                           0.013910
+Total runtime                       183.586133
+Initialization                        0.172646
+Main loop                           183.231554
+Termination                           0.180376

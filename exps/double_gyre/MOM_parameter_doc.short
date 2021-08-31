@@ -25,10 +25,10 @@ DTBT_RESET_PERIOD = -1.0        !   [s] default = 2400.0
 ! === module MOM_domains ===
 REENTRANT_X = False             !   [Boolean] default = True
                                 ! If true, the domain is zonally reentrant.
-NIGLOBAL = 44                   !
+NIGLOBAL = 262                  !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 40                   !
+NJGLOBAL = 192                  !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
@@ -45,13 +45,15 @@ GRID_CONFIG = "spherical"       !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-SOUTHLAT = 30.0                 !   [degrees]
+SOUTHLAT = 10.0                 !   [degrees]
                                 ! The southern latitude of the domain.
-LENLAT = 20.0                   !   [degrees]
+LENLAT = 10.0                   !   [degrees]
                                 ! The latitudinal length of the domain.
-LENLON = 22.0                   !   [degrees]
+WESTLON = 77.0                  !   [degrees] default = 0.0
+                                ! The western longitude of the domain.
+LENLON = 10.0                   !   [degrees]
                                 ! The longitudinal length of the domain.
-TOPO_CONFIG = "spoon"           !
+TOPO_CONFIG = "flat"            !
                                 ! This specifies how bathymetry is specified:
                                 !     file - read bathymetric information from the file
                                 !       specified by (TOPO_FILE).
@@ -78,9 +80,9 @@ TOPO_CONFIG = "spoon"           !
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     dense - Denmark Strait-like dense water formation and overflow.
                                 !     USER - call a user modified routine.
-MINIMUM_DEPTH = 1.0             !   [m] default = 0.0
+MINIMUM_DEPTH = 3.0             !   [m] default = 0.0
                                 ! The minimum depth of the ocean.
-MAXIMUM_DEPTH = 2000.0          !   [m]
+MAXIMUM_DEPTH = 8200.0          !   [m]
                                 ! The maximum depth of the ocean.
 
 ! === module MOM_verticalGrid ===
@@ -91,7 +93,7 @@ NK = 2                          !   [nondim]
 ! === module MOM_tracer_flow_control ===
 
 ! === module MOM_coord_initialization ===
-COORD_CONFIG = "gprime"         ! default = "none"
+COORD_CONFIG = "ALE"            ! default = "none"
                                 ! This specifies how layers are to be defined:
                                 !     ALE or none - used to avoid defining layers in ALE mode
                                 !     file - read coordinate information from the file
@@ -111,8 +113,6 @@ COORD_CONFIG = "gprime"         ! default = "none"
                                 !     USER - call a user modified routine.
 GFS = 0.98                      !   [m s-2] default = 9.8
                                 ! The reduced gravity at the free surface.
-GINT = 0.0098                   !   [m s-2]
-                                ! The reduced gravity across internal interfaces.
 
 ! === module MOM_state_initialization ===
 
@@ -240,6 +240,11 @@ READ_DEPTH_LIST = True          !   [Boolean] default = False
 DEPTH_LIST_MIN_INC = 1.0E-06    !   [m] default = 1.0E-10
                                 ! The minimum increment between the depths of the entries in the depth-list
                                 ! file.
+REQUIRE_DEPTH_LIST_CHECKSUMS = False !   [Boolean] default = True
+                                ! Require that matching checksums be in Depth_list.nc when reading the file.
+UPDATE_DEPTH_LIST_CHECKSUMS = True !   [Boolean] default = False
+                                ! Automatically update the Depth_list.nc file if the checksums are missing or do
+                                ! not match current values.
 
 ! === module MOM_surface_forcing ===
 VARIABLE_WINDS = False          !   [Boolean] default = True
