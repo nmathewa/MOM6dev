@@ -325,9 +325,9 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "regional.mom6.nc"  ! default "ocean_hgrid.nc"(?);
+GRID_FILE = "nma_india_test.nc"  ! default "ocean_hgrid.nc"(?);
                                 ! Name of the file from which to read horizontal grid data.
-TOPO_CONFIG = "file"            !
+TOPO_CONFIG = "flat"            !
                                 ! This specifies how bathymetry is specified:
                                 !     file - read bathymetric information from the file
                                 !       specified by (TOPO_FILE).
@@ -382,7 +382,7 @@ WRITE_GEOM = 0                  ! default = 1
                                 ! vertical grid files. Other values are invalid.
 
 ! === module MOM_grid_init ===
-INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+INIT_LAYERS_FROM_Z_FILE = False  !   [Boolean] default = False
                                 ! If true, intialize the layer thicknesses, temperatures,
                                 ! and salnities from a Z-space file on a latitude-
                                 ! longitude grid.
@@ -406,7 +406,7 @@ Z_INIT_FILE_SALT_VAR = "salinity"   ! default = "salt"
 !Z_INIT_FILE_V_VAR = "water_v"   ! default = "v"
 !                                ! The name of the z-space input file used to initialize v-vel, only.
 
-Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+Z_INIT_ALE_REMAPPING = False     !   [Boolean] default = False
                                 ! If True, then remap straight to model coordinate from file.
 
 Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
@@ -934,3 +934,10 @@ MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
 ! ==== my additions =======
 
 DAYMAX = 2
+
+TS_CONFIG = "linear"    !
+
+T_TOP = 32
+T_RANGE = 10
+S_TOP = 28
+S_RANGE = 6
