@@ -496,64 +496,57 @@ REGRID_FILTER_DEEP_DEPTH = 0.0  !   [m] default = 0.0
                                 ! REGRID_FILTER_SHALLOW_DEPTH the filter weights adopt a cubic profile.
 
 ! === module MOM_state_initialization ===
-INIT_LAYERS_FROM_Z_FILE = False !   [Boolean] default = False
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! If true, initialize the layer thicknesses, temperatures, and salinities from a
                                 ! Z-space file on a latitude-longitude grid.
-THICKNESS_CONFIG = "uniform"    ! default = "uniform"
-                                ! A string that determines how the initial layer thicknesses are specified for a
-                                ! new run:
-                                !     file - read interface heights from the file specified
-                                !     thickness_file - read thicknesses from the file specified
-                                !       by (THICKNESS_FILE).
-                                !     coord - determined by ALE coordinate.
-                                !     uniform - uniform thickness layers evenly distributed
-                                !       between the surface and MAXIMUM_DEPTH.
-                                !     list - read a list of positive interface depths.
-                                !     DOME - use a slope and channel configuration for the
-                                !       DOME sill-overflow test case.
-                                !     ISOMIP - use a configuration for the
-                                !       ISOMIP test case.
-                                !     benchmark - use the benchmark test case thicknesses.
-                                !     Neverworld - use the Neverworld test case thicknesses.
-                                !     search - search a density profile for the interface
-                                !       densities. This is not yet implemented.
-                                !     circle_obcs - the circle_obcs test case is used.
-                                !     DOME2D - 2D version of DOME initialization.
-                                !     adjustment2d - 2D lock exchange thickness ICs.
-                                !     sloshing - sloshing gravity thickness ICs.
-                                !     seamount - no motion test with seamount ICs.
-                                !     dumbbell - sloshing channel ICs.
-                                !     soliton - Equatorial Rossby soliton.
-                                !     rossby_front - a mixed layer front in thermal wind balance.
-                                !     USER - call a user modified routine.
-TS_CONFIG = "linear"            !
-                                ! A string that determines how the initial tempertures and salinities are
-                                ! specified for a new run:
-                                !     file - read velocities from the file specified
-                                !       by (TS_FILE).
-                                !     fit - find the temperatures that are consistent with
-                                !       the layer densities and salinity S_REF.
-                                !     TS_profile - use temperature and salinity profiles
-                                !       (read from TS_FILE) to set layer densities.
-                                !     benchmark - use the benchmark test case T & S.
-                                !     linear - linear in logical layer space.
-                                !     DOME2D - 2D DOME initialization.
-                                !     ISOMIP - ISOMIP initialization.
-                                !     adjustment2d - 2d lock exchange T/S ICs.
-                                !     sloshing - sloshing mode T/S ICs.
-                                !     seamount - no motion test with seamount ICs.
-                                !     dumbbell - sloshing channel ICs.
-                                !     rossby_front - a mixed layer front in thermal wind balance.
-                                !     SCM_CVMix_tests - used in the SCM CVMix tests.
-                                !     USER - call a user modified routine.
-T_TOP = 32.0                    !   [degC]
-                                ! Initial temperature of the top surface.
-T_RANGE = 10.0                  !   [degC]
-                                ! Initial temperature difference (top-bottom).
-S_TOP = 28.0                    !   [PSU]
-                                ! Initial salinity of the top surface.
-S_RANGE = 6.0                   !   [PSU]
-                                ! Initial salinity difference (top-bottom).
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "2015.nc4" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+TEMP_Z_INIT_FILE = "2015.nc4"   ! default = "2015.nc4"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+SALT_Z_INIT_FILE = "2015.nc4"   ! default = "2015.nc4"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+Z_INIT_FILE_PTEMP_VAR = "water_temp" ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_FILE_SALT_VAR = "salinity" ! default = "salt"
+                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
+Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
+                                ! If True, then horizontally homogenize the interpolated initial conditions.
+Z_INIT_ALE_REMAPPING = False    !   [Boolean] default = False
+                                ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
+                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
+                                ! If false, only reconstructs profiles for valid data points. If true, inserts
+                                ! vanished layers below the valid data.
+Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
+                                ! If false, uses the preferred remapping algorithm for initialization. If true,
+                                ! use an older, less robust algorithm for remapping.
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = False !   [Boolean] default = False
+                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
+                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
+                                ! remapping .
+HOR_REGRID_2018_ANSWERS = False !   [Boolean] default = False
+                                ! If true, use the order of arithmetic for horizonal regridding that recovers
+                                ! the answers from the end of 2018.  Otherwise, use rotationally symmetric forms
+                                ! of the same expressions.
+ADJUST_THICKNESS = False        !   [Boolean] default = False
+                                ! If true, all mass below the bottom removed if the topography is shallower than
+                                ! the thickness input file would indicate.
+FIT_TO_TARGET_DENSITY_IC = True !   [Boolean] default = True
+                                ! If true, all the interior layers are adjusted to their target densities using
+                                ! mostly temperature This approach can be problematic, particularly in the high
+                                ! latitudes.
+LAYER_Z_INIT_IC_EXTRAP_BUG = True !   [Boolean] default = True
+                                ! If true use an expression with a vertical indexing bug for extrapolating the
+                                ! densities at the bottom of unstable profiles from data when finding the
+                                ! initial interface locations in layered mode from a dataset of T and S.
 VELOCITY_CONFIG = "zero"        ! default = "zero"
                                 ! A string that determines how the initial velocities are specified for a new
                                 ! run:

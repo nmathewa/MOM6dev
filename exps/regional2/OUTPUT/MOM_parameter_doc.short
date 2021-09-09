@@ -202,34 +202,22 @@ REMAP_AFTER_INITIALIZATION = False !   [Boolean] default = True
                                 ! needed if the initialization is consistent with the coordinate mode.
 
 ! === module MOM_state_initialization ===
-TS_CONFIG = "linear"            !
-                                ! A string that determines how the initial tempertures and salinities are
-                                ! specified for a new run:
-                                !     file - read velocities from the file specified
-                                !       by (TS_FILE).
-                                !     fit - find the temperatures that are consistent with
-                                !       the layer densities and salinity S_REF.
-                                !     TS_profile - use temperature and salinity profiles
-                                !       (read from TS_FILE) to set layer densities.
-                                !     benchmark - use the benchmark test case T & S.
-                                !     linear - linear in logical layer space.
-                                !     DOME2D - 2D DOME initialization.
-                                !     ISOMIP - ISOMIP initialization.
-                                !     adjustment2d - 2d lock exchange T/S ICs.
-                                !     sloshing - sloshing mode T/S ICs.
-                                !     seamount - no motion test with seamount ICs.
-                                !     dumbbell - sloshing channel ICs.
-                                !     rossby_front - a mixed layer front in thermal wind balance.
-                                !     SCM_CVMix_tests - used in the SCM CVMix tests.
-                                !     USER - call a user modified routine.
-T_TOP = 32.0                    !   [degC]
-                                ! Initial temperature of the top surface.
-T_RANGE = 10.0                  !   [degC]
-                                ! Initial temperature difference (top-bottom).
-S_TOP = 28.0                    !   [PSU]
-                                ! Initial salinity of the top surface.
-S_RANGE = 6.0                   !   [PSU]
-                                ! Initial salinity difference (top-bottom).
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
+                                ! Z-space file on a latitude-longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "2015.nc4" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+Z_INIT_FILE_PTEMP_VAR = "water_temp" ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_FILE_SALT_VAR = "salinity" ! default = "salt"
+                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
 
 ! === module MOM_diag_mediator ===
 

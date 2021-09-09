@@ -382,20 +382,20 @@ WRITE_GEOM = 0                  ! default = 1
                                 ! vertical grid files. Other values are invalid.
 
 ! === module MOM_grid_init ===
-INIT_LAYERS_FROM_Z_FILE = False  !   [Boolean] default = False
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! If true, intialize the layer thicknesses, temperatures,
                                 ! and salnities from a Z-space file on a latitude-
                                 ! longitude grid.
-!INIT_UV_FROM_Z_FILE = True      !   [Boolean] default = False
+INIT_UV_FROM_Z_FILE = True      !   [Boolean] default = False
 !                                ! If true, initialize the UV from a Z-space file on a
                                 ! latitude-longitude grid
-TEMP_SALT_Z_INIT_FILE = "53X_archm.2015010109_tsuv_filled.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "2015.nc4" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize
                                 ! the layer thicknesses, temperatures and salinities.
-!UV_Z_INIT_FILE = "53X_archm.2015010109_tsuv_filled.nc" ! default = "uv_z.nc"
+UV_Z_INIT_FILE = "2015.nc4" ! default = "uv_z.nc"
 !                                ! The name of the z-space input file used to initialize
                                 ! u-vel (U) and v-vel (V).
-Z_INIT_FILE_PTEMP_VAR = "ptemp" ! default = "ptemp"
+Z_INIT_FILE_PTEMP_VAR = "water_temp" ! default = "ptemp"
                                 ! The name of the potential temperature variable in
                                 ! TEMP_SALT_Z_INIT_FILE.
 Z_INIT_FILE_SALT_VAR = "salinity"   ! default = "salt"
