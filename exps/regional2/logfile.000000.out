@@ -255,10 +255,10 @@ READ_INPUT_NML: input.nml
  
 
 MPP module unknown
-MPP started with NPES=     8
+MPP started with NPES=    20
 Using MPI library for message passing...
-Realtime clock resolution=  1.3000E-08 sec (  76923076 ticks/sec)
-Clock rolls over after   1.1990E+11 sec ( 9223372036854775806 ticks)
+Realtime clock resolution=  1.0000E-09 sec ( 999999999 ticks/sec)
+Clock rolls over after   9.2234E+09 sec ( 9223372036854775806 ticks)
 
 MPP Parameter module unknown
 
@@ -276,7 +276,7 @@ MPP_DOMAINS module unknown
 
 MPP_IO module unknown
 
-Using netCDF library version 4.7.3 of Jan 23 2020 04:18:16 $
+Using netCDF library version 4.8.1 of Sep  4 2021 13:24:12 $
 
 ================================================================================
 FMS_IO_MOD
@@ -393,15 +393,15 @@ MOM_domains: unknown
   MOM_domains NIHALO: 4
   MOM_domains NJHALO: 4
   MOM_domains MASKTABLE: MOM_mask_table
-  MOM_domains NIPROC: 2
+  MOM_domains NIPROC: 5
   MOM_domains NJPROC: 4
-  MOM_domains LAYOUT: 2, 4
+  MOM_domains LAYOUT: 5, 4
   MOM_domains IO_LAYOUT: 1, 1
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_inc domain decomposition:     2 X    4
+MOM_inc domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_debugging: unknown
   MOM_debugging DEBUG: False
@@ -454,10 +454,10 @@ unknown
 MOM_io: unknown
 MOM_hor_index: unknown
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_fixed_initialization: unknown
   MOM_fixed_initialization DEBUG: False
@@ -470,10 +470,10 @@ MOM_grid_init: unknown
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR: INPUT
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR/GRID_FILE: INPUT/nma_india_test.nc
 
-MOM_MOSAIC domain decomposition:     2 X    4
+MOM_MOSAIC domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_MOSAIC domain decomposition:     2 X    4
+MOM_MOSAIC domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   MOM_initialize_topography TOPO_CONFIG: flat
   initialize_topography_named MINIMUM_DEPTH: 3.0
@@ -499,10 +499,10 @@ MOM_verticalGrid: unknown
   MOM_verticalGrid M to THICKNESS rescaled by 2^-n: 1.0
   MOM_verticalGrid THICKNESS to M rescaled by 2^n: 1.0
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_tracer_registry: unknown
   MOM NK_RHO_VARIES: 0
@@ -573,10 +573,10 @@ MOM_coord_initialization: unknown
   MOM_ALE REGRID_FILTER_SHALLOW_DEPTH: 0.0
   MOM_ALE REGRID_FILTER_DEEP_DEPTH: 0.0
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_state_initialization: unknown
   MOM_state_initialization DEBUG: False
@@ -847,10 +847,10 @@ MOM_barotropic: unknown
   MOM_barotropic DTBT: -0.9
   MOM_barotropic BT_USE_OLD_CORIOLIS_BRACKET_BUG: False
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     2 X    4
+MOM_in domain decomposition:     5 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   MOM_barotropic DTBT as used: 17.864337578937853
   MOM_barotropic estimated maximum DTBT: 19.849263976597616
@@ -1098,3 +1098,72 @@ MOM_file_parser: unknown
   MOM_file_parser DOCUMENT_FILE: MOM_parameter_doc
   MOM_file_parser COMPLETE_DOCUMENTATION: True
   MOM_file_parser MINIMAL_DOCUMENTATION: True
+
+================================================================================
+DIAG_OUTPUT_MOD
+unknown
+
+                                     time
+Total runtime                       419.139128
+Initialization                        5.023961
+Main loop                           412.567846
+Termination                           1.184284
+Ocean Initialization                  4.925501
+Ocean                               412.141856
+Ocean dynamics                      195.486827
+Ocean thermodynamics and tracers    193.404368
+Ocean Other                          22.395896
+(Ocean tracer advection)            103.722350
+(Ocean diabatic driver)              89.681103
+(Ocean continuity equation *)         0.000000
+(Ocean set BBL viscosity)             3.420658
+(Ocean message passing *)             3.070457
+(Ocean MOM_initialize_state)          3.932485
+(Ocean init message passing *)        0.001908
+(Ocean mixed layer restrat)           0.000000
+(Ocean collective diagnostics)       18.483305
+(Ocean Z-space diagnostics)           0.000000
+(Ocean ALE)                          42.294100
+(Initialize from Z)                   3.907881
+(Ocean diagnostics framework)        20.151896
+(Ocean diagnostics remapping)         0.000000
+(Ocean diagnostics grid updates)      0.448124
+(Ocean init message passing)          0.001243
+(Ocean continuity update)            10.791509
+(Ocean continuity correction)        41.199069
+(Ocean BT pre-calcs only)            16.336109
+(Ocean BT pre-step halo updates)      2.161537
+(Ocean BT stepping calcs only)        6.724235
+(Ocean BT stepping halo updates)      0.311755
+(Ocean BT post-calcs only)            2.095315
+(Ocean BT post-step halo updates      0.144341
+(Ocean BT global synch)               0.141252
+(Ocean Coriolis & mom advection)     10.597971
+(Ocean continuity equation)          55.672888
+(Ocean pressure force)               34.578063
+(Ocean vertical viscosity)           30.330072
+(Ocean horizontal viscosity)         16.516191
+(Ocean momentum increments)           2.802290
+(Ocean message passing)               4.332451
+(Ocean barotropic mode calc)          0.402898
+(Ocean barotropic mode stepping)     28.494087
+(Ocean barotropic forcing calc)       2.749651
+Ocean KPP calculate)                  2.308280
+(Ocean KPP comp BLD)                 11.865520
+(Double diffusion via CVMix)          2.616617
+(Ocean diabatic entrain)              0.000000
+(Ocean vert remap)                    4.688942
+(Ocean set_diffusivity)              13.366464
+(Ocean KPP)                          18.331568
+(Ocean tracer_columns)                0.000559
+(Ocean diabatic tridiag)              2.937555
+(Ocean diabatic message passing)      0.592799
+(Ocean find_uv_at_h)                  0.739490
+(Ocean frazil)                        1.099410
+(Ocean advect tracer)                16.642180
+(Ocean tracer halo updates)           3.083932
+(Ocean tracer global synch)           1.854377
+(Ocean diffuse tracer)               86.748383
+(Ocean epipycnal diffuse tracer)      0.000000
+(Ocean surface forcing)               0.130547
+(Ocean forcing diagnostics)           0.272264

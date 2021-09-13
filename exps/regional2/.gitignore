@@ -1,0 +1,5 @@
+# all .nc files
+*.nc
+# all files inside input
+
+INPUT/**
