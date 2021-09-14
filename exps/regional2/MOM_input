@@ -325,9 +325,9 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "nma_india_test.nc"  ! default "ocean_hgrid.nc"(?);
+GRID_FILE = "mosaic.nc"  ! default "ocean_hgrid.nc"(?);
                                 ! Name of the file from which to read horizontal grid data.
-TOPO_CONFIG = "flat"            !
+TOPO_CONFIG = "file"            !
                                 ! This specifies how bathymetry is specified:
                                 !     file - read bathymetric information from the file
                                 !       specified by (TOPO_FILE).
@@ -346,7 +346,7 @@ TOPO_CONFIG = "flat"            !
                                 !     seamount - Gaussian bump for spontaneous motion test case.
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     USER - call a user modified routine.
-TOPO_FILE = "depth_GOMb0.08_09m11_mom6.nc"    ! default = "topog.nc"
+TOPO_FILE = "gebco_new.nc"    ! default = "topog.nc"
                                 ! The file from which the bathymetry is read.
 MAXIMUM_DEPTH = 8200.0          !   [m]
                                 ! The maximum depth of the ocean.
