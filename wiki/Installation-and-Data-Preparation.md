@@ -29,10 +29,35 @@ cd build/intel/shared/repro/
 
 - Compiling 
 ```BASH
-make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 MOM6 -j
+make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 libfms.a -j
 ```
 
 
+
+# Data Preparation
+
+## Using Python scripts (aka mom6tools)
+
+## Using FRE-NCtools
+
+### 1. GRID creation
+
+```BASH
+make_hgrid --grid_type regular_lonlat_grid --nxbnd 2 --nybnd 2 --xbnd 77,99 --ybnd 4,23 --nlon 524 --nlat 384 --verbose'
+```
+### 2.mosaic creation
+
+```BASH
+make_solo_mosaic --num_tiles 1 --dir . --mosaic_name ocean_mosaic_india --tile_file mosaic.nc --periodx 0 --periody 0
+```
+
+
+### 3. Topog creation
+
+
+```BASH
+make_topog --mosaic ocean_mosaic_india.nc --topog_type realistic --topog_file gebco_test.nc --topog_field depth --scale_factor 1
+```
 
 ## Running Examples
 
@@ -61,3 +86,6 @@ make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 MOM6 -j
 
 1. [Model source, parameters and scripts used in first publications of OM4/CM4](https://zenodo.org/record/2601872#.YJOizCbhW00)
 2. [MOM6 Input dataset for SmartSim ML EKE Experiment](https://zenodo.org/record/4682270#.YJOjdCbhW00)
+
+
+
