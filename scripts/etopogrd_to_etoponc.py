@@ -12,9 +12,9 @@ import matplotlib.pyplot as plt
 import xarray as xr
 import numpy as np
 
-gebco = xr.open_dataset("/home/nma/mom/MOM6dev/exps/regional2/INPUT/gebo_grid.nc")
-lat = gebco.lat.values
-lon = gebco.lon.values
+#gebco = xr.open_dataset("/home/nma/mom/MOM6dev/exps/regional2/INPUT/gebo_grid.nc")
+#lat = gebco.lat.values
+#lon = gebco.lon.values
 
 etopo = "/home/nma/Downloads/ETOPO1_Bed_g_gdal.grd"
 
@@ -55,6 +55,10 @@ dset.to_netcdf("/home/nma/mom/MOM6dev/exps/regional2/INPUT/gebco_test.nc")
 
 #%%subset
 
-n_sel = dset.sel(lon = slice(100,60),lat=slice(0,30))
+n_sel = dset.sel(lon = slice(120,60),lat=slice(0,30))
 
 n_sel.to_netcdf("/home/nma/mom/MOM6dev/exps/regional2/INPUT/etopo_test.nc")
+
+
+plt.contourf(n_sel.depth.values)
+plt.colorbar()
