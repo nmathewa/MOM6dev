@@ -59,5 +59,11 @@ final_bath = np.float64(n_baths[1:,1:])
 plt.contourf(final_bath)
 plt.colorbar()
 
+#%%
 
+
+dset = xr.Dataset({
+    "depth" : (['ny','nx'],final_bath)})
+
+dset.to_netcdf("pytopog.nc")
 
