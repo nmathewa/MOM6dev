@@ -61,7 +61,7 @@ NJGLOBAL = 192                  ! HYCOM: jdm=193
 !NJPROC = 4                     !
                                 ! The number of processors in the x-direction. With
                                 ! STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-LAYOUT = 4,4                   !
+LAYOUT = 12,12                   !
                                 ! The processor layout that was acutally used.
 
 ! === module MOM_grid ===
