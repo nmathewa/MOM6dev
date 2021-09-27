@@ -55,13 +55,13 @@ NJGLOBAL = 192                  ! HYCOM: jdm=193
                                 ! The total number of thickness grid points in the
                                 ! y-direction in the physical domain. With STATIC_MEMORY_
                                 ! this is set in MOM_memory.h at compile time.
-NIPROC = 4                     !
+!NIPROC = 4                     !
                                 ! The number of processors in the x-direction. With
                                 ! STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJPROC = 4                     !
+!NJPROC = 4                     !
                                 ! The number of processors in the x-direction. With
                                 ! STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-!LAYOUT = 8,8                   !
+LAYOUT = 8,8                   !
                                 ! The processor layout that was acutally used.
 
 ! === module MOM_grid ===
