@@ -32,3 +32,9 @@ make_topog --mosaic ocean_mosaic_india.nc --topog_type realistic --topog_file ge
 
 ## Forcing Conditions 
 
+### OLR flux 
+
+- 2015 daily dataset 
+- watt/m^2
+- [data download](https://www.ncei.noaa.gov/products/climate-data-records/outgoing-longwave-radiation-daily)
+- 
