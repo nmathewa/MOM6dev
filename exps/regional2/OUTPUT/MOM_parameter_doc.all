@@ -1652,22 +1652,102 @@ VARIABLE_WINDS = True           !   [Boolean] default = True
 VARIABLE_BUOYFORCE = True       !   [Boolean] default = True
                                 ! If true, the buoyancy forcing varies in time after the initialization of the
                                 ! model.
-BUOY_CONFIG = "zero"            ! default = "zero"
+BUOY_CONFIG = "file"            ! default = "zero"
                                 ! The character string that indicates how buoyancy forcing is specified.  Valid
                                 ! options include (file), (data_override), (zero), (const), (linear), (MESO),
                                 ! (SCM_CVmix_tests), (BFB), (dumbbell), (USER) and (NONE).
-WIND_CONFIG = "zero"            ! default = "zero"
+ARCHAIC_OMIP_FORCING_FILE = False !   [Boolean] default = True
+                                ! If true, use the forcing variable decomposition from the old German OMIP
+                                ! prescription that predated CORE. If false, use the variable groupings
+                                ! available from MOM output diagnostics of forcing variables.
+LONGWAVE_FILE = "ocean_forcing_daily.nc" !
+                                ! The file with the longwave heat flux, in the variable given by
+                                ! LONGWAVE_FORCING_VAR.
+LONGWAVE_FORCING_VAR = "LW"     ! default = "LW"
+                                ! The variable with the longwave forcing field.
+SHORTWAVE_FILE = "ocean_forcing_daily.nc" !
+                                ! The file with the shortwave heat flux, in the variable given by
+                                ! SHORTWAVE_FORCING_VAR.
+SHORTWAVE_FORCING_VAR = "SW"    ! default = "SW"
+                                ! The variable with the shortwave forcing field.
+EVAPORATION_FILE = "ocean_forcing_daily.nc" !
+                                ! The file with the evaporative moisture flux, in the variable given by
+                                ! EVAP_FORCING_VAR.
+EVAP_FORCING_VAR = "evap"       ! default = "evap"
+                                ! The variable with the evaporative moisture flux.
+LATENTHEAT_FILE = "ocean_forcing_daily.nc" !
+                                ! The file with the latent heat flux, in the variable given by
+                                ! LATENT_FORCING_VAR.
+LATENT_FORCING_VAR = "latent"   ! default = "latent"
+                                ! The variable with the latent heat flux.
+SENSIBLEHEAT_FILE = "ocean_forcing_daily.nc" !
+                                ! The file with the sensible heat flux, in the variable given by
+                                ! SENSIBLE_FORCING_VAR.
+SENSIBLE_FORCING_VAR = "sensible" ! default = "sensible"
+                                ! The variable with the sensible heat flux.
+RAIN_FILE = "ocean_precip_monthly.nc" !
+                                ! The file with the liquid precipitation flux, in the variable given by
+                                ! RAIN_FORCING_VAR.
+RAIN_FORCING_VAR = "liq_precip" ! default = "liq_precip"
+                                ! The variable with the liquid precipitation flux.
+SNOW_FILE = "ocean_precip_monthly.nc" !
+                                ! The file with the frozen precipitation flux, in the variable given by
+                                ! SNOW_FORCING_VAR.
+SNOW_FORCING_VAR = "froz_precip" ! default = "froz_precip"
+                                ! The variable with the frozen precipitation flux.
+RUNOFF_FILE = "ocean_precip_monthly.nc" !
+                                ! The file with the fresh and frozen runoff/calving fluxes, in variables given
+                                ! by LIQ_RUNOFF_FORCING_VAR and FROZ_RUNOFF_FORCING_VAR.
+LIQ_RUNOFF_FORCING_VAR = "liq_runoff" ! default = "liq_runoff"
+                                ! The variable with the liquid runoff flux.
+FROZ_RUNOFF_FORCING_VAR = "froz_runoff" ! default = "froz_runoff"
+                                ! The variable with the frozen runoff flux.
+SSTRESTORE_FILE = "ocean_forcing_daily.nc" !
+                                ! The file with the SST toward which to restore in the variable given by
+                                ! SST_RESTORE_VAR.
+SALINITYRESTORE_FILE = "ocean_forcing_daily.nc" !
+                                ! The file with the surface salinity toward which to restore in the variable
+                                ! given by SSS_RESTORE_VAR.
+SST_RESTORE_VAR = "SST"         ! default = "SST"
+                                ! The variable with the SST toward which to restore.
+SSS_RESTORE_VAR = "SSS"         ! default = "SSS"
+                                ! The variable with the SSS toward which to restore.
+WIND_CONFIG = "file"            ! default = "zero"
                                 ! The character string that indicates how wind forcing is specified.  Valid
                                 ! options include (file), (data_override), (2gyre), (1gyre), (gyres), (zero),
                                 ! (const), (Neverworld), (scurves), (ideal_hurr), (SCM_ideal_hurr),
                                 ! (SCM_CVmix_tests) and (USER).
-RESTOREBUOY = False             !   [Boolean] default = False
+WIND_FILE = "ocean_forcing_daily.nc" !
+                                ! The file in which the wind stresses are found in variables STRESS_X and
+                                ! STRESS_Y.
+WINDSTRESS_X_VAR = "taux"       ! default = "STRESS_X"
+                                ! The name of the x-wind stress variable in WIND_FILE.
+WINDSTRESS_Y_VAR = "tauy"       ! default = "STRESS_Y"
+                                ! The name of the y-wind stress variable in WIND_FILE.
+WIND_STAGGER = "C"              ! default = "C"
+                                ! A character indicating how the wind stress components are staggered in
+                                ! WIND_FILE.  This may be A or C for now.
+WINDSTRESS_SCALE = 1.0          !   [nondim] default = 1.0
+                                ! A value by which the wind stresses in WIND_FILE are rescaled.
+USTAR_FORCING_VAR = ""          !   [nondim] default = ""
+                                ! The name of the friction velocity variable in WIND_FILE or blank to get ustar
+                                ! from the wind stresses plus the gustiness.
+RESTOREBUOY = True              !   [Boolean] default = False
                                 ! If true, the buoyancy fluxes drive the model back toward some specified
                                 ! surface state with a rate given by FLUXCONST.
 LATENT_HEAT_FUSION = 3.34E+05   !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.5E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
+FLUXCONST = 0.5                 !   [m day-1] default = 0.0
+                                ! The constant that relates the restoring surface fluxes to the relative surface
+                                ! anomalies (akin to a piston velocity).  Note the non-MKS units.
+FLUXCONST_T = 0.5               !   [m day-1] default = 0.5
+                                ! The constant that relates the restoring surface temperature flux to the
+                                ! relative surface anomaly (akin to a piston velocity).  Note the non-MKS units.
+FLUXCONST_S = 0.5               !   [m day-1] default = 0.5
+                                ! The constant that relates the restoring surface salinity flux to the relative
+                                ! surface anomaly (akin to a piston velocity).  Note the non-MKS units.
 GUST_CONST = 0.0                !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
 FIX_USTAR_GUSTLESS_BUG = True   !   [Boolean] default = True
