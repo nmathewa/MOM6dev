@@ -22,14 +22,14 @@
 
  &coupler_nml
             calendar       = 'GREGORIAN',
-            current_date   = 1900,12,31,00,00,00
+            current_date   = 2015,12,31,00,00,00
             months         = 0,
             days           = 3,
             dt_cpld        = 3600,
             dt_atmos       = 3600,
  /
  &SIS_input_nml
-         output_directory   = 'OUTPUT/',
+         output_directory   = '1900OUTPUT/',
          input_filename     = 'n',
          restart_input_dir  = 'RESTART/',
          restart_output_dir = 'RESTART/',
