@@ -257,8 +257,8 @@ READ_INPUT_NML: input.nml
 MPP module unknown
 MPP started with NPES=     8
 Using MPI library for message passing...
-Realtime clock resolution=  1.3000E-08 sec (  76923076 ticks/sec)
-Clock rolls over after   1.1990E+11 sec ( 9223372036854775806 ticks)
+Realtime clock resolution=  1.4000E-08 sec (  71428571 ticks/sec)
+Clock rolls over after   1.2913E+11 sec ( 9223372036854775806 ticks)
 
 MPP Parameter module unknown
 
@@ -446,7 +446,7 @@ unknown
 ========================================================================
 READ_ASCII_FILE: unknown
 READ_ASCII_FILE: File: diag_table
-base date used = 2013 January  1  0:00:00 gmt
+base date used = 2015 December 31  9:00:00 gmt
 
 ================================================================================
 DIAG_AXIS_MOD
