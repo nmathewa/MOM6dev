@@ -1,10 +1,5 @@
-<<<<<<< HEAD
 "nmacoaps"
 1 1 1 0  0  0  0
-=======
-"nmabob"
-2015 12 31 09  0  0  0
->>>>>>> c6d478b8ce33a537a28b5699214c5d79dcc11774
 #1st two lines (above) are "title" and "base date" (y m d h m s)
 #days since 1900-12-31 00:00:0 is HYCOM convention for gregorian
 
