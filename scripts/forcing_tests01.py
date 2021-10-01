@@ -11,7 +11,13 @@ import glob
 safordir = "/media/nma/misc/UBU20/hdd/IISC_PA/datasets/global/siena_201204/INPUT/" 
 bobdatas = "/media/nma/misc/UBU20/hdd/IISC_PA/datasets/myins/"
 
+romsdata = "/home/nma/Downloads/lab_nma/"
+
 outdir = "/home/nma/momdev/exps/regional2/INPUT/"
+
+maskfiles = "/home/nma/Downloads/gshhg-gmt-2.3.7/"
+
+shpfiles = "/home/nma/Downloads/gshhg-shp-2.3.7/GSHHS_shp/f/"
 
 sdset = xr.open_dataset(safordir+"ocean_forcing_daily.nc")
 
@@ -21,13 +27,16 @@ dlon,dlat = (77,99),(4,23)
 
 #%% long wave radiation
 
-lw_global = xr.open_dataset(bobdatas+"olr-daily_v01r02_20150101_20151231.nc")
+tflux = xr.open_dataset(romsdata+"Daily_INCOIS_BoB2013TROPFLUX.nc")
 
-#lw_global.olr[0,:,:].plot()
 
-bob_lw = lw_global.sel(lon=slice(dlon[0]-1,dlon[1]+1),lat=slice(dlat[0]-1,dlat[1]+1))
 
-bob_lw.olr[0,:,:].plot()
+tflux.LWR[0,:,:].plot()
+
+
+lwr13 = tflux.LWR.values
+swr13 = tflux.SWR.values
+
 
 #%% shortwave flux
 

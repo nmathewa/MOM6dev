@@ -1,5 +1,12 @@
+# To do
+
+- [ ] - function for masking @forcing
+
+
+
 # MOM6dev
-MOM6 development private
+MOM6 development privat
+
 
 # wiki
 
