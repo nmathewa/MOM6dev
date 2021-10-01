@@ -9,7 +9,7 @@
                                 ! the old German OMIP prescription that predated CORE. If
                                 ! false, use the variable groupings available from MOM
                                 ! output diagnostics of forcing variables.
-!LONGWAVE_FILE = "ocean_forcing_daily.nc" !
+LONGWAVE_FILE = "lw_force.nc" !
                                 ! The file with the longwave heat flux, in the variable
                                 ! given by LONGWAVE_FORCING_VAR.
 !SHORTWAVE_FILE = "ocean_forcing_daily.nc" !
