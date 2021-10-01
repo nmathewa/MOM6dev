@@ -1652,66 +1652,10 @@ VARIABLE_WINDS = True           !   [Boolean] default = True
 VARIABLE_BUOYFORCE = True       !   [Boolean] default = True
                                 ! If true, the buoyancy forcing varies in time after the initialization of the
                                 ! model.
-BUOY_CONFIG = "file"            ! default = "zero"
+BUOY_CONFIG = "zero"            ! default = "zero"
                                 ! The character string that indicates how buoyancy forcing is specified.  Valid
                                 ! options include (file), (data_override), (zero), (const), (linear), (MESO),
                                 ! (SCM_CVmix_tests), (BFB), (dumbbell), (USER) and (NONE).
-ARCHAIC_OMIP_FORCING_FILE = False !   [Boolean] default = True
-                                ! If true, use the forcing variable decomposition from the old German OMIP
-                                ! prescription that predated CORE. If false, use the variable groupings
-                                ! available from MOM output diagnostics of forcing variables.
-LONGWAVE_FILE = "ocean_forcing_daily.nc" !
-                                ! The file with the longwave heat flux, in the variable given by
-                                ! LONGWAVE_FORCING_VAR.
-LONGWAVE_FORCING_VAR = "LW"     ! default = "LW"
-                                ! The variable with the longwave forcing field.
-SHORTWAVE_FILE = "ocean_forcing_daily.nc" !
-                                ! The file with the shortwave heat flux, in the variable given by
-                                ! SHORTWAVE_FORCING_VAR.
-SHORTWAVE_FORCING_VAR = "SW"    ! default = "SW"
-                                ! The variable with the shortwave forcing field.
-EVAPORATION_FILE = "ocean_forcing_daily.nc" !
-                                ! The file with the evaporative moisture flux, in the variable given by
-                                ! EVAP_FORCING_VAR.
-EVAP_FORCING_VAR = "evap"       ! default = "evap"
-                                ! The variable with the evaporative moisture flux.
-LATENTHEAT_FILE = "ocean_forcing_daily.nc" !
-                                ! The file with the latent heat flux, in the variable given by
-                                ! LATENT_FORCING_VAR.
-LATENT_FORCING_VAR = "latent"   ! default = "latent"
-                                ! The variable with the latent heat flux.
-SENSIBLEHEAT_FILE = "ocean_forcing_daily.nc" !
-                                ! The file with the sensible heat flux, in the variable given by
-                                ! SENSIBLE_FORCING_VAR.
-SENSIBLE_FORCING_VAR = "sensible" ! default = "sensible"
-                                ! The variable with the sensible heat flux.
-RAIN_FILE = "ocean_precip_monthly.nc" !
-                                ! The file with the liquid precipitation flux, in the variable given by
-                                ! RAIN_FORCING_VAR.
-RAIN_FORCING_VAR = "liq_precip" ! default = "liq_precip"
-                                ! The variable with the liquid precipitation flux.
-SNOW_FILE = "ocean_precip_monthly.nc" !
-                                ! The file with the frozen precipitation flux, in the variable given by
-                                ! SNOW_FORCING_VAR.
-SNOW_FORCING_VAR = "froz_precip" ! default = "froz_precip"
-                                ! The variable with the frozen precipitation flux.
-RUNOFF_FILE = "ocean_precip_monthly.nc" !
-                                ! The file with the fresh and frozen runoff/calving fluxes, in variables given
-                                ! by LIQ_RUNOFF_FORCING_VAR and FROZ_RUNOFF_FORCING_VAR.
-LIQ_RUNOFF_FORCING_VAR = "liq_runoff" ! default = "liq_runoff"
-                                ! The variable with the liquid runoff flux.
-FROZ_RUNOFF_FORCING_VAR = "froz_runoff" ! default = "froz_runoff"
-                                ! The variable with the frozen runoff flux.
-SSTRESTORE_FILE = "ocean_forcing_daily.nc" !
-                                ! The file with the SST toward which to restore in the variable given by
-                                ! SST_RESTORE_VAR.
-SALINITYRESTORE_FILE = "ocean_forcing_daily.nc" !
-                                ! The file with the surface salinity toward which to restore in the variable
-                                ! given by SSS_RESTORE_VAR.
-SST_RESTORE_VAR = "SST"         ! default = "SST"
-                                ! The variable with the SST toward which to restore.
-SSS_RESTORE_VAR = "SSS"         ! default = "SSS"
-                                ! The variable with the SSS toward which to restore.
 WIND_CONFIG = "file"            ! default = "zero"
                                 ! The character string that indicates how wind forcing is specified.  Valid
                                 ! options include (file), (data_override), (2gyre), (1gyre), (gyres), (zero),
