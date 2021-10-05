@@ -1,0 +1,135 @@
+"GOMb0.08 41-layer KPP CFSR:2003_repeated stress:U10"
+1900 12 31  0  0  0
+#1st two lines (above) are "title" and "base date" (y m d h m s)
+#days since 1900-12-31 00:00:0 is HYCOM convention for gregorian
+
+#File Section: File lines contain 6 required and 5 optional fields
+#"file_name", output_freq, "output_freq_units", file_format, "time_axis_units", "time_axis_name"
+#[, new_file_freq, "new_file_freq_units"[, "start_time"[, file_duration, "file_duration_units"]]]
+
+# Ocean diagnostics files
+#"ocnp%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
+#"ocnp%4yr_%3dy_%2hr",12,"hours", 1, "days","Time", 1,"days"
+"ocnm%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
+"ocns%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
+
+# Sea Ice diagnostics files
+#"sice%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
+"sicm%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
+
+
+#Field Section: Field lines contain 8 fields.
+#"module_name", "field_name", "output_name", "file_name", "time_sampling", "reduction_method", "regional_section", packing
+#"time_sampling" is always "all"
+#"reduction_method" is mean (.TRUE.,average,avg); none (.FALSE.); min; max; diurnal;
+#"regional_section" is none; lat_min,lat_max,lon_min,lon_max,vert_min,vert_max;
+#"packing" is 1 (for r*8), 2 (for r*4), 3 (for i*2), 4 (for i*1)
+
+
+# Prognostic Ocean fields:
+#=========================
+
+#"ocean_model","u",         "u",   "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","v",         "v",   "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","h",         "h",   "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","temp",      "potT","ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","salt",      "salt","ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","rhoinsitu", "rho", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","SSH",       "SSH", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","hfds",      "Qnet","ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","wfo",       "PmE", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","ubt",       "ubt", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","vbt",       "vbt", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","pbo",       "pbt", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","col_height",  "hbt", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","KPP_OBLdepth","oml", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","KPP_Kv",      "KvK", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","KPP_Kd_in",   "KdI", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","Kd_heat",     "KdH", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","Kd_salt",     "KdS", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","Ahh",         "Ahh", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","Khh",         "Khh", "ocnp%4yr_%3dy_%2hr","all","none","none",2
+
+# Mean Prognostic Ocean fields:
+#==============================
+
+"ocean_model","u",           "u",   "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","v",           "v",   "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","KE",          "KE",  "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","h",           "h",   "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","temp",        "potT","ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","salt",        "salt","ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","rhoinsitu",   "rho", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","SSH",         "SSH", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","hfds",        "Qnet","ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","wfo",         "PmE", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","ubt",         "ubt", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","vbt",         "vbt", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","pbo",         "pbt", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","col_height",  "hbt", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","KPP_OBLdepth","oml", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","KPP_Kv",      "KvK", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","KPP_Kd_in",   "KdI", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","Kd_heat",     "KdH", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","Kd_salt",     "KdS", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","Ahh",         "Ahh", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+"ocean_model","Khh",         "Khh", "ocnm%4yr_%3dy_%2hr","all","mean","none",2
+
+# Surface Ocean fields:
+#======================
+
+
+"ocean_model","SSH",       "ssh", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","SST",       "sst", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","SSS",       "sss", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","ubt",       "ubt", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","vbt",       "vbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","u",           "u",   "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","v",           "v",   "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","temp",        "potT","ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","salt",        "salt","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","pbo",       "pbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","col_height",  "hbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","KPP_OBLdepth","oml", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","taux",      "taux","ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","tauy",      "tauy","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","SW",        "Qsw", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","LW",        "Qlw", "ocns%4yr_%3dy_%2hr","all","none","none",2
+##"ocean_model","latent",   "Qlat","ocns%4yr_%3dy_%2hr","all","none","none",2
+##"ocean_model","sensible", "Qsen","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","hfds",      "Qnet","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","PRCmE",     "PmE", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","precip",     "pcip","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","friver",     "priv","ocns%4yr_%3dy_%2hr","all","none","none",2
+
+## Sea Ice fields:
+##================
+#
+#"ice_model","SSH",      "ssh", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","SST",      "sst", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","SSS",      "sss", "sice%4yr_%3dy_%2hr","all","none","none",2
+##"ice_model","U0",       "ssu", "sice%4yr_%3dy_%2hr","all","none","none",2
+##"ice_model","V0",       "ssv", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","siconc",   "sic", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","sithick",  "sih", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","sitemptop","sit", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","siu",      "siu", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","siv",      "siv", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","FW_X",     "six", "sice%4yr_%3dy_%2hr","all","none","none",2
+#"ice_model","FW_Y",     "siy", "sice%4yr_%3dy_%2hr","all","none","none",2
+
+# Mean Sea Ice fields:
+#=====================
+
+"ice_model","SSH",      "ssh", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","SST",      "sst", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","SSS",      "sss", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","U0",       "ssu", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","V0",       "ssv", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","siconc",   "sic", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","sithick",  "sih", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","sitemptop","sit", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","siu",      "siu", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","siv",      "siv", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","FW_X",     "six", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+"ice_model","FW_Y",     "siy", "sicm%4yr_%3dy_%2hr","all","mean","none",2

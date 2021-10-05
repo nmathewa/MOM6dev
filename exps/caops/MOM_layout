@@ -1,0 +1,5 @@
+! These parameters are for testing mask_tables in a non-FRE environment.
+! This file should not be used in production unless you really want to
+! use this layout.  IO_LAYOUT must be an integer divisor of LAYOUT.
+!LAYOUT = 8,6
+!IO_LAYOUT = 1,1
