@@ -28,14 +28,14 @@ READ_INPUT_NML: input.nml
  
   &coupler_nml
              calendar       = 'GREGORIAN',
-             current_date   = 1900,12,31,00,00,00
+             current_date   = 2015,12,31,00,00,00
              months         = 0,
              days           = 3,
              dt_cpld        = 3600,
              dt_atmos       = 3600,
   /
   &SIS_input_nml
-          output_directory   = 'OUTPUT/',
+          output_directory   = '1900OUTPUT/',
           input_filename     = 'n',
           restart_input_dir  = 'RESTART/',
           restart_output_dir = 'RESTART/',
@@ -257,8 +257,8 @@ READ_INPUT_NML: input.nml
 MPP module unknown
 MPP started with NPES=     8
 Using MPI library for message passing...
-Realtime clock resolution=  1.4000E-08 sec (  71428571 ticks/sec)
-Clock rolls over after   1.2913E+11 sec ( 9223372036854775806 ticks)
+Realtime clock resolution=  1.3000E-08 sec (  76923076 ticks/sec)
+Clock rolls over after   1.1990E+11 sec ( 9223372036854775806 ticks)
 
 MPP Parameter module unknown
 
@@ -446,7 +446,7 @@ unknown
 ========================================================================
 READ_ASCII_FILE: unknown
 READ_ASCII_FILE: File: diag_table
-base date used = 2015 December 31  9:00:00 gmt
+base date used =    1 January  1  0:00:00 gmt
 
 ================================================================================
 DIAG_AXIS_MOD
@@ -1060,3 +1060,49 @@ MOM_sum_output: unknown
 MOM_surface_forcing: unknown
   MOM_surface_forcing ENABLE_THERMODYNAMICS: True
   MOM_surface_forcing INPUTDIR: INPUT
+  MOM_surface_forcing ADIABATIC: False
+  MOM_surface_forcing VARIABLE_WINDS: True
+  MOM_surface_forcing VARIABLE_BUOYFORCE: True
+  MOM_surface_forcing BUOY_CONFIG: zero
+  MOM_surface_forcing WIND_CONFIG: zero
+  MOM_surface_forcing RHO_0: 1035.0
+  MOM_surface_forcing RESTOREBUOY: False
+  MOM_surface_forcing LATENT_HEAT_FUSION: 3.34E+05
+  MOM_surface_forcing LATENT_HEAT_VAPORIZATION: 2.5E+06
+  MOM_surface_forcing G_EARTH: 9.8
+  MOM_surface_forcing GUST_CONST: 0.0
+  MOM_surface_forcing FIX_USTAR_GUSTLESS_BUG: True
+  MOM_surface_forcing READ_GUST_2D: False
+MOM_restart: unknown
+  MOM_restart PARALLEL_RESTARTFILES: True
+  MOM_restart RESTARTFILE from argument: MOM_forcing.res
+  MOM_restart LARGE_FILE_SUPPORT: True
+  MOM_restart MAX_FIELDS: 100
+  MOM_restart RESTART_CHECKSUMS_REQUIRED: False
+user_revise_forcing: unknown
+  MOM_main (MOM_driver) USE_WAVES: False
+  MOM_wave_interface USE_WAVES: False
+MOM_main (MOM_driver): unknown
+  MOM_main (MOM_driver) DT: 300.0
+  MOM_main (MOM_driver) DT_FORCING: 300.0
+  MOM_main (MOM_driver) TIMEUNIT: 8.64E+04
+  MOM_main (MOM_driver) DAYMAX (Time): 2:0
+  MOM_main (MOM_driver) SINGLE_STEPPING_CALL: True
+  MOM_main (MOM_driver) DT_THERM: 1200.0
+  MOM_main (MOM_driver) DIABATIC_FIRST: False
+  MOM_main (MOM_driver) RESTART_CONTROL: -1
+  MOM_main (MOM_driver) RESTINT (Time): 0:0
+  MOM_main (MOM_driver) WRITE_CPU_STEPS: 1000
+  MOM DEBUG: False
+  MOM_main (MOM_driver) ELAPSED TIME AS MASTER: False
+MOM_write_cputime: unknown
+  MOM_write_cputime MAXCPU: -1.0
+  MOM_write_cputime CPU_TIME_FILE: CPU_stats
+  MOM_write_cputime directory/CPU_TIME_FILE: OUTPUT/CPU_stats
+MOM_file_parser: unknown
+  MOM_file_parser SEND_LOG_TO_STDOUT: False
+  MOM_file_parser REPORT_UNUSED_PARAMS: True
+  MOM_file_parser FATAL_UNUSED_PARAMS: False
+  MOM_file_parser DOCUMENT_FILE: MOM_parameter_doc
+  MOM_file_parser COMPLETE_DOCUMENTATION: True
+  MOM_file_parser MINIMAL_DOCUMENTATION: True
