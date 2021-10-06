@@ -73,30 +73,43 @@ ocns.ssh[time,:,:].plot.surface(cmap=cm.ocean,vmin=-0.4,vmax=0.4)
 #plt.savefig("docs/surface_sst2.png",dpi=150)
 
 
+
+
 #%%
-for ii in range(len(ocns.Time.values)):
-    time = ii
-    plt.figure(figsize=(8,6))
-    ax = plt.axes(projection=ccrs.PlateCarree())
-    ax.coastlines()import glob
-    from PIL import Image
+section = ocns.salt.isel(xh=24, yh=slice(-96, -72), Time=0)
+section.plot()
+plt.ylim([6000, 1]);
 
-    # filepaths
-    fp_in = "/home/nma/HDD/archives/outs/*.png"
-    fp_out = "/home/nma/HDD/archives/outs/out.gif"
 
-    # https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#gif
-    img, *imgs = [Image.open(f) for f in sorted(glob.glob(fp_in))]
-    img.save(fp=fp_out, format='GIF', append_images=imgs,
+#%%
+
+
+s_profile = ocns.salt.isel(xh =40,yh=40,Time=1)
+plt.plot(s_profile, s_profile['zl'])
+plt.ylim(1500,0)
+plt.grid()
+plt.ylabel("Depth(m)")
+plt.xlabel("Salinity")
+plt.title("salt_profile "+str(ocns.Time.values[0]))
+plt.savefig("docs/salin_1.png",dpi=150)
+
+
+
+#%%
+
+
+import glob
+from PIL import Image
+
+# filepaths
+fp_in = "/home/nma/momdev/exps/caops/docs/SSH/*.png"
+fp_out = "/home/nma/momdev/exps/caops/docs/SSH.gif"
+
+# https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html#gif
+img, *imgs = [Image.open(f) for f in sorted(glob.glob(fp_in))]
+img.save(fp=fp_out, format='GIF', append_images=imgs,
              save_all=True, duration=1000, loop=0)
-    plt.title("Time : " + str(ocns.Time.values[time])+" level : "+str(ocns.zl.values[level]))
-    gg = ax.contourf(lon2d,lat2d,ocns.sst.values[time,:,:],cmap="ocean_r",vmin=12,vmax=30,levels=100)
-    #plt.xlabel("Longitude")
-    #plt.ylabel("Latitude")
-    plt.colorbar(gg, orientation="horizontal")
-    gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True,
-                      linewidth=1, color='gray', alpha=0.1, linestyle='--')
-    plt.savefig("docs/surface_sst"+str(ii)+".png",dpi=150)    
+   
 
 #%%
 

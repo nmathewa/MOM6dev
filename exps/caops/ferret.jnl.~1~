@@ -1,0 +1,11 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Linux 5.8.0-1040-azure - 09/02/21
+ !  6-Oct-21 15:50     
+
+set mode verify
+use ocns_0001_001_01.nc
+use ocns_0001_002_01.nc
+shda
+sh da
+plot/X=-95/Y=25/L=1 SALT
