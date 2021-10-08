@@ -51,3 +51,172 @@ WRITE_GEOM = 0                  ! default = 1
 ! === module MOM_domains ===
 REENTRANT_X = False             !   [Boolean] default = True
                                 ! If true, the domain is zonally reentrant.
+NIGLOBAL = 262                  !
+                                ! The total number of thickness grid points in the x-direction in the physical
+                                ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
+NJGLOBAL = 192                  !
+                                ! The total number of thickness grid points in the y-direction in the physical
+                                ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
+
+! === module MOM_fixed_initialization ===
+INPUTDIR = "INPUT"              ! default = "."
+                                ! The directory in which input files are found.
+
+! === module MOM_grid_init ===
+GRID_CONFIG = "mosaic"          !
+                                ! A character string that determines the method for defining the horizontal
+                                ! grid.  Current options are:
+                                !     mosaic - read the grid from a mosaic (supergrid)
+                                !              file set by GRID_FILE.
+                                !     cartesian - use a (flat) Cartesian grid.
+                                !     spherical - use a simple spherical grid.
+                                !     mercator - use a Mercator spherical grid.
+GRID_FILE = "regional.mom6.nc"  !
+                                ! Name of the file from which to read horizontal grid data.
+TOPO_CONFIG = "file"            !
+                                ! This specifies how bathymetry is specified:
+                                !     file - read bathymetric information from the file
+                                !       specified by (TOPO_FILE).
+                                !     flat - flat bottom set to MAXIMUM_DEPTH.
+                                !     bowl - an analytically specified bowl-shaped basin
+                                !       ranging between MAXIMUM_DEPTH and MINIMUM_DEPTH.
+                                !     spoon - a similar shape to 'bowl', but with an vertical
+                                !       wall at the southern face.
+                                !     halfpipe - a zonally uniform channel with a half-sine
+                                !       profile in the meridional direction.
+                                !     bbuilder - build topography from list of functions.
+                                !     benchmark - use the benchmark test case topography.
+                                !     Neverworld - use the Neverworld test case topography.
+                                !     DOME - use a slope and channel configuration for the
+                                !       DOME sill-overflow test case.
+                                !     ISOMIP - use a slope and channel configuration for the
+                                !       ISOMIP test case.
+                                !     DOME2D - use a shelf and slope configuration for the
+                                !       DOME2D gravity current/overflow test case.
+                                !     Kelvin - flat but with rotated land mask.
+                                !     seamount - Gaussian bump for spontaneous motion test case.
+                                !     dumbbell - Sloshing channel with reservoirs on both ends.
+                                !     shelfwave - exponential slope for shelfwave test case.
+                                !     Phillips - ACC-like idealized topography used in the Phillips config.
+                                !     dense - Denmark Strait-like dense water formation and overflow.
+                                !     USER - call a user modified routine.
+TOPO_FILE = "depth_GOMb0.08_09m11_mom6.nc" ! default = "topog.nc"
+                                ! The file from which the bathymetry is read.
+MINIMUM_DEPTH = 3.0             !   [m] default = 0.0
+                                ! If MASKING_DEPTH is unspecified, then anything shallower than MINIMUM_DEPTH is
+                                ! assumed to be land and all fluxes are masked out. If MASKING_DEPTH is
+                                ! specified, then all depths shallower than MINIMUM_DEPTH but deeper than
+                                ! MASKING_DEPTH are rounded to MINIMUM_DEPTH.
+MAXIMUM_DEPTH = 8200.0          !   [m]
+                                ! The maximum depth of the ocean.
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+OBC_NUMBER_OF_SEGMENTS = 3      ! default = 0
+                                ! The number of open boundary segments.
+OBC_ZERO_VORTICITY = True       !   [Boolean] default = False
+                                ! If true, sets relative vorticity to zero on open boundaries.
+OBC_FREESLIP_VORTICITY = False  !   [Boolean] default = True
+                                ! If true, sets the normal gradient of tangential velocity to zero in the
+                                ! relative vorticity on open boundaries. This cannot be true if another
+                                ! OBC_XXX_VORTICITY option is True.
+OBC_ZERO_BIHARMONIC = True      !   [Boolean] default = False
+                                ! If true, zeros the Laplacian of flow on open boundaries in the biharmonic
+                                ! viscosity term.
+MASK_OUTSIDE_OBCS = True        !   [Boolean] default = False
+                                ! If true, set the areas outside open boundaries to be land.
+OBC_SEGMENT_001 = "J=0,I=0:N,FLATHER" !
+                                ! Documentation needs to be dynamic?????
+OBC_SEGMENT_002 = "I=N,J=0:N,FLATHER" !
+                                ! Documentation needs to be dynamic?????
+OBC_SEGMENT_003 = "J=N,I=N:0,FLATHER" !
+                                ! Documentation needs to be dynamic?????
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !   [m] default = 0.0
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to externally imposed values when the flow is exiting the domain.
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !   [m] default = 0.0
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to values from the interior when the flow is entering the domain.
+
+! === module MOM_verticalGrid ===
+! Parameters providing information about the vertical grid.
+NK = 41                         !   [nondim]
+                                ! The number of model layers.
+
+! === module MOM_EOS ===
+DTFREEZE_DP = -7.75E-08         !   [deg C Pa-1] default = 0.0
+                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+                                ! temperature with pressure.
+
+! === module MOM_restart ===
+PARALLEL_RESTARTFILES = True    !   [Boolean] default = False
+                                ! If true, each processor writes its own restart file, otherwise a single
+                                ! restart file is generated
+RESTART_CHECKSUMS_REQUIRED = False !   [Boolean] default = True
+                                ! If true, require the restart checksums to match and error out otherwise. Users
+                                ! may want to avoid this comparison if for example the restarts are made from a
+                                ! run with a different mask_table than the current run, in which case the
+                                ! checksums will not match and cause crash.
+
+! === module MOM_tracer_flow_control ===
+
+! === module MOM_boundary_update ===
+
+! === module segment_tracer_registry_init ===
+
+! === module MOM_coord_initialization ===
+COORD_CONFIG = "file"           ! default = "none"
+                                ! This specifies how layers are to be defined:
+                                !     ALE or none - used to avoid defining layers in ALE mode
+                                !     file - read coordinate information from the file
+                                !       specified by (COORD_FILE).
+                                !     BFB - Custom coords for buoyancy-forced basin case
+                                !       based on SST_S, T_BOT and DRHO_DT.
+                                !     linear - linear based on interfaces not layers
+                                !     layer_ref - linear based on layer densities
+                                !     ts_ref - use reference temperature and salinity
+                                !     ts_range - use range of temperature and salinity
+                                !       (T_REF and S_REF) to determine surface density
+                                !       and GINT calculate internal densities.
+                                !     gprime - use reference density (RHO_0) for surface
+                                !       density and GINT calculate internal densities.
+                                !     ts_profile - use temperature and salinity profiles
+                                !       (read from COORD_FILE) to set layer densities.
+                                !     USER - call a user modified routine.
+COORD_FILE = "mom6_vgrid.nc"    !
+                                ! The file from which the coordinate densities are read.
+REGRIDDING_COORDINATE_MODE = "HYCOM1" ! default = "LAYER"
+                                ! Coordinate mode for vertical regridding. Choose among the following
+                                ! possibilities:  LAYER - Isopycnal or stacked shallow water layers
+                                !  ZSTAR, Z* - stretched geopotential z*
+                                !  SIGMA_SHELF_ZSTAR - stretched geopotential z* ignoring shelf
+                                !  SIGMA - terrain following coordinates
+                                !  RHO   - continuous isopycnal
+                                !  HYCOM1 - HyCOM-like hybrid coordinate
+                                !  SLIGHT - stretched coordinates above continuous isopycnal
+                                !  ADAPTIVE - optimize for smooth neutral density surfaces
+BOUNDARY_EXTRAPOLATION = True   !   [Boolean] default = False
+                                ! When defined, a proper high-order reconstruction scheme is used within
+                                ! boundary cells rather than PCM. E.g., if PPM is used for remapping, a PPM
+                                ! reconstruction will also be used within boundary cells.
+ALE_COORDINATE_CONFIG = "HYBRID:mom6_vgrid.nc,sigma2,dz" ! default = "UNIFORM"
+                                ! Determines how to specify the coordinate resolution. Valid options are:
+                                !  PARAM       - use the vector-parameter ALE_RESOLUTION
+                                !  UNIFORM[:N] - uniformly distributed
+                                !  FILE:string - read from a file. The string specifies
+                                !                the filename and variable name, separated
+                                !                by a comma or space, e.g. FILE:lev.nc,dz
+                                !                or FILE:lev.nc,interfaces=zw
+                                !  WOA09[:N]   - the WOA09 vertical grid (approximately)
+                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
+                                !  HYBRID:string - read from a file. The string specifies
+                                !                the filename and two variable names, separated
+                                !                by a comma or space, for sigma-2 and dz. e.g.
+                                !                HYBRID:vgrid.nc,sigma2,dz
+!ALE_RESOLUTION = 1.0, 1.8, 3.24, 4.68, 4.93, 5.81, 6.87, 16*8.0, 10.0, 16.4, 35.92, 42.38, 50.02, 59.02, 69.64, 82.18, 96.97, 114.43, 135.02, 159.33, 188.01, 221.84, 261.78, 400.0, 2*600.0 !   [m]
+                                ! The distribution of vertical resolution for the target
+                                ! grid used for Eulerian-like coordinates. For example,
+                                ! in z-coordinate mode, the parameter is a list of level
+                                ! thicknesses (in m). In sigma-coordinate mode, the list
+                                ! is of non-dimensional fractions of the water column.

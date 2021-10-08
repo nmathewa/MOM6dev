@@ -145,3 +145,489 @@ SAVE_INITIAL_CONDS = False      !   [Boolean] default = False
                                 ! If true, write the initial conditions to a file given by IC_OUTPUT_FILE.
 IC_OUTPUT_FILE = "MOM_IC.nc"    ! default = "MOM_IC"
                                 ! The file into which to write the initial conditions.
+WRITE_GEOM = 0                  ! default = 1
+                                ! If =0, never write the geometry and vertical grid files. If =1, write the
+                                ! geometry and vertical grid files only for a new simulation. If =2, always
+                                ! write the geometry and vertical grid files. Other values are invalid.
+ICE_SHELF = False               !   [Boolean] default = False
+                                ! If true, enables the ice shelf model.
+ENSEMBLE_OCEAN = False          !   [Boolean] default = False
+                                ! If False, The model is being run in serial mode as a single realization. If
+                                ! True, The current model realization is part of a larger ensemble and at the
+                                ! end of step MOM, we will perform a gather of the ensemble members for
+                                ! statistical evaluation and/or data assimilation.
+
+! === module MOM_domains ===
+REENTRANT_X = False             !   [Boolean] default = True
+                                ! If true, the domain is zonally reentrant.
+REENTRANT_Y = False             !   [Boolean] default = False
+                                ! If true, the domain is meridionally reentrant.
+TRIPOLAR_N = False              !   [Boolean] default = False
+                                ! Use tripolar connectivity at the northern edge of the domain.  With
+                                ! TRIPOLAR_N, NIGLOBAL must be even.
+NIGLOBAL = 262                  !
+                                ! The total number of thickness grid points in the x-direction in the physical
+                                ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
+NJGLOBAL = 192                  !
+                                ! The total number of thickness grid points in the y-direction in the physical
+                                ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
+NIHALO = 4                      ! default = 4
+                                ! The number of halo points on each side in the x-direction.  How this is set
+                                ! varies with the calling component and static or dynamic memory configuration.
+NJHALO = 4                      ! default = 4
+                                ! The number of halo points on each side in the y-direction.  How this is set
+                                ! varies with the calling component and static or dynamic memory configuration.
+
+! === module MOM_hor_index ===
+! Sets the horizontal array index types.
+
+! === module MOM_fixed_initialization ===
+INPUTDIR = "INPUT"              ! default = "."
+                                ! The directory in which input files are found.
+
+! === module MOM_grid_init ===
+GRID_CONFIG = "mosaic"          !
+                                ! A character string that determines the method for defining the horizontal
+                                ! grid.  Current options are:
+                                !     mosaic - read the grid from a mosaic (supergrid)
+                                !              file set by GRID_FILE.
+                                !     cartesian - use a (flat) Cartesian grid.
+                                !     spherical - use a simple spherical grid.
+                                !     mercator - use a Mercator spherical grid.
+GRID_FILE = "regional.mom6.nc"  !
+                                ! Name of the file from which to read horizontal grid data.
+USE_TRIPOLAR_GEOLONB_BUG = False !   [Boolean] default = False
+                                ! If true, use older code that incorrectly sets the longitude in some points
+                                ! along the tripolar fold to be off by 360 degrees.
+TOPO_CONFIG = "file"            !
+                                ! This specifies how bathymetry is specified:
+                                !     file - read bathymetric information from the file
+                                !       specified by (TOPO_FILE).
+                                !     flat - flat bottom set to MAXIMUM_DEPTH.
+                                !     bowl - an analytically specified bowl-shaped basin
+                                !       ranging between MAXIMUM_DEPTH and MINIMUM_DEPTH.
+                                !     spoon - a similar shape to 'bowl', but with an vertical
+                                !       wall at the southern face.
+                                !     halfpipe - a zonally uniform channel with a half-sine
+                                !       profile in the meridional direction.
+                                !     bbuilder - build topography from list of functions.
+                                !     benchmark - use the benchmark test case topography.
+                                !     Neverworld - use the Neverworld test case topography.
+                                !     DOME - use a slope and channel configuration for the
+                                !       DOME sill-overflow test case.
+                                !     ISOMIP - use a slope and channel configuration for the
+                                !       ISOMIP test case.
+                                !     DOME2D - use a shelf and slope configuration for the
+                                !       DOME2D gravity current/overflow test case.
+                                !     Kelvin - flat but with rotated land mask.
+                                !     seamount - Gaussian bump for spontaneous motion test case.
+                                !     dumbbell - Sloshing channel with reservoirs on both ends.
+                                !     shelfwave - exponential slope for shelfwave test case.
+                                !     Phillips - ACC-like idealized topography used in the Phillips config.
+                                !     dense - Denmark Strait-like dense water formation and overflow.
+                                !     USER - call a user modified routine.
+TOPO_FILE = "depth_GOMb0.08_09m11_mom6.nc" ! default = "topog.nc"
+                                ! The file from which the bathymetry is read.
+TOPO_VARNAME = "depth"          ! default = "depth"
+                                ! The name of the bathymetry variable in TOPO_FILE.
+TOPO_EDITS_FILE = ""            ! default = ""
+                                ! The file from which to read a list of i,j,z topography overrides.
+ALLOW_LANDMASK_CHANGES = False  !   [Boolean] default = False
+                                ! If true, allow topography overrides to change land mask.
+MINIMUM_DEPTH = 3.0             !   [m] default = 0.0
+                                ! If MASKING_DEPTH is unspecified, then anything shallower than MINIMUM_DEPTH is
+                                ! assumed to be land and all fluxes are masked out. If MASKING_DEPTH is
+                                ! specified, then all depths shallower than MINIMUM_DEPTH but deeper than
+                                ! MASKING_DEPTH are rounded to MINIMUM_DEPTH.
+MASKING_DEPTH = -9999.0         !   [m] default = -9999.0
+                                ! The depth below which to mask points as land points, for which all fluxes are
+                                ! zeroed out. MASKING_DEPTH needs to be smaller than MINIMUM_DEPTH
+MAXIMUM_DEPTH = 8200.0          !   [m]
+                                ! The maximum depth of the ocean.
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+OBC_NUMBER_OF_SEGMENTS = 3      ! default = 0
+                                ! The number of open boundary segments.
+OBC_ZERO_VORTICITY = True       !   [Boolean] default = False
+                                ! If true, sets relative vorticity to zero on open boundaries.
+OBC_FREESLIP_VORTICITY = False  !   [Boolean] default = True
+                                ! If true, sets the normal gradient of tangential velocity to zero in the
+                                ! relative vorticity on open boundaries. This cannot be true if another
+                                ! OBC_XXX_VORTICITY option is True.
+OBC_COMPUTED_VORTICITY = False  !   [Boolean] default = False
+                                ! If true, uses the external values of tangential velocity in the relative
+                                ! vorticity on open boundaries. This cannot be true if another OBC_XXX_VORTICITY
+                                ! option is True.
+OBC_SPECIFIED_VORTICITY = False !   [Boolean] default = False
+                                ! If true, uses the external values of tangential velocity in the relative
+                                ! vorticity on open boundaries. This cannot be true if another OBC_XXX_VORTICITY
+                                ! option is True.
+OBC_ZERO_STRAIN = False         !   [Boolean] default = False
+                                ! If true, sets the strain used in the stress tensor to zero on open boundaries.
+OBC_FREESLIP_STRAIN = True      !   [Boolean] default = True
+                                ! If true, sets the normal gradient of tangential velocity to zero in the strain
+                                ! use in the stress tensor on open boundaries. This cannot be true if another
+                                ! OBC_XXX_STRAIN option is True.
+OBC_COMPUTED_STRAIN = False     !   [Boolean] default = False
+                                ! If true, sets the normal gradient of tangential velocity to zero in the strain
+                                ! use in the stress tensor on open boundaries. This cannot be true if another
+                                ! OBC_XXX_STRAIN option is True.
+OBC_SPECIFIED_STRAIN = False    !   [Boolean] default = False
+                                ! If true, sets the normal gradient of tangential velocity to zero in the strain
+                                ! use in the stress tensor on open boundaries. This cannot be true if another
+                                ! OBC_XXX_STRAIN option is True.
+OBC_ZERO_BIHARMONIC = True      !   [Boolean] default = False
+                                ! If true, zeros the Laplacian of flow on open boundaries in the biharmonic
+                                ! viscosity term.
+MASK_OUTSIDE_OBCS = True        !   [Boolean] default = False
+                                ! If true, set the areas outside open boundaries to be land.
+RAMP_OBCS = False               !   [Boolean] default = False
+                                ! If true, ramps from zero to the external values over time, witha ramping
+                                ! timescale given by RAMP_TIMESCALE. Ramping SSH only so far
+OBC_RAMP_TIMESCALE = 1.0        !   [days] default = 1.0
+                                ! If RAMP_OBCS is true, this sets the ramping timescale.
+OBC_TIDE_N_CONSTITUENTS = 0     ! default = 0
+                                ! Number of tidal constituents being added to the open boundary.
+OBC_SEGMENT_001 = "J=0,I=0:N,FLATHER" !
+                                ! Documentation needs to be dynamic?????
+OBC_SEGMENT_002 = "I=N,J=0:N,FLATHER" !
+                                ! Documentation needs to be dynamic?????
+OBC_SEGMENT_003 = "J=N,I=N:0,FLATHER" !
+                                ! Documentation needs to be dynamic?????
+OBC_RADIATION_MAX = 1.0         !   [nondim] default = 1.0
+                                ! The maximum magnitude of the baroclinic radiation velocity (or speed of
+                                ! characteristics), in gridpoints per timestep.  This is only used if one of the
+                                ! open boundary segments is using Orlanski.
+OBC_RAD_VEL_WT = 0.3            !   [nondim] default = 0.3
+                                ! The relative weighting for the baroclinic radiation velocities (or speed of
+                                ! characteristics) at the new time level (1) or the running mean (0) for
+                                ! velocities. Valid values range from 0 to 1. This is only used if one of the
+                                ! open boundary segments is using Orlanski.
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !   [m] default = 0.0
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to externally imposed values when the flow is exiting the domain.
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !   [m] default = 0.0
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to values from the interior when the flow is entering the domain.
+BRUSHCUTTER_MODE = False        !   [Boolean] default = False
+                                ! If true, read external OBC data on the supergrid.
+REMAPPING_2018_ANSWERS = False  !   [Boolean] default = False
+                                ! If true, use the order of arithmetic and expressions that recover the answers
+                                ! from the end of 2018.  Otherwise, use updated and more robust forms of the
+                                ! same expressions.
+CHANNEL_CONFIG = "none"         ! default = "none"
+                                ! A parameter that determines which set of channels are
+                                ! restricted to specific  widths.  Options are:
+                                !     none - All channels have the grid width.
+                                !     global_1deg - Sets 16 specific channels appropriate
+                                !       for a 1-degree model, as used in CM2G.
+                                !     list - Read the channel locations and widths from a
+                                !       text file, like MOM_channel_list in the MOM_SIS
+                                !       test case.
+                                !     file - Read open face widths everywhere from a
+                                !       NetCDF file on the model grid.
+ROTATION = "2omegasinlat"       ! default = "2omegasinlat"
+                                ! This specifies how the Coriolis parameter is specified:
+                                !     2omegasinlat - Use twice the planetary rotation rate
+                                !       times the sine of latitude.
+                                !     betaplane - Use a beta-plane or f-plane.
+                                !     USER - call a user modified routine.
+OMEGA = 7.2921E-05              !   [s-1] default = 7.2921E-05
+                                ! The rotation rate of the earth.
+GRID_ROTATION_ANGLE_BUGS = False !   [Boolean] default = False
+                                ! If true, use an older algorithm to calculate the sine and cosines needed
+                                ! rotate between grid-oriented directions and true north and east.  Differences
+                                ! arise at the tripolar fold.
+
+! === module MOM_verticalGrid ===
+! Parameters providing information about the vertical grid.
+G_EARTH = 9.8                   !   [m s-2] default = 9.8
+                                ! The gravitational acceleration of the Earth.
+RHO_0 = 1035.0                  !   [kg m-3] default = 1035.0
+                                ! The mean ocean density used with BOUSSINESQ true to calculate accelerations
+                                ! and the mass for conservation properties, or with BOUSSINSEQ false to convert
+                                ! some parameters from vertical units of m to kg m-2.
+BOUSSINESQ = True               !   [Boolean] default = True
+                                ! If true, make the Boussinesq approximation.
+ANGSTROM = 1.0E-10              !   [m] default = 1.0E-10
+                                ! The minimum layer thickness, usually one-Angstrom.
+H_TO_M = 1.0                    !   [m H-1] default = 1.0
+                                ! A constant that translates the model's internal units of thickness into m.
+NK = 41                         !   [nondim]
+                                ! The number of model layers.
+
+! === module MOM_tracer_registry ===
+
+! === module MOM_EOS ===
+EQN_OF_STATE = "WRIGHT"         ! default = "WRIGHT"
+                                ! EQN_OF_STATE determines which ocean equation of state should be used.
+                                ! Currently, the valid choices are "LINEAR", "UNESCO", "WRIGHT", "NEMO" and
+                                ! "TEOS10". This is only used if USE_EOS is true.
+EOS_QUADRATURE = False          !   [Boolean] default = False
+                                ! If true, always use the generic (quadrature) code code for the integrals of
+                                ! density.
+TFREEZE_FORM = "LINEAR"         ! default = "LINEAR"
+                                ! TFREEZE_FORM determines which expression should be used for the freezing
+                                ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS10"
+TFREEZE_S0_P0 = 0.0             !   [deg C] default = 0.0
+                                ! When TFREEZE_FORM=LINEAR, this is the freezing potential temperature at S=0,
+                                ! P=0.
+DTFREEZE_DS = -0.054            !   [deg C PSU-1] default = -0.054
+                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+                                ! temperature with salinity.
+DTFREEZE_DP = -7.75E-08         !   [deg C Pa-1] default = 0.0
+                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+                                ! temperature with pressure.
+
+! === module MOM_restart ===
+PARALLEL_RESTARTFILES = True    !   [Boolean] default = False
+                                ! If true, each processor writes its own restart file, otherwise a single
+                                ! restart file is generated
+RESTARTFILE = "MOM.res"         ! default = "MOM.res"
+                                ! The name-root of the restart file.
+LARGE_FILE_SUPPORT = True       !   [Boolean] default = True
+                                ! If true, use the file-size limits with NetCDF large file support (4Gb),
+                                ! otherwise the limit is 2Gb.
+MAX_FIELDS = 100                ! default = 100
+                                ! The maximum number of restart fields that can be used.
+RESTART_CHECKSUMS_REQUIRED = False !   [Boolean] default = True
+                                ! If true, require the restart checksums to match and error out otherwise. Users
+                                ! may want to avoid this comparison if for example the restarts are made from a
+                                ! run with a different mask_table than the current run, in which case the
+                                ! checksums will not match and cause crash.
+
+! === module MOM_tracer_flow_control ===
+USE_USER_TRACER_EXAMPLE = False !   [Boolean] default = False
+                                ! If true, use the USER_tracer_example tracer package.
+USE_DOME_TRACER = False         !   [Boolean] default = False
+                                ! If true, use the DOME_tracer tracer package.
+USE_ISOMIP_TRACER = False       !   [Boolean] default = False
+                                ! If true, use the ISOMIP_tracer tracer package.
+USE_RGC_TRACER = False          !   [Boolean] default = False
+                                ! If true, use the RGC_tracer tracer package.
+USE_IDEAL_AGE_TRACER = False    !   [Boolean] default = False
+                                ! If true, use the ideal_age_example tracer package.
+USE_REGIONAL_DYES = False       !   [Boolean] default = False
+                                ! If true, use the regional_dyes tracer package.
+USE_OIL_TRACER = False          !   [Boolean] default = False
+                                ! If true, use the oil_tracer tracer package.
+USE_ADVECTION_TEST_TRACER = False !   [Boolean] default = False
+                                ! If true, use the advection_test_tracer tracer package.
+USE_OCMIP2_CFC = False          !   [Boolean] default = False
+                                ! If true, use the MOM_OCMIP2_CFC tracer package.
+USE_CFC_CAP = False             !   [Boolean] default = False
+                                ! If true, use the MOM_CFC_cap tracer package.
+USE_generic_tracer = False      !   [Boolean] default = False
+                                ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
+                                ! MOM_generic_tracer packages.
+USE_PSEUDO_SALT_TRACER = False  !   [Boolean] default = False
+                                ! If true, use the pseudo salt tracer, typically run as a diagnostic.
+USE_BOUNDARY_IMPULSE_TRACER = False !   [Boolean] default = False
+                                ! If true, use the boundary impulse tracer.
+USE_DYED_OBC_TRACER = False     !   [Boolean] default = False
+                                ! If true, use the dyed_obc_tracer tracer package.
+USE_NW2_TRACERS = False         !   [Boolean] default = False
+                                ! If true, use the NeverWorld2 tracers.
+
+! === module MOM_boundary_update ===
+USE_FILE_OBC = False            !   [Boolean] default = False
+                                ! If true, use external files for the open boundary.
+USE_TIDAL_BAY_OBC = False       !   [Boolean] default = False
+                                ! If true, use the tidal_bay open boundary.
+USE_KELVIN_WAVE_OBC = False     !   [Boolean] default = False
+                                ! If true, use the Kelvin wave open boundary.
+USE_SHELFWAVE_OBC = False       !   [Boolean] default = False
+                                ! If true, use the shelfwave open boundary.
+USE_DYED_CHANNEL_OBC = False    !   [Boolean] default = False
+                                ! If true, use the dyed channel open boundary.
+
+! === module segment_tracer_registry_init ===
+
+! === module MOM_grid ===
+! Parameters providing information about the lateral grid.
+REFERENCE_HEIGHT = 0.0          !   [m] default = 0.0
+                                ! A reference value for geometric height fields, such as bathyT.
+
+! === module MOM_coord_initialization ===
+COORD_CONFIG = "file"           ! default = "none"
+                                ! This specifies how layers are to be defined:
+                                !     ALE or none - used to avoid defining layers in ALE mode
+                                !     file - read coordinate information from the file
+                                !       specified by (COORD_FILE).
+                                !     BFB - Custom coords for buoyancy-forced basin case
+                                !       based on SST_S, T_BOT and DRHO_DT.
+                                !     linear - linear based on interfaces not layers
+                                !     layer_ref - linear based on layer densities
+                                !     ts_ref - use reference temperature and salinity
+                                !     ts_range - use range of temperature and salinity
+                                !       (T_REF and S_REF) to determine surface density
+                                !       and GINT calculate internal densities.
+                                !     gprime - use reference density (RHO_0) for surface
+                                !       density and GINT calculate internal densities.
+                                !     ts_profile - use temperature and salinity profiles
+                                !       (read from COORD_FILE) to set layer densities.
+                                !     USER - call a user modified routine.
+GFS = 9.8                       !   [m s-2] default = 9.8
+                                ! The reduced gravity at the free surface.
+COORD_FILE = "mom6_vgrid.nc"    !
+                                ! The file from which the coordinate densities are read.
+COORD_VAR = "Layer"             ! default = "Layer"
+                                ! The variable in COORD_FILE that is to be used for the coordinate densities.
+REMAP_UV_USING_OLD_ALG = False  !   [Boolean] default = False
+                                ! If true, uses the old remapping-via-a-delta-z method for remapping u and v. If
+                                ! false, uses the new method that remaps between grids described by an old and
+                                ! new thickness.
+REGRIDDING_COORDINATE_MODE = "HYCOM1" ! default = "LAYER"
+                                ! Coordinate mode for vertical regridding. Choose among the following
+                                ! possibilities:  LAYER - Isopycnal or stacked shallow water layers
+                                !  ZSTAR, Z* - stretched geopotential z*
+                                !  SIGMA_SHELF_ZSTAR - stretched geopotential z* ignoring shelf
+                                !  SIGMA - terrain following coordinates
+                                !  RHO   - continuous isopycnal
+                                !  HYCOM1 - HyCOM-like hybrid coordinate
+                                !  SLIGHT - stretched coordinates above continuous isopycnal
+                                !  ADAPTIVE - optimize for smooth neutral density surfaces
+REGRIDDING_COORDINATE_UNITS = "m" ! default = "m"
+                                ! Units of the regridding coordinate.
+INTERPOLATION_SCHEME = "P1M_H2" ! default = "P1M_H2"
+                                ! This sets the interpolation scheme to use to determine the new grid. These
+                                ! parameters are only relevant when REGRIDDING_COORDINATE_MODE is set to a
+                                ! function of state. Otherwise, it is not used. It can be one of the following
+                                ! schemes:  P1M_H2     (2nd-order accurate)
+                                !  P1M_H4     (2nd-order accurate)
+                                !  P1M_IH4    (2nd-order accurate)
+                                !  PLM        (2nd-order accurate)
+                                !  PPM_H4     (3rd-order accurate)
+                                !  PPM_IH4    (3rd-order accurate)
+                                !  P3M_IH4IH3 (4th-order accurate)
+                                !  P3M_IH6IH5 (4th-order accurate)
+                                !  PQM_IH4IH3 (4th-order accurate)
+                                !  PQM_IH6IH5 (5th-order accurate)
+BOUNDARY_EXTRAPOLATION = True   !   [Boolean] default = False
+                                ! When defined, a proper high-order reconstruction scheme is used within
+                                ! boundary cells rather than PCM. E.g., if PPM is used for remapping, a PPM
+                                ! reconstruction will also be used within boundary cells.
+ALE_COORDINATE_CONFIG = "HYBRID:mom6_vgrid.nc,sigma2,dz" ! default = "UNIFORM"
+                                ! Determines how to specify the coordinate resolution. Valid options are:
+                                !  PARAM       - use the vector-parameter ALE_RESOLUTION
+                                !  UNIFORM[:N] - uniformly distributed
+                                !  FILE:string - read from a file. The string specifies
+                                !                the filename and variable name, separated
+                                !                by a comma or space, e.g. FILE:lev.nc,dz
+                                !                or FILE:lev.nc,interfaces=zw
+                                !  WOA09[:N]   - the WOA09 vertical grid (approximately)
+                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
+                                !  HYBRID:string - read from a file. The string specifies
+                                !                the filename and two variable names, separated
+                                !                by a comma or space, for sigma-2 and dz. e.g.
+                                !                HYBRID:vgrid.nc,sigma2,dz
+!ALE_RESOLUTION = 1.0, 1.8, 3.24, 4.68, 4.93, 5.81, 6.87, 16*8.0, 10.0, 16.4, 35.92, 42.38, 50.02, 59.02, 69.64, 82.18, 96.97, 114.43, 135.02, 159.33, 188.01, 221.84, 261.78, 400.0, 2*600.0 !   [m]
+                                ! The distribution of vertical resolution for the target
+                                ! grid used for Eulerian-like coordinates. For example,
+                                ! in z-coordinate mode, the parameter is a list of level
+                                ! thicknesses (in m). In sigma-coordinate mode, the list
+                                ! is of non-dimensional fractions of the water column.
+!TARGET_DENSITIES = 1000.8253767322059, 1000.9753976286745, 1001.0754539025206, 1001.1755639809402, 1001.2757278869631, 1001.3759011987439, 1001.4761074528043, 1001.5763533875273, 1001.6766416349817, 1001.7769299846378, 1001.8772184359146, 1001.9775069882334, 1002.0777956410212, 1002.1780843937075, 1016.4018062156747, 1030.922895136804, 1031.5731039642267, 1032.1730731125313, 1032.7731379142344, 1033.3734060377199, 1033.9489898060865, 1034.4746559970501, 1034.9256378460568, 1035.2780631546893, 1035.5817658883268, 1035.8568875682522, 1036.0625595275512, 1036.2382822335644, 1036.4052397256335, 1036.531891684366, 1036.6282845626192, 1036.7098723640727, 1036.7818039929882, 1036.8505509724107, 1036.935804263422, 1037.0272838265205, 1037.1005320569998, 1037.1637770406705, 1037.2329108270692, 1037.346655072102, 1037.498820945812, 1037.681202716899 !   [m]
+                                ! HYBRID target densities for interfaces
+REGRID_COMPRESSIBILITY_FRACTION = 0.01 !   [nondim] default = 0.0
+                                ! When interpolating potential density profiles we can add some artificial
+                                ! compressibility solely to make homogeneous regions appear stratified.
+MIN_THICKNESS = 0.001           !   [m] default = 0.001
+                                ! When regridding, this is the minimum layer thickness allowed.
+MAXIMUM_INT_DEPTH_CONFIG = "NONE" ! default = "NONE"
+                                ! Determines how to specify the maximum interface depths.
+                                ! Valid options are:
+                                !  NONE        - there are no maximum interface depths
+                                !  PARAM       - use the vector-parameter MAXIMUM_INTERFACE_DEPTHS
+                                !  FILE:string - read from a file. The string specifies
+                                !                the filename and variable name, separated
+                                !                by a comma or space, e.g. FILE:lev.nc,Z
+                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
+MAX_LAYER_THICKNESS_CONFIG = "NONE" ! default = "NONE"
+                                ! Determines how to specify the maximum layer thicknesses.
+                                ! Valid options are:
+                                !  NONE        - there are no maximum layer thicknesses
+                                !  PARAM       - use the vector-parameter MAX_LAYER_THICKNESS
+                                !  FILE:string - read from a file. The string specifies
+                                !                the filename and variable name, separated
+                                !                by a comma or space, e.g. FILE:lev.nc,Z
+                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
+REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
+                                ! This sets the reconstruction scheme used for vertical remapping for all
+                                ! variables. It can be one of the following schemes: PCM         (1st-order
+                                ! accurate)
+                                ! PLM         (2nd-order accurate)
+                                ! PPM_H4      (3rd-order accurate)
+                                ! PPM_IH4     (3rd-order accurate)
+                                ! PQM_IH4IH3  (4th-order accurate)
+                                ! PQM_IH6IH5  (5th-order accurate)
+FATAL_CHECK_RECONSTRUCTIONS = False !   [Boolean] default = False
+                                ! If true, cell-by-cell reconstructions are checked for consistency and if
+                                ! non-monotonicity or an inconsistency is detected then a FATAL error is issued.
+FATAL_CHECK_REMAPPING = False   !   [Boolean] default = False
+                                ! If true, the results of remapping are checked for conservation and new extrema
+                                ! and if an inconsistency is detected then a FATAL error is issued.
+REMAP_BOUND_INTERMEDIATE_VALUES = False !   [Boolean] default = False
+                                ! If true, the values on the intermediate grid used for remapping are forced to
+                                ! be bounded, which might not be the case due to round off.
+REMAP_BOUNDARY_EXTRAP = False   !   [Boolean] default = False
+                                ! If true, values at the interfaces of boundary cells are extrapolated instead
+                                ! of piecewise constant
+REMAP_AFTER_INITIALIZATION = False !   [Boolean] default = True
+                                ! If true, applies regridding and remapping immediately after initialization so
+                                ! that the state is ALE consistent. This is a legacy step and should not be
+                                ! needed if the initialization is consistent with the coordinate mode.
+REGRID_TIME_SCALE = 0.0         !   [s] default = 0.0
+                                ! The time-scale used in blending between the current (old) grid and the target
+                                ! (new) grid. A short time-scale favors the target grid (0. or anything less
+                                ! than DT_THERM) has no memory of the old grid. A very long time-scale makes the
+                                ! model more Lagrangian.
+REGRID_FILTER_SHALLOW_DEPTH = 0.0 !   [m] default = 0.0
+                                ! The depth above which no time-filtering is applied. Above this depth final
+                                ! grid exactly matches the target (new) grid.
+REGRID_FILTER_DEEP_DEPTH = 0.0  !   [m] default = 0.0
+                                ! The depth below which full time-filtering is applied with time-scale
+                                ! REGRID_TIME_SCALE. Between depths REGRID_FILTER_SHALLOW_DEPTH and
+                                ! REGRID_FILTER_SHALLOW_DEPTH the filter weights adopt a cubic profile.
+
+! === module MOM_state_initialization ===
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
+                                ! Z-space file on a latitude-longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "53X_archm.2015010109_tsuv_filled.nc" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+TEMP_Z_INIT_FILE = "53X_archm.2015010109_tsuv_filled.nc" ! default = "53X_archm.2015010109_tsuv_filled.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+SALT_Z_INIT_FILE = "53X_archm.2015010109_tsuv_filled.nc" ! default = "53X_archm.2015010109_tsuv_filled.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+Z_INIT_FILE_PTEMP_VAR = "ptemp" ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_FILE_SALT_VAR = "salinity" ! default = "salt"
+                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
+Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
+                                ! If True, then horizontally homogenize the interpolated initial conditions.
+Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+                                ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
+                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
+                                ! If false, only reconstructs profiles for valid data points. If true, inserts
+                                ! vanished layers below the valid data.
+Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
+                                ! If false, uses the preferred remapping algorithm for initialization. If true,
+                                ! use an older, less robust algorithm for remapping.
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = False !   [Boolean] default = False
+                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
+                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
+                                ! remapping .
+HOR_REGRID_2018_ANSWERS = False !   [Boolean] default = False
+                                ! If true, use the order of arithmetic for horizonal regridding that recovers

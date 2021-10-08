@@ -339,3 +339,169 @@ MOM_hor_index: unknown
 
 MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+MOM_in domain decomposition:     2 X    1
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+MOM_fixed_initialization: unknown
+  MOM_fixed_initialization DEBUG: False
+  MOM_fixed_initialization INPUTDIR: INPUT
+MOM_grid_init: unknown
+  MOM_grid_init GRID_CONFIG: mosaic
+  MOM_grid_init DEBUG: False
+  MOM_grid_init set_grid_metrics_from_mosaic GRID_FILE: regional.mom6.nc
+  MOM_grid_init set_grid_metrics_from_mosaic USE_TRIPOLAR_GEOLONB_BUG: False
+  MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR: INPUT
+  MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR/GRID_FILE: INPUT/regional.mom6.nc
+
+MOM_MOSAIC domain decomposition:     2 X    1
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+MOM_MOSAIC domain decomposition:     2 X    1
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+  MOM_initialize_topography TOPO_CONFIG: file
+  initialize_topography_from_file INPUTDIR: INPUT
+  initialize_topography_from_file TOPO_FILE: depth_GOMb0.08_09m11_mom6.nc
+  initialize_topography_from_file TOPO_VARNAME: depth
+  initialize_topography_from_file INPUTDIR/TOPO_FILE: INPUT/depth_GOMb0.08_09m11_mom6.nc
+  apply_topography_edits_from_file INPUTDIR: INPUT
+  apply_topography_edits_from_file TOPO_EDITS_FILE:
+  apply_topography_edits_from_file ALLOW_LANDMASK_CHANGES: False
+  apply_topography_edits_from_file MINIMUM_DEPTH: 3.0
+  apply_topography_edits_from_file MASKING_DEPTH: -9999.0
+  MOM_initialize_topography MAXIMUM_DEPTH: 8200.0
+  limit_topography MINIMUM_DEPTH: 3.0
+MOM_open_boundary: unknown
+  MOM_open_boundary OBC_NUMBER_OF_SEGMENTS: 3
+  MOM_open_boundary OBC_ZERO_VORTICITY: True
+  MOM_open_boundary OBC_FREESLIP_VORTICITY: False
+  MOM_open_boundary OBC_COMPUTED_VORTICITY: False
+  MOM_open_boundary OBC_SPECIFIED_VORTICITY: False
+  MOM_open_boundary OBC_ZERO_STRAIN: False
+  MOM_open_boundary OBC_FREESLIP_STRAIN: True
+  MOM_open_boundary OBC_COMPUTED_STRAIN: False
+  MOM_open_boundary OBC_SPECIFIED_STRAIN: False
+  MOM_open_boundary OBC_ZERO_BIHARMONIC: True
+  MOM_open_boundary MASK_OUTSIDE_OBCS: True
+  MOM_open_boundary RAMP_OBCS: False
+  MOM_open_boundary OBC_RAMP_TIMESCALE: 1.0
+  MOM_open_boundary OBC_TIDE_N_CONSTITUENTS: 0
+  MOM_open_boundary DEBUG: False
+  MOM_open_boundary DEBUG_OBC: False
+  MOM_open_boundary REENTRANT_X: False
+  MOM_open_boundary REENTRANT_Y: False
+  MOM_open_boundary OBC_SEGMENT_001: J=0,I=0:N,FLATHER
+  MOM_open_boundary OBC_SEGMENT_002: I=N,J=0:N,FLATHER
+  MOM_open_boundary OBC_SEGMENT_003: J=N,I=N:0,FLATHER
+  MOM_open_boundary OBC_RADIATION_MAX: 1.0
+  MOM_open_boundary OBC_RAD_VEL_WT: 0.3
+  MOM_open_boundary OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT: 3.0E+04
+  MOM_open_boundary OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN: 3000.0
+  MOM_open_boundary BRUSHCUTTER_MODE: False
+  MOM_open_boundary DEFAULT_2018_ANSWERS: False
+  MOM_open_boundary REMAPPING_2018_ANSWERS: False
+  MOM_grid_init initialize_masks MINIMUM_DEPTH: 3.0
+  MOM_grid_init initialize_masks MASKING_DEPTH: -9999.0
+  MOM_fixed_initialization CHANNEL_CONFIG: none
+  MOM_initialize_rotation ROTATION: 2omegasinlat
+  set_rotation_planetary OMEGA: 7.2921E-05
+  initialize_grid_rotation_angle GRID_ROTATION_ANGLE_BUGS: False
+MOM_verticalGrid: unknown
+  MOM_verticalGrid G_EARTH: 9.8
+  MOM_verticalGrid RHO_0: 1035.0
+  MOM_verticalGrid BOUSSINESQ: True
+  MOM_verticalGrid ANGSTROM: 1.0E-10
+  MOM_verticalGrid H_RESCALE_POWER: 0
+  MOM_verticalGrid H_TO_M: 1.0
+  MOM_verticalGrid NK: 41
+  MOM_verticalGrid M to THICKNESS: 1.0
+  MOM_verticalGrid M to THICKNESS rescaled by 2^-n: 1.0
+  MOM_verticalGrid THICKNESS to M rescaled by 2^n: 1.0
+
+MOM_in domain decomposition:     2 X    1
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+MOM_in domain decomposition:     2 X    1
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+MOM_tracer_registry: unknown
+  MOM NK_RHO_VARIES: 0
+MOM_EOS: unknown
+  MOM_EOS EQN_OF_STATE: WRIGHT
+  MOM_EOS EOS_QUADRATURE: False
+  MOM_EOS TFREEZE_FORM: LINEAR
+  MOM_EOS TFREEZE_S0_P0: 0.0
+  MOM_EOS DTFREEZE_DS: -0.054
+  MOM_EOS DTFREEZE_DP: -7.75E-08
+MOM_restart: unknown
+  MOM_restart PARALLEL_RESTARTFILES: True
+  MOM_restart RESTARTFILE: MOM.res
+  MOM_restart LARGE_FILE_SUPPORT: True
+  MOM_restart MAX_FIELDS: 100
+  MOM_restart RESTART_CHECKSUMS_REQUIRED: False
+MOM_tracer_flow_control: unknown
+  MOM_tracer_flow_control USE_USER_TRACER_EXAMPLE: False
+  MOM_tracer_flow_control USE_DOME_TRACER: False
+  MOM_tracer_flow_control USE_ISOMIP_TRACER: False
+  MOM_tracer_flow_control USE_RGC_TRACER: False
+  MOM_tracer_flow_control USE_IDEAL_AGE_TRACER: False
+  MOM_tracer_flow_control USE_REGIONAL_DYES: False
+  MOM_tracer_flow_control USE_OIL_TRACER: False
+  MOM_tracer_flow_control USE_ADVECTION_TEST_TRACER: False
+  MOM_tracer_flow_control USE_OCMIP2_CFC: False
+  MOM_tracer_flow_control USE_CFC_CAP: False
+  MOM_tracer_flow_control USE_generic_tracer: False
+  MOM_tracer_flow_control USE_PSEUDO_SALT_TRACER: False
+  MOM_tracer_flow_control USE_BOUNDARY_IMPULSE_TRACER: False
+  MOM_tracer_flow_control USE_DYED_OBC_TRACER: False
+  MOM_tracer_flow_control USE_NW2_TRACERS: False
+MOM_boundary_update: unknown
+  MOM_boundary_update USE_FILE_OBC: False
+  MOM_boundary_update USE_TIDAL_BAY_OBC: False
+  MOM_boundary_update USE_KELVIN_WAVE_OBC: False
+  MOM_boundary_update USE_SHELFWAVE_OBC: False
+  MOM_boundary_update USE_DYED_CHANNEL_OBC: False
+segment_tracer_registry_init: unknown
+  MOM_open_boundary OBC_SEGMENT_001_DATA: U=file:obc_south.nc(u11),V=file:obc_south.nc(v11),SSH=file:obc_south.nc(ssh),TEMP=file:obc_south.nc(pt),SALT=file:obc_south.nc(s)
+  MOM_open_boundary OBC_SEGMENT_002_DATA: U=file:obc_east.nc(u11),V=file:obc_east.nc(v11),SSH=file:obc_east.nc(ssh),TEMP=file:obc_east.nc(pt),SALT=file:obc_east.nc(s)
+  MOM_open_boundary OBC_SEGMENT_003_DATA: U=file:obc_north.nc(u11),V=file:obc_north.nc(v11),SSH=file:obc_north.nc(ssh),TEMP=file:obc_north.nc(pt),SALT=file:obc_north.nc(s)
+MOM_grid: unknown
+  MOM_grid NIBLOCK: 1
+  MOM_grid NJBLOCK: 1
+  MOM_grid REFERENCE_HEIGHT: 0.0
+MOM_coord_initialization: unknown
+  MOM_coord_initialization DEBUG: False
+  MOM_coord_initialization COORD_CONFIG: file
+  set_coord_from_file GFS: 9.8
+  set_coord_from_file INPUTDIR: INPUT
+  set_coord_from_file COORD_FILE: mom6_vgrid.nc
+  set_coord_from_file COORD_VAR: Layer
+  set_coord_from_file INPUTDIR/COORD_FILE: INPUT/mom6_vgrid.nc
+  MOM_ALE REMAP_UV_USING_OLD_ALG: False
+  MOM_ALE REGRIDDING_COORDINATE_MODE: HYCOM1
+  MOM_ALE INPUTDIR: INPUT
+  MOM_ALE REGRIDDING_COORDINATE_UNITS: m
+  MOM_ALE INTERPOLATION_SCHEME: P1M_H2
+  MOM_ALE DEFAULT_2018_ANSWERS: False
+  MOM_ALE REMAPPING_2018_ANSWERS: False
+  MOM_ALE BOUNDARY_EXTRAPOLATION: True
+  MOM_ALE ALE_COORDINATE_CONFIG: HYBRID:mom6_vgrid.nc,sigma2,dz
+  MOM_ALE !ALE_RESOLUTION: 1.0, 1.8, 3.24, 4.68, 4.93, 5.81, 6.87, 16*8.0, 10.0, 16.4, 35.92, 42.38, 50.02, 59.02, 69.64, 82.18, 96.97, 114.43, 135.02, 159.33, 188.01, 221.84, 261.78, 400.0, 2*600.0
+  MOM_ALE !TARGET_DENSITIES: 1000.8253767322059, 1000.9753976286745, 1001.0754539025206, 1001.1755639809402, 1001.2757278869631, 1001.3759011987439, 1001.4761074528043, 1001.5763533875273, 1001.6766416349817, 1001.7769299846378, 1001.8772184359146, 1001.9775069882334, 1002.0777956410212, 1002.1780843937075, 1016.4018062156747, 1030.922895136804, 1031.5731039642267, 1032.1730731125313, 1032.7731379142344, 1033.3734060377199, 1033.9489898060865, 1034.4746559970501, 1034.9256378460568, 1035.2780631546893, 1035.5817658883268, 1035.8568875682522, 1036.0625595275512, 1036.2382822335644, 1036.4052397256335, 1036.531891684366, 1036.6282845626192, 1036.7098723640727, 1036.7818039929882, 1036.8505509724107, 1036.935804263422, 1037.0272838265205, 1037.1005320569998, 1037.1637770406705, 1037.2329108270692, 1037.346655072102, 1037.498820945812, 1037.681202716899
+  MOM_ALE P_REF: 2.0E+07
+  MOM_ALE REGRID_COMPRESSIBILITY_FRACTION: 0.01
+  MOM_ALE MIN_THICKNESS: 0.001
+  MOM_ALE MAXIMUM_INT_DEPTH_CONFIG: NONE
+  MOM_ALE MAX_LAYER_THICKNESS_CONFIG: NONE
+  MOM_ALE REMAPPING_SCHEME: PPM_H4
+  MOM_ALE FATAL_CHECK_RECONSTRUCTIONS: False
+  MOM_ALE FATAL_CHECK_REMAPPING: False
+  MOM_ALE REMAP_BOUND_INTERMEDIATE_VALUES: False
+  MOM_ALE REMAP_BOUNDARY_EXTRAP: False
+  MOM_ALE DEFAULT_2018_ANSWERS: False
+  MOM_ALE REMAPPING_2018_ANSWERS: False
+  MOM_ALE REMAP_AFTER_INITIALIZATION: False
+  MOM_ALE REGRID_TIME_SCALE: 0.0
+  MOM_ALE REGRID_FILTER_SHALLOW_DEPTH: 0.0
+  MOM_ALE REGRID_FILTER_DEEP_DEPTH: 0.0
+
+MOM_in domain decomposition:     2 X    1
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed

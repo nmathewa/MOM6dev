@@ -924,19 +924,6 @@ SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
 TIDES = False                   ! default = False. If true, apply tidal momentum forcing.
 
 
-WIND_CONFIG = "file"            !
-                                ! The character string that indicates how wind forcing
-                                ! is specified. Valid options include (file), (2gyre),
-                                ! (1gyre), (gyres), (zero), and (USER).
-WIND_FILE = "ocean_forcing_daily.nc" !
-                                ! The file in which the wind stresses are found in
-                                ! variables STRESS_X and STRESS_Y.
-WINDSTRESS_X_VAR = "taux"       ! default = "STRESS_X"
-                                ! The name of the x-wind stress variable in WIND_FILE.
-WINDSTRESS_Y_VAR = "tauy"       ! default = "STRESS_Y"
-
-
-
 ! === module MOM_sum_output ===
 MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
                                 ! The run will be stopped, and the day set to a very
