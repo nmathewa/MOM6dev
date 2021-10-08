@@ -32,3 +32,8 @@ n_bath = griddata((xf,yf),valsf,(xx[None,:],yy[:,None]),method="linear")
 ```BASH
 pandoc phd_propos.md -o proposal_init.pdf --from markdown --template eisvogel --listing
 ```
+
+
+# Simulated SSH
+
+![](exps/caops/docs/caops1/SSH.gif)
