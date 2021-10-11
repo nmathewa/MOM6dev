@@ -923,7 +923,7 @@ SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
 
 TIDES = False                   ! default = False. If true, apply tidal momentum forcing.
 
-!WIND_CONFIG = "file"            !
+WIND_CONFIG = "file"            !
                                 ! The character string that indicates how wind forcing
                                 ! is specified. Valid options include (file), (2gyre),
                                 ! (1gyre), (gyres), (zero), and (USER).
