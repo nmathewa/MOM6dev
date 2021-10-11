@@ -500,5 +500,20 @@ WIND_CONFIG = "file"            ! default = "zero"
 WIND_FILE = "wind_force_new.nc" !
                                 ! The file in which the wind stresses are found in variables STRESS_X and
                                 ! STRESS_Y.
+WINDSTRESS_X_VAR = "taux"       ! default = "STRESS_X"
+                                ! The name of the x-wind stress variable in WIND_FILE.
+WINDSTRESS_Y_VAR = "tauy"       ! default = "STRESS_Y"
+                                ! The name of the y-wind stress variable in WIND_FILE.
 
 ! === module MOM_restart ===
+
+! === module MOM_main (MOM_driver) ===
+DAYMAX = 2.0                    !   [days]
+                                ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
+                                ! also sets the potential end time of the present run segment if the end time is
+                                ! not set via ocean_solo_nml in input.nml.
+RESTART_CONTROL = -1            ! default = 1
+                                ! An integer whose bits encode which restart files are written. Add 2 (bit 1)
+                                ! for a time-stamped file, and odd (bit 0) for a non-time-stamped file. A
+                                ! non-time-stamped restart file is saved at the end of the run segment for any
+                                ! non-negative value.

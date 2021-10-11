@@ -996,32 +996,3 @@ MOM_sum_output: unknown
   MOM_sum_output TIMEUNIT: 8.64E+04
   MOM_sum_output TIMEUNIT: 8.64E+04
   MOM_sum_output ENERGYSAVEDAYS (Time): 1:0
-  MOM_sum_output ENERGYSAVEDAYS_GEOMETRIC (Time): 0:0
-MOM_surface_forcing: unknown
-  MOM_surface_forcing ENABLE_THERMODYNAMICS: True
-  MOM_surface_forcing INPUTDIR: INPUT
-  MOM_surface_forcing ADIABATIC: False
-  MOM_surface_forcing VARIABLE_WINDS: True
-  MOM_surface_forcing VARIABLE_BUOYFORCE: True
-  MOM_surface_forcing BUOY_CONFIG: zero
-  MOM_surface_forcing WIND_CONFIG: file
-  MOM_surface_forcing WIND_FILE: wind_force_new.nc
-  MOM_surface_forcing WINDSTRESS_X_VAR: STRESS_X
-  MOM_surface_forcing WINDSTRESS_Y_VAR: STRESS_Y
-  MOM_surface_forcing WIND_STAGGER: C
-  MOM_surface_forcing WINDSTRESS_SCALE: 1.0
-  MOM_surface_forcing USTAR_FORCING_VAR:
-  MOM_surface_forcing RHO_0: 1035.0
-  MOM_surface_forcing RESTOREBUOY: False
-  MOM_surface_forcing LATENT_HEAT_FUSION: 3.34E+05
-  MOM_surface_forcing LATENT_HEAT_VAPORIZATION: 2.5E+06
-  MOM_surface_forcing G_EARTH: 9.8
-  MOM_surface_forcing GUST_CONST: 0.0
-  MOM_surface_forcing FIX_USTAR_GUSTLESS_BUG: True
-  MOM_surface_forcing READ_GUST_2D: False
-MOM_restart: unknown
-  MOM_restart PARALLEL_RESTARTFILES: True
-  MOM_restart RESTARTFILE from argument: MOM_forcing.res
-  MOM_restart LARGE_FILE_SUPPORT: True
-  MOM_restart MAX_FIELDS: 100
-  MOM_restart RESTART_CHECKSUMS_REQUIRED: False
