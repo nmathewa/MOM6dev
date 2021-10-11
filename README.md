@@ -1,7 +1,7 @@
 # To do
 
-- [ ] - function for masking @forcing
-
+- [x] - function for masking @forcing
+- [ ] - data type of dimension error, create an default template (netcdf Xarray)
 
 
 # MOM6dev
