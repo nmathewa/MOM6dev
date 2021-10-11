@@ -1713,11 +1713,26 @@ BUOY_CONFIG = "zero"            ! default = "zero"
                                 ! The character string that indicates how buoyancy forcing is specified.  Valid
                                 ! options include (file), (data_override), (zero), (const), (linear), (MESO),
                                 ! (SCM_CVmix_tests), (BFB), (dumbbell), (USER) and (NONE).
-WIND_CONFIG = "zero"            ! default = "zero"
+WIND_CONFIG = "file"            ! default = "zero"
                                 ! The character string that indicates how wind forcing is specified.  Valid
                                 ! options include (file), (data_override), (2gyre), (1gyre), (gyres), (zero),
                                 ! (const), (Neverworld), (scurves), (ideal_hurr), (SCM_ideal_hurr),
                                 ! (SCM_CVmix_tests) and (USER).
+WIND_FILE = "wind_force_new.nc" !
+                                ! The file in which the wind stresses are found in variables STRESS_X and
+                                ! STRESS_Y.
+WINDSTRESS_X_VAR = "STRESS_X"   ! default = "STRESS_X"
+                                ! The name of the x-wind stress variable in WIND_FILE.
+WINDSTRESS_Y_VAR = "STRESS_Y"   ! default = "STRESS_Y"
+                                ! The name of the y-wind stress variable in WIND_FILE.
+WIND_STAGGER = "C"              ! default = "C"
+                                ! A character indicating how the wind stress components are staggered in
+                                ! WIND_FILE.  This may be A or C for now.
+WINDSTRESS_SCALE = 1.0          !   [nondim] default = 1.0
+                                ! A value by which the wind stresses in WIND_FILE are rescaled.
+USTAR_FORCING_VAR = ""          !   [nondim] default = ""
+                                ! The name of the friction velocity variable in WIND_FILE or blank to get ustar
+                                ! from the wind stresses plus the gustiness.
 RESTOREBUOY = False             !   [Boolean] default = False
                                 ! If true, the buoyancy fluxes drive the model back toward some specified
                                 ! surface state with a rate given by FLUXCONST.
@@ -1734,52 +1749,3 @@ READ_GUST_2D = False            !   [Boolean] default = False
                                 ! If true, use a 2-dimensional gustiness supplied from an input file
 
 ! === module MOM_restart ===
-USE_WAVES = False               !   [Boolean] default = False
-                                ! If true, enables surface wave modules.
-
-! === module MOM_main (MOM_driver) ===
-DT_FORCING = 300.0              !   [s] default = 300.0
-                                ! The time step for changing forcing, coupling with other components, or
-                                ! potentially writing certain diagnostics. The default value is given by DT.
-DAYMAX = 2.0                    !   [days]
-                                ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
-                                ! also sets the potential end time of the present run segment if the end time is
-                                ! not set via ocean_solo_nml in input.nml.
-SINGLE_STEPPING_CALL = True     !   [Boolean] default = True
-                                ! If true, advance the state of MOM with a single step including both dynamics
-                                ! and thermodynamics.  If false the two phases are advanced with separate calls.
-RESTART_CONTROL = -1            ! default = 1
-                                ! An integer whose bits encode which restart files are written. Add 2 (bit 1)
-                                ! for a time-stamped file, and odd (bit 0) for a non-time-stamped file. A
-                                ! non-time-stamped restart file is saved at the end of the run segment for any
-                                ! non-negative value.
-RESTINT = 0.0                   !   [days] default = 0.0
-                                ! The interval between saves of the restart file in units of TIMEUNIT.  Use 0
-                                ! (the default) to not save incremental restart files at all.
-WRITE_CPU_STEPS = 1000          ! default = 1000
-                                ! The number of coupled timesteps between writing the cpu time. If this is not
-                                ! positive, do not check cpu time, and the segment run-length can not be set via
-                                ! an elapsed CPU time.
-
-! === module MOM_write_cputime ===
-MAXCPU = -1.0                   !   [wall-clock seconds] default = -1.0
-                                ! The maximum amount of cpu time per processor for which MOM should run before
-                                ! saving a restart file and quitting with a return value that indicates that a
-                                ! further run is required to complete the simulation. If automatic restarts are
-                                ! not desired, use a negative value for MAXCPU.  MAXCPU has units of wall-clock
-                                ! seconds, so the actual CPU time used is larger by a factor of the number of
-                                ! processors used.
-CPU_TIME_FILE = "CPU_stats"     ! default = "CPU_stats"
-                                ! The file into which CPU time is written.
-
-! === module MOM_file_parser ===
-SEND_LOG_TO_STDOUT = False      !   [Boolean] default = False
-                                ! If true, all log messages are also sent to stdout.
-DOCUMENT_FILE = "MOM_parameter_doc" ! default = "MOM_parameter_doc"
-                                ! The basename for files where run-time parameters, their settings, units and
-                                ! defaults are documented. Blank will disable all parameter documentation.
-COMPLETE_DOCUMENTATION = True   !   [Boolean] default = True
-                                ! If true, all run-time parameters are documented in MOM_parameter_doc.all .
-MINIMAL_DOCUMENTATION = True    !   [Boolean] default = True
-                                ! If true, non-default run-time parameters are documented in
-                                ! MOM_parameter_doc.short .

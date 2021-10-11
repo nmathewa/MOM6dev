@@ -492,16 +492,13 @@ MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
                                 ! to stop if there is any truncation of velocities.
 
 ! === module MOM_surface_forcing ===
+WIND_CONFIG = "file"            ! default = "zero"
+                                ! The character string that indicates how wind forcing is specified.  Valid
+                                ! options include (file), (data_override), (2gyre), (1gyre), (gyres), (zero),
+                                ! (const), (Neverworld), (scurves), (ideal_hurr), (SCM_ideal_hurr),
+                                ! (SCM_CVmix_tests) and (USER).
+WIND_FILE = "wind_force_new.nc" !
+                                ! The file in which the wind stresses are found in variables STRESS_X and
+                                ! STRESS_Y.
 
 ! === module MOM_restart ===
-
-! === module MOM_main (MOM_driver) ===
-DAYMAX = 2.0                    !   [days]
-                                ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
-                                ! also sets the potential end time of the present run segment if the end time is
-                                ! not set via ocean_solo_nml in input.nml.
-RESTART_CONTROL = -1            ! default = 1
-                                ! An integer whose bits encode which restart files are written. Add 2 (bit 1)
-                                ! for a time-stamped file, and odd (bit 0) for a non-time-stamped file. A
-                                ! non-time-stamped restart file is saved at the end of the run segment for any
-                                ! non-negative value.

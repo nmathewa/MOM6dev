@@ -11,15 +11,15 @@ import xarray as xr
 import matplotlib.pyplot as plt
 import numpy as np
 import datetime
-
+#%%
 os.chdir("/home/nma/momdev/exps/caops/")
 
 ocnm = xr.open_mfdataset("ocnm*.nc",concat_dim="Time",use_cftime=True)
 ocns = xr.open_mfdataset("ocns*.nc",concat_dim="Time",use_cftime=True)
-
+5
 lons,lats = ocns.xq[:-1],ocns.yq[:-1]
 
-
+#%%
 u = ocns.u[:,:,:,:-1]
 v = ocns.v[:,:,:-1,:]
 uu = u*u
