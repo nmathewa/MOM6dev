@@ -1,6 +1,6 @@
-"GOLD Experiment"
+"NMA Experiment"
 1 1 1 0 0 0
-"prog_%4yr_%3dy",     5,"days",1,"days","Time",365,"days"
+"prog_%4yr_%3dy",     1,"days",1,"days","Time",365,"days"
 "ave_prog_%4yr_%3dy", 5,"days",1,"days","Time",365,"days"
 "cont_%4yr_%3dy",     5,"days",1,"days","Time",365,"days"
 "meke_%4yr_%3dy",     5,"days",1,"days","Time",365,"days"
