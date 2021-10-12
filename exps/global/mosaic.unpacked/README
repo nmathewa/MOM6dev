@@ -1,0 +1,24 @@
+# Copied from
+# http://cobweb.gfdl.noaa.gov/~aja/OMDT/index.php/GOLD/CreateNewMosaicsFilesFromOldFiles
+
+   1. Convert grid_spec.nc (coupled model/exchange grid) to Mosaic file:
+
+      /home/z1l/bin/tools/transfer_to_mosaic_grid --input_file /archive/gold/datasets/CM2.2/omsk_2007_10/INPUT/grid_spec_fv_v4.nc
+
+          * this creates mosaic.nc, ocean_mosaic.nc, ocean_hgrid.nc, ocean_vgrid.nc and topog.nc among others for land, atmos.
+          * ocean_vgrid.nc is a dummy file for a two-level z-coordinate model. 
+   2. Convert ocean_grid.nc to new grid spec (within Mosaic):
+
+      /home/z1l/bin/tools/transfer_to_mosaic_grid --input_file /archive/gold/datasets/CM2.2/omsk_2007_10/INPUT/ocean_grid.7.29.2008_fixed.nc
+
+          * this overwrites ocean_mosaic.nc, ocean_hgrid.nc, ocean_vgrid.nc and topog.nc. 
+   3. Discard old exchange grid:
+
+      rm *osaicX*.nc
+
+          * this overwrites atmos_mosaicXland_mosaic.nc, atmos_mosaicXocean_mosaic.nc and land_mosaicXocean_mosaic.nc. 
+   4. Re-generate the exchange grid:
+
+      /home/z1l/bin/tools/make_coupler_mosaic --atmos_mosaic atmos_mosaic.nc --ocean_mosaic ocean_mosaic.nc --ocean_topog topog.nc --land_mosaic land_mosaic.nc
+
+          * this creates atmos_mosaic_tile1Xland_mosaic_tile1.nc, atmos_mosaic_tile1Xocean_mosaic_tile1.nc and land_mosaic_tile1Xocean_mosaic_tile1.nc and modifies mosaic.nc as well as ocean_mask.nc and land_mask.nc. 

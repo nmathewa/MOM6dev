@@ -53,15 +53,16 @@ m_forc = xr.open_dataset("wind_force_new.nc")
 
 taux,tauy = m_forc.taux.values,m_forc.tauy.values
 
-n_taux = np.transpose(taux,(1,2,0))
-n_tauy = np.transpose(tauy,(1,2,0))
+#n_taux = np.transpose(taux,(1,2,0))
+#n_tauy = np.transpose(tauy,(1,2,0))
 
 #sbs.heatmap(n_taux[:,:,0])
 
-taux_nan = np.where(n_taux == np.nan,0,n_taux)
-tauy_nan = np.where(n_tauy == np.nan,0,n_tauy )
+#taux_nan = np.where(taux == np.nan,0,n_taux)
+#tauy_nan = np.where(taux == np.nan,0,n_tauy )
 
-plt.contourf(tauy_nan[:,:,0])
+plt.contourf(taux[0,:,:])
+
 #%%
 
 dset = xr.Dataset({
@@ -71,3 +72,36 @@ dset = xr.Dataset({
               "lon":(["lon",],n_lons),
               "lat":(["lat",],n_lats)})
 dset.to_netcdf("wind_force_new_1.nc")
+
+#%%
+
+os.chdir("/home/nma/HDD/hdd/IISC_PA/datasets/global/siena_201204/INPUT/")
+
+forcing_ori = xr.open_dataset("ocean_forcing_daily.nc")
+
+times_ori = forcing_ori.time.values[:31]
+
+taux_tim = np.array(taux[:31,:,:],dtype=np.float32)
+tauy_tim = np.array(taux[:31,:,:],dtype=np.float32)
+
+
+times_new = np.array(['0001-01', '0001-02'], dtype='datetime64[D]')
+
+
+#%%
+
+os.chdir("/home/nma/momdev/exps/caops/INPUT/")
+
+
+dset = xr.Dataset({
+    "taux" : (["time","yh","xq"],taux_tim),
+    "tauy" : (["time","yh","xq"],tauy_tim)},
+    coords = {"yh":(["yh",],n_lats),
+              "xq":(["xq",],n_lons),
+              "time":(["time",],times_ori)})
+dset.to_netcdf("wind_force_new_1.nc")
+
+#%%
+
+reg = xr.open_dataset('regional.mom6.nc')
+
