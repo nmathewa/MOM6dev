@@ -7,6 +7,12 @@ Full description about setting up the global siena experiment for the indian oce
 
 
 
+
+# To-Do
+
+- [ ] check thr fml stack size 
+![](imgs/Screenshot%20from%202021-10-13%2012-08-12.png) 
+
 ## namelist analysis
 
 
