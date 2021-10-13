@@ -9,3 +9,8 @@
  &diag_manager_nml
  /
 
+ &fms_nml
+         clock_grain='MODULE',
+         clock_flags='NONE',
+         domains_stack_size = 4838400,
+         stack_size = 0 /
