@@ -110,11 +110,6 @@ FIRST_DIRECTION = 0             ! default = 0
                                 ! An integer that indicates which direction goes first in parts of the code that
                                 ! use directionally split updates, with even numbers (or 0) used for x- first
                                 ! and odd numbers used for y-first.
-ALTERNATE_FIRST_DIRECTION = False !   [Boolean] default = False
-                                ! If true, after every dynamic timestep alternate whether the x- or y- direction
-                                ! updates occur first in directionally split parts of the calculation. If this
-                                ! is true, FIRST_DIRECTION applies at the start of a new run or if the next
-                                ! first direction can not be found in the restart file.
 CHECK_BAD_SURFACE_VALS = True   !   [Boolean] default = False
                                 ! If true, check the surface state for ridiculous values.
 BAD_VAL_SSH_MAX = 50.0          !   [m] default = 20.0
@@ -350,8 +345,6 @@ USE_ADVECTION_TEST_TRACER = False !   [Boolean] default = False
                                 ! If true, use the advection_test_tracer tracer package.
 USE_OCMIP2_CFC = False          !   [Boolean] default = False
                                 ! If true, use the MOM_OCMIP2_CFC tracer package.
-USE_CFC_CAP = False             !   [Boolean] default = False
-                                ! If true, use the MOM_CFC_cap tracer package.
 USE_generic_tracer = False      !   [Boolean] default = False
                                 ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
                                 ! MOM_generic_tracer packages.
@@ -361,8 +354,6 @@ USE_BOUNDARY_IMPULSE_TRACER = False !   [Boolean] default = False
                                 ! If true, use the boundary impulse tracer.
 USE_DYED_OBC_TRACER = False     !   [Boolean] default = False
                                 ! If true, use the dyed_obc_tracer tracer package.
-USE_NW2_TRACERS = False         !   [Boolean] default = False
-                                ! If true, use the NeverWorld2 tracers.
 
 ! === module MOM_grid ===
 ! Parameters providing information about the lateral grid.
@@ -640,7 +631,7 @@ SPONGE_DATA_ONGRID = False      !   [Boolean] default = False
                                 ! The total number of columns where sponges are applied at h points.
 !Total sponge columns at u points = 3087 !
                                 ! The total number of columns where sponges are applied at u points.
-!Total sponge columns at v points = 3083 !
+!Total sponge columns at v points = 3103 !
                                 ! The total number of columns where sponges are applied at v points.
 
 ! === module MOM_diag_mediator ===
