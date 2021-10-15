@@ -24,11 +24,27 @@ dd_s = dd.sel(lon=slice(76,100),lat=slice(9,26))
 
 dd_s.z.plot()
 
+
 #%%
+
+reg = xr.open_dataset("ocean_hgrid.nc")
+nx,ny = reg.x.values.flatten(),reg.y.values.flatten()
+
+
+
+#%%
+
+ni,nj = 327,222
+
 depth = dd_s.z*-1
 
 n_dep = depth.where(depth > 0 ,0)
 
 n_dset =  n_dep.to_dataset(name="depth")
 
-n_dset.to_netcdf("topog_final.nc")
+depth = n
+#n_dset.to_netcdf("topog_final.nc")
+
+
+
+
