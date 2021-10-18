@@ -120,3 +120,12 @@ dset = xr.Dataset({
 
 
 dset.to_netcdf("../../regional/INPUT/test_wo2eta.nc")
+
+#%%
+"""ptemp only up to 38, salt up to 37"""
+import xarray as xr
+
+readdset = xr.open_dataset("../../regional/INPUT/test_wo2eta.nc")
+
+#readdset.ptemp[38,:,:].plot()
+readdset.salt[38,:,:].plot()
