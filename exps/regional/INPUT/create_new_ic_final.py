@@ -37,6 +37,8 @@ hycom_new = xr.open_dataset("../../regional/INPUT/data_2015.nc4")
 
 
 hyc_sal = hycom_new.salinity
+hyc_temp = hycom_new.water_temp
+
 
 hy_n_sal = hyc_sal.interp(lon=n_lonss,lat=n_latss)
 hy_n_temp = hyc_temp.interp(lon=n_lonss,lat=n_latss)
@@ -58,6 +60,44 @@ n_temp_22 = np.expand_dims(np.concatenate(llsal),axis=0)
 
 temp_63 = np.append(arr=temp_40,values=n_temp_22,axis=1)
 
+
+#%%create eta
+"""64 level eta"""
+import matplotlib.pyplot as plt
+
+eta_init = gold.eta.values
+
+topog = xr.open_dataset("../../regional/INPUT/topog.nc")
+
+
+dep = topog.depth.values
+#topog.depth.plot()
+
+eta0 = eta_init[0,:,:]
+
+eat_0 = np.expand_dims(np.ones(np.shape(dep))*eta0[0,0],axis=0)
+
+eat_1 = np.expand_dims(np.where(dep > 0,eta0[0,0],-5),axis=0)
+
+eat_2 = np.expand_dims(np.where(dep > 0,eta0[0,0],-10),axis=0)
+
+eat_3 = np.expand_dims(np.where(dep > 0,eta0[0,0],-10),axis=0)
+
+
+eat_4 = np.expand_dims(np.where(dep > 0,eta0[0,0],-10),axis=0)
+
+eat_5 = 59*[np.expand_dims(np.where(dep >= 10,-1*dep,eta0[0,0]),axis=0)]
+
+
+eat_58 = np.concatenate(eat_5)
+
+
+eat_full = np.concatenate([eat_0,eat_1,eat_2,eat_3,eat_4,eat_58],axis=0)
+#plt.contourf(eat_1)
+#for ii in range(eta_init.shape[0]):
+    
+
+
 #%% ndsets
 
 lons,lats = n_lonss,n_latss
@@ -68,10 +108,15 @@ ftemp_63 = temp_63[0,:,:,:]
 fsalt_63 = salt_63[0,:,:,:]
 
 
+
+
 dset = xr.Dataset({
     "ptemp" : (["Layer","latitude","longitude"],ftemp_63),
     "salt" : (["Layer","latitude","longitude"],fsalt_63),
-    "eta" : (["Interface","latitude","longitude"],eta)},
+    "eta" : (["Interface","latitude","longitude"],eat_full)},
     coords = {"Interface":(["Interface",],interfaces),
               "longitude":(["longitude",],lons),
               "latitude":(["latitude",],lats)})
+
+
+dset.to_netcdf("../../regional/INPUT/test_wo2eta.nc")
