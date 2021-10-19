@@ -51,16 +51,22 @@ llsal = 23*[np.expand_dims(salt_40[0,-1,:,:],axis=0)]
 
 n_sal_22 = np.expand_dims(np.concatenate(llsal),axis=0)
 
-salt_63 = np.append(arr=salt_40,values=n_sal_22,axis=1)
+#salt_63 = np.append(arr=salt_40,values=n_sal_22,axis=1)
+
+salt_38 = hy_n_sal.values[:,:37,:,:]
 
 
 lltemp = 23*[np.expand_dims(temp_40[0,-1,:,:],axis=0)]
 
 n_temp_22 = np.expand_dims(np.concatenate(llsal),axis=0)
 
-temp_63 = np.append(arr=temp_40,values=n_temp_22,axis=1)
+#temp_63 = np.append(arr=temp_40,values=n_temp_22,axis=1)
 
+temp_38 = hy_n_temp.values[:,:37,:,:]
 
+import matplotlib.pyplot as plt
+
+plt.contourf(temp_38[0,-1,:,:])
 #%%create eta
 """64 level eta"""
 import matplotlib.pyplot as plt
@@ -86,13 +92,14 @@ eat_3 = np.expand_dims(np.where(dep > 0,eta0[0,0],-10),axis=0)
 
 eat_4 = np.expand_dims(np.where(dep > 0,eta0[0,0],-10),axis=0)
 
-eat_5 = 59*[np.expand_dims(np.where(dep >= 10,-1*dep,eta0[0,0]),axis=0)]
+#eat_5 = 59*[np.expand_dims(np.where(dep >= 10,-1*dep,eta0[0,0]),axis=0)]
 
+eat_5 = 33*[np.expand_dims(np.where(dep >= 10,-1*dep,eta0[0,0]),axis=0)]
 
-eat_58 = np.concatenate(eat_5)
+#eat_58 = np.concatenate(eat_5)
+eat_34 = np.concatenate(eat_5)
 
-
-eat_full = np.concatenate([eat_0,eat_1,eat_2,eat_3,eat_4,eat_58],axis=0)
+eat_full = np.concatenate([eat_0,eat_1,eat_2,eat_3,eat_4,eat_34],axis=0)
 #plt.contourf(eat_1)
 #for ii in range(eta_init.shape[0]):
     
@@ -101,18 +108,19 @@ eat_full = np.concatenate([eat_0,eat_1,eat_2,eat_3,eat_4,eat_58],axis=0)
 #%% ndsets
 
 lons,lats = n_lonss,n_latss
-interfaces = gold.Interface.values
+interfaces = gold.Interface.values[:38]
 layers = gold.Layer.values 
 eta = gold.eta.values
-ftemp_63 = temp_63[0,:,:,:]
-fsalt_63 = salt_63[0,:,:,:]
-
+#ftemp_63 = temp_63[0,:,:,:]
+#fsalt_63 = salt_63[0,:,:,:]
+ftemp_38 = temp_38[0,:,:,:]
+fsalt_38 = salt_38[0,:,:,:]
 
 
 
 dset = xr.Dataset({
-    "ptemp" : (["Layer","latitude","longitude"],ftemp_63),
-    "salt" : (["Layer","latitude","longitude"],fsalt_63),
+    "ptemp" : (["Layer","latitude","longitude"],ftemp_38),
+    "salt" : (["Layer","latitude","longitude"],fsalt_38),
     "eta" : (["Interface","latitude","longitude"],eat_full)},
     coords = {"Interface":(["Interface",],interfaces),
               "longitude":(["longitude",],lons),
