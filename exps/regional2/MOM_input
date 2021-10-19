@@ -933,7 +933,7 @@ MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
 
 ! ==== my additions =======
 
-DAYMAX = 2
+DAYMAX = 30
 
 TS_CONFIG = "linear"    !
 
