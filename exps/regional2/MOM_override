@@ -40,7 +40,7 @@
 !SALINITYRESTORE_FILE = "ocean_forcing_daily.nc" !
                                 ! The file with the surface salinity toward which to
                                 ! restore in the variable given by SSS_RESTORE_VAR.
-WIND_CONFIG = "file"            !
+!WIND_CONFIG = "file"            !
                                 ! The character string that indicates how wind forcing
                                 ! is specified. Valid options include (file), (2gyre),
                                 ! (1gyre), (gyres), (zero), and (USER).
