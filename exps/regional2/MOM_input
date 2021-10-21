@@ -924,7 +924,7 @@ SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
                                 ! The mass of sea-ice per unit area at which the sea-ice
                                 ! starts to exhibit rigidity
 
-TIDES = True                   ! default = False. If true, apply tidal momentum forcing.
+TIDES = False                   ! default = False. If true, apply tidal momentum forcing.
 
 
 ! === module MOM_sum_output ===
