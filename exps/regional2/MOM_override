@@ -15,7 +15,7 @@ LONGWAVE_FILE = "sw_lw_forcing.nc" !
 SHORTWAVE_FILE = "sw_lw_forcing.nc" !
                                 ! The file with the shortwave heat flux, in the variable
                                 ! given by SHORTWAVE_FORCING_VAR.
-!EVAPORATION_FILE = "ocean_forcing_daily.nc" !
+EVAPORATION_FILE = "sw_lw_forcing.nc" !
                                 ! The file with the evaporative moisture flux, in the
                                 ! variable given by EVAP_FORCING_VAR.
 !LATENTHEAT_FILE = "ocean_forcing_daily.nc" !
