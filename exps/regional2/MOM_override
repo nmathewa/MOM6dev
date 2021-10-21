@@ -4,7 +4,7 @@ BUOY_CONFIG = "file"            !
                                 ! The character string that indicates how buoyancy forcing
                                 ! is specified. Valid options include (file), (zero),
                                 ! (linear), (USER), and (NONE).
-!ARCHAIC_OMIP_FORCING_FILE = False !   [Boolean] default = True
+ARCHAIC_OMIP_FORCING_FILE = False !   [Boolean] default = True
                                 ! If true, use the forcing variable decomposition from
                                 ! the old German OMIP prescription that predated CORE. If
                                 ! false, use the variable groupings available from MOM
