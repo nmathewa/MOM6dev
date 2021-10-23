@@ -21,7 +21,7 @@ EVAPORATION_FILE = "sw_lw_forcing.nc" !
 LATENTHEAT_FILE = "sw_lw_forcing.nc" !
                                 ! The file with the latent heat flux, in the variable
                                 ! given by LATENT_FORCING_VAR.
-!SENSIBLEHEAT_FILE = "ocean_forcing_daily.nc" !
+SENSIBLEHEAT_FILE = "ocean_forcing_daily.nc" !
                                 ! The file with the sensible heat flux, in the variable
                                 ! given by SENSIBLE_FORCING_VAR.
 !RAIN_FILE = "ocean_precip_monthly.nc" !
