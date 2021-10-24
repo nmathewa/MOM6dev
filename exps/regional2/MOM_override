@@ -27,7 +27,7 @@ SENSIBLEHEAT_FILE = "ocean_forcing_daily.nc" !
 RAIN_FILE = "preci_forcing.nc" !
                                 ! The file with the liquid precipitation flux, in the
                                 ! variable given by RAIN_FORCING_VAR.
-!SNOW_FILE = "ocean_precip_monthly.nc" !
+SNOW_FILE = "preci_forcing.nc" !
                                 ! The file with the frozen precipitation flux, in the
                                 ! variable given by SNOW_FORCING_VAR.
 RUNOFF_FILE = "preci_forcing.nc" !
