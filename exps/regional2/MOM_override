@@ -37,7 +37,7 @@ RUNOFF_FILE = "preci_forcing.nc" !
 SSTRESTORE_FILE = "sw_lw_forcing.nc" !
                                 ! The file with the SST toward which to restore in the
                                 ! variable given by SST_RESTORE_VAR.
-!SALINITYRESTORE_FILE = "sw_lw_forcing.nc" !
+SALINITYRESTORE_FILE = "sw_lw_forcing.nc" !
                                 ! The file with the surface salinity toward which to
                                 ! restore in the variable given by SSS_RESTORE_VAR.
 WIND_CONFIG = "file"            !
