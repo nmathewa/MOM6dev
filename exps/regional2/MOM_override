@@ -34,10 +34,10 @@ RUNOFF_FILE = "preci_forcing.nc" !
                                 ! The file with the fresh and frozen runoff/calving
                                 ! fluxes, in variables given by LIQ_RUNOFF_FORCING_VAR
                                 ! and FROZ_RUNOFF_FORCING_VAR.
-!SSTRESTORE_FILE = "ocean_forcing_daily.nc" !
+SSTRESTORE_FILE = "sw_lw_forcing.nc" !
                                 ! The file with the SST toward which to restore in the
                                 ! variable given by SST_RESTORE_VAR.
-!SALINITYRESTORE_FILE = "ocean_forcing_daily.nc" !
+SALINITYRESTORE_FILE = "sw_lw_forcing.nc" !
                                 ! The file with the surface salinity toward which to
                                 ! restore in the variable given by SSS_RESTORE_VAR.
 WIND_CONFIG = "file"            !
