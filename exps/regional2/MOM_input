@@ -392,7 +392,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
 INIT_UV_FROM_Z_FILE = True      !   [Boolean] default = False
 !                                ! If true, initialize the UV from a Z-space file on a
                                 ! latitude-longitude grid
-TEMP_SALT_Z_INIT_FILE = "2015.nc4" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "2015_new.nc4" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize
                                 ! the layer thicknesses, temperatures and salinities.
 UV_Z_INIT_FILE = "2015.nc4" ! default = "uv_z.nc"
