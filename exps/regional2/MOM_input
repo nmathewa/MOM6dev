@@ -883,9 +883,9 @@ FLUXCONST = 0.5                 !   [m day-1];  HYCOM: thkmls=15.0 [m/30days]
                                 ! The constant that relates the restoring surface fluxes
                                 ! to the relative surface anomalies (akin to a piston
                                 ! velocity).  Note the non-MKS units.
-SALT_RESTORE_FILE = "sss_mom6.nc" ! default = "salt_restore.nc"
+!SALT_RESTORE_FILE = "sss_mom6.nc" ! default = "salt_restore.nc"
                                 ! A file in which to find the surface salinity to use for restoring.
-SALT_RESTORE_VARIABLE = "SSS"  ! default = "salt"
+!SALT_RESTORE_VARIABLE = "SSS"  ! default = "salt"
                                 ! The name of the surface salinity variable to read from SALT_RESTORE_FILE for restoring salinity.
 SRESTORE_AS_SFLUX = False       !   [Boolean] default = False;  HYCOM: True
                                 ! If true, the restoring of salinity is applied as a salt
