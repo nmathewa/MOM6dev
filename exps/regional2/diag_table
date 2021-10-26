@@ -1,5 +1,5 @@
 "nmacoaps"
-2000 1 1 0  0  0  
+0100 1 1 0  0  0  
 #1st two lines (above) are "title" and "base date" (y m d h m s)
 #days since 1900-12-31 00:00:0 is HYCOM convention for gregorian
 
