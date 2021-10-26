@@ -24,13 +24,13 @@ LATENTHEAT_FILE = "sw_lw_forcing.nc" !
 SENSIBLEHEAT_FILE = "ocean_forcing_daily.nc" !
                                 ! The file with the sensible heat flux, in the variable
                                 ! given by SENSIBLE_FORCING_VAR.
-RAIN_FILE = "preci_forcing.nc" !
+!RAIN_FILE = "preci_forcing.nc" !
                                 ! The file with the liquid precipitation flux, in the
                                 ! variable given by RAIN_FORCING_VAR.
-SNOW_FILE = "preci_forcing.nc" !
+!SNOW_FILE = "preci_forcing.nc" !
                                 ! The file with the frozen precipitation flux, in the
                                 ! variable given by SNOW_FORCING_VAR.
-RUNOFF_FILE = "preci_forcing.nc" !
+!RUNOFF_FILE = "preci_forcing.nc" !
                                 ! The file with the fresh and frozen runoff/calving
                                 ! fluxes, in variables given by LIQ_RUNOFF_FORCING_VAR
                                 ! and FROZ_RUNOFF_FORCING_VAR.
