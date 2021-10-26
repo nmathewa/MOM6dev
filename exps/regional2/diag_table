@@ -11,7 +11,7 @@
 #"ocnp%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
 #"ocnp%4yr_%3dy_%2hr",12,"hours", 1, "days","Time", 1,"days"
 "ocnm%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
-"ocns%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
+#"ocns%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
 
 # Sea Ice diagnostics files
 #"sice%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
