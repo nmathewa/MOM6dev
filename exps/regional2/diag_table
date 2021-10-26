@@ -79,20 +79,20 @@
 #======================
 
 
-"ocean_model","SSH",       "ssh", "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","SST",       "sst", "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","SSS",       "sss", "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","ubt",       "ubt", "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","vbt",       "vbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","u",           "u",   "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","v",           "v",   "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","temp",        "potT","ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","salt",        "salt","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","SSH",       "ssh", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","SST",       "sst", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","SSS",       "sss", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","ubt",       "ubt", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","vbt",       "vbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","u",           "u",   "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","v",           "v",   "ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","temp",        "potT","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","salt",        "salt","ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","pbo",       "pbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","col_height",  "hbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","KPP_OBLdepth","oml", "ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","taux",      "taux","ocns%4yr_%3dy_%2hr","all","none","none",2
-"ocean_model","tauy",      "tauy","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","taux",      "taux","ocns%4yr_%3dy_%2hr","all","none","none",2
+#"ocean_model","tauy",      "tauy","ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","SW",        "Qsw", "ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","LW",        "Qlw", "ocns%4yr_%3dy_%2hr","all","none","none",2
 ##"ocean_model","latent",   "Qlat","ocns%4yr_%3dy_%2hr","all","none","none",2
