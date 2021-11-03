@@ -1656,11 +1656,26 @@ BUOY_CONFIG = "zero"            ! default = "zero"
                                 ! The character string that indicates how buoyancy forcing is specified.  Valid
                                 ! options include (file), (data_override), (zero), (const), (linear), (MESO),
                                 ! (SCM_CVmix_tests), (BFB), (dumbbell), (USER) and (NONE).
-WIND_CONFIG = "zero"            ! default = "zero"
+WIND_CONFIG = "file"            ! default = "zero"
                                 ! The character string that indicates how wind forcing is specified.  Valid
                                 ! options include (file), (data_override), (2gyre), (1gyre), (gyres), (zero),
                                 ! (const), (Neverworld), (scurves), (ideal_hurr), (SCM_ideal_hurr),
                                 ! (SCM_CVmix_tests) and (USER).
+WIND_FILE = "wind_force_era.nc" !
+                                ! The file in which the wind stresses are found in variables STRESS_X and
+                                ! STRESS_Y.
+WINDSTRESS_X_VAR = "TAUX"       ! default = "STRESS_X"
+                                ! The name of the x-wind stress variable in WIND_FILE.
+WINDSTRESS_Y_VAR = "TAUY"       ! default = "STRESS_Y"
+                                ! The name of the y-wind stress variable in WIND_FILE.
+WIND_STAGGER = "C"              ! default = "C"
+                                ! A character indicating how the wind stress components are staggered in
+                                ! WIND_FILE.  This may be A or C for now.
+WINDSTRESS_SCALE = 1.0          !   [nondim] default = 1.0
+                                ! A value by which the wind stresses in WIND_FILE are rescaled.
+USTAR_FORCING_VAR = ""          !   [nondim] default = ""
+                                ! The name of the friction velocity variable in WIND_FILE or blank to get ustar
+                                ! from the wind stresses plus the gustiness.
 RESTOREBUOY = False             !   [Boolean] default = False
                                 ! If true, the buoyancy fluxes drive the model back toward some specified
                                 ! surface state with a rate given by FLUXCONST.
@@ -1684,7 +1699,7 @@ USE_WAVES = False               !   [Boolean] default = False
 DT_FORCING = 300.0              !   [s] default = 300.0
                                 ! The time step for changing forcing, coupling with other components, or
                                 ! potentially writing certain diagnostics. The default value is given by DT.
-DAYMAX = 2.0                    !   [days]
+DAYMAX = 30.0                   !   [days]
                                 ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
                                 ! also sets the potential end time of the present run segment if the end time is
                                 ! not set via ocean_solo_nml in input.nml.

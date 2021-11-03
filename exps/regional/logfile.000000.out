@@ -25,8 +25,8 @@ READ_INPUT_NML: input.nml
 MPP module unknown
 MPP started with NPES=     8
 Using MPI library for message passing...
-Realtime clock resolution=  1.2000E-08 sec (  83333333 ticks/sec)
-Clock rolls over after   1.1068E+11 sec ( 9223372036854775806 ticks)
+Realtime clock resolution=  1.4000E-08 sec (  71428571 ticks/sec)
+Clock rolls over after   1.2913E+11 sec ( 9223372036854775806 ticks)
 
 MPP Parameter module unknown
 
@@ -234,4 +234,41 @@ MOM_grid_init: unknown
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR/GRID_FILE: INPUT/ocean_hgrid.nc
 
 MOM_MOSAIC domain decomposition:     2 X    4
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+MOM_MOSAIC domain decomposition:     2 X    4
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+  MOM_initialize_topography TOPO_CONFIG: file
+  initialize_topography_from_file INPUTDIR: INPUT
+  initialize_topography_from_file TOPO_FILE: topog.nc
+  initialize_topography_from_file TOPO_VARNAME: depth
+  initialize_topography_from_file INPUTDIR/TOPO_FILE: INPUT/topog.nc
+  apply_topography_edits_from_file INPUTDIR: INPUT
+  apply_topography_edits_from_file TOPO_EDITS_FILE:
+  apply_topography_edits_from_file ALLOW_LANDMASK_CHANGES: False
+  apply_topography_edits_from_file MINIMUM_DEPTH: 0.5
+  apply_topography_edits_from_file MASKING_DEPTH: -9999.0
+  MOM_initialize_topography MAXIMUM_DEPTH: 6000.0
+  limit_topography MINIMUM_DEPTH: 0.5
+MOM_open_boundary: unknown
+  MOM_open_boundary OBC_NUMBER_OF_SEGMENTS: 0
+  MOM_grid_init initialize_masks MINIMUM_DEPTH: 0.5
+  MOM_grid_init initialize_masks MASKING_DEPTH: -9999.0
+  MOM_fixed_initialization CHANNEL_CONFIG: global_1deg
+  MOM_initialize_rotation ROTATION: 2omegasinlat
+  set_rotation_planetary OMEGA: 7.2921E-05
+  initialize_grid_rotation_angle GRID_ROTATION_ANGLE_BUGS: False
+MOM_verticalGrid: unknown
+  MOM_verticalGrid G_EARTH: 9.8
+  MOM_verticalGrid RHO_0: 1035.0
+  MOM_verticalGrid BOUSSINESQ: True
+  MOM_verticalGrid ANGSTROM: 1.0E-10
+  MOM_verticalGrid H_RESCALE_POWER: 0
+  MOM_verticalGrid H_TO_M: 1.0
+  MOM_verticalGrid NK: 37
+  MOM_verticalGrid M to THICKNESS: 1.0
+  MOM_verticalGrid M to THICKNESS rescaled by 2^-n: 1.0
+  MOM_verticalGrid THICKNESS to M rescaled by 2^n: 1.0
+
+MOM_in domain decomposition:     2 X    4
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed

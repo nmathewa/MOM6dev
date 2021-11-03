@@ -13,245 +13,12 @@ READ_INPUT_NML: input.nml
                                'MOM_override'
  
  /
-  &SIS_input_nml
-          output_directory   = 'OUTPUT/',
-          input_filename     = 'n',
-          restart_input_dir  = 'RESTART/',
-          restart_output_dir = 'RESTART/',
-          parameter_filename = 'SIS_input',
-                               'SIS_override'
- /
- 
-  &atmos_model_nml
-            layout = 0, 0
- /
- 
-  &coupler_nml
-             calendar       = 'GREGORIAN',
-             current_date   = 2015,12,31,00,00,00
-             months         = 0,
-             days           = 3,
-             dt_cpld        = 3600,
-             dt_atmos       = 3600,
-  /
-  &SIS_input_nml
-          output_directory   = '1900OUTPUT/',
-          input_filename     = 'n',
-          restart_input_dir  = 'RESTART/',
-          restart_output_dir = 'RESTART/',
-          parameter_filename = 'SIS_input',
-                               'SIS_override'
- /
- 
-  &atmos_model_nml
-            layout = 0, 0
- /
- 
-  &coupler_nml
-             calendar       = 'GREGORIAN',
-             current_date   = YYYY,MM,DD,HH,MM,SS
-             months         = 0,
-             days           = 3,
-             dt_cpld        = 3600,
-             dt_atmos       = 3600,
-             do_atmos       = .false.,
-             do_land        = .false.,
-             do_ice         = .true.,
-             do_ocean       = .true.,
-             do_flux        = .true.,
-             atmos_npes     =  NMPI,
- 	    ocean_npes     =  NMPI,
-             concurrent     = .false.
-             use_lag_fluxes = .false.
-             check_stocks   = 0
- /
- 
-  &diag_manager_nml
-             flush_nc_files = .true.,
-             max_axes          = 100,
-             max_num_axis_sets = 100,
-             max_input_fields  = 699
-             max_output_fields = 699
-             mix_snapshot_average_fields=.false.
- /
- 
- 
-  &flux_exchange_nml
-             debug_stocks          = .FALSE.
-             divert_stocks_report  = .TRUE.
-             do_area_weighted_flux = .FALSE.
- /
- 
-  &fms_io_nml
-             fms_netcdf_restart = .true.
-             threading_read     = 'multi'
-             max_files_r        = 200
-             max_files_w        = 200
-             checksum_required  = .false.
- /
- 
   &fms_nml
              clock_grain        = 'ROUTINE'
              clock_flags        = 'NONE'
              domains_stack_size = 5000000
              stack_size         = 0
  /
- 
- 
-  &ice_albedo_nml
-             t_range = 10.
- /
- 
-  &ice_model_nml
- 
- /
- 
- 
-  &icebergs_nml
- 	verbose                = .false.,	
-         verbose_hrs            = 24,
- 	traj_sample_hrs        = 24,
- 	debug                  = .false.,
- 	really_debug           = .false.,
- 	use_slow_find          = .true.,
- 	add_weight_to_ocean    = .true.,
- 	passive_mode           = .false.,
- 	generate_test_icebergs = .false.,
- 	speed_limit            = 0.,
- 	use_roundoff_fix       = .true.,
- 	make_calving_reproduce = .true.
- /
- 
-  &monin_obukhov_nml
- 	neutral = .true.
- /
- 
-  &ocean_albedo_nml
-             ocean_albedo_option = 2
- /
- 
-  &ocean_rough_nml
-             rough_scheme  = 'beljaars'
- /
- 
- 
-  &sat_vapor_pres_nml
-             construct_table_wrt_liq         = .true.
-             construct_table_wrt_liq_and_ice = .true.
- /
- 
- 
-  &surface_flux_nml
-             use_surface_velocity = .false. ! use U10, not U10-Uocn
-             ncar_ocean_flux      = .true.  ! Large & Yeager, 2004
-             raoult_sat_vap       = .true.  ! account for seawater
- /
- 
- 
-  &xgrid_nml
-             make_exchange_reproduce = .true.
-             interp_method           = 'second_order'
- /
- 
-            do_atmos       = .false.,
-             do_land        = .false.,
-             do_ice         = .true.,
-             do_ocean       = .true.,
-             do_flux        = .true.,
-             atmos_npes     =  NMPI,
- 	    ocean_npes     =  NMPI,
-             concurrent     = .false.
-             use_lag_fluxes = .false.
-             check_stocks   = 0
- /
- 
-  &diag_manager_nml
-             flush_nc_files = .true.,
-             max_axes          = 100,
-             max_num_axis_sets = 100,
-             max_input_fields  = 699
-             max_output_fields = 699
-             mix_snapshot_average_fields=.false.
- /
- 
- 
-  &flux_exchange_nml
-             debug_stocks          = .FALSE.
-             divert_stocks_report  = .TRUE.
-             do_area_weighted_flux = .FALSE.
- /
- 
-  &fms_io_nml
-             fms_netcdf_restart = .true.
-             threading_read     = 'multi'
-             max_files_r        = 200
-             max_files_w        = 200
-             checksum_required  = .false.
- /
- 
-  &fms_nml
-             clock_grain        = 'ROUTINE'
-             clock_flags        = 'NONE'
-             domains_stack_size = 5000000
-             stack_size         = 0
- /
- 
- 
-  &ice_albedo_nml
-             t_range = 10.
- /
- 
-  &ice_model_nml
- 
- /
- 
- 
-  &icebergs_nml
- 	verbose                = .false.,	
-         verbose_hrs            = 24,
- 	traj_sample_hrs        = 24,
- 	debug                  = .false.,
- 	really_debug           = .false.,
- 	use_slow_find          = .true.,
- 	add_weight_to_ocean    = .true.,
- 	passive_mode           = .false.,
- 	generate_test_icebergs = .false.,
- 	speed_limit            = 0.,
- 	use_roundoff_fix       = .true.,
- 	make_calving_reproduce = .true.
- /
- 
-  &monin_obukhov_nml
- 	neutral = .true.
- /
- 
-  &ocean_albedo_nml
-             ocean_albedo_option = 2
- /
- 
-  &ocean_rough_nml
-             rough_scheme  = 'beljaars'
- /
- 
- 
-  &sat_vapor_pres_nml
-             construct_table_wrt_liq         = .true.
-             construct_table_wrt_liq_and_ice = .true.
- /
- 
- 
-  &surface_flux_nml
-             use_surface_velocity = .false. ! use U10, not U10-Uocn
-             ncar_ocean_flux      = .true.  ! Large & Yeager, 2004
-             raoult_sat_vap       = .true.  ! account for seawater
- /
- 
- 
-  &xgrid_nml
-             make_exchange_reproduce = .true.
-             interp_method           = 'second_order'
- /
- 
  
 
 MPP module unknown
@@ -423,19 +190,19 @@ unknown
 &DIAG_MANAGER_NML
  APPEND_PELIST_NAME=F,
  MIX_SNAPSHOT_AVERAGE_FIELDS=F,
- MAX_OUTPUT_FIELDS=699        ,
- MAX_INPUT_FIELDS=699        ,
- MAX_AXES=100        ,
+ MAX_OUTPUT_FIELDS=300        ,
+ MAX_INPUT_FIELDS=600        ,
+ MAX_AXES=60         ,
  DO_DIAG_FIELD_LOG=F,
  WRITE_BYTES_IN_FILE=F,
  DEBUG_DIAG_MANAGER=F,
- MAX_NUM_AXIS_SETS=100        ,
+ MAX_NUM_AXIS_SETS=25         ,
  MAX_FILES=31         ,
  USE_CMOR=F,
  ISSUE_OOR_WARNINGS=T,
  OOR_WARNINGS_FATAL=F,
  MAX_OUT_PER_IN_FIELD=150        ,
- FLUSH_NC_FILES=T,
+ FLUSH_NC_FILES=F,
  REGION_OUT_USE_ALT_VALUE=T,
  MAX_FIELD_ATTRIBUTES=4          ,
  MAX_FILE_ATTRIBUTES=2          ,
@@ -1060,49 +827,3 @@ MOM_sum_output: unknown
 MOM_surface_forcing: unknown
   MOM_surface_forcing ENABLE_THERMODYNAMICS: True
   MOM_surface_forcing INPUTDIR: INPUT
-  MOM_surface_forcing ADIABATIC: False
-  MOM_surface_forcing VARIABLE_WINDS: True
-  MOM_surface_forcing VARIABLE_BUOYFORCE: True
-  MOM_surface_forcing BUOY_CONFIG: zero
-  MOM_surface_forcing WIND_CONFIG: zero
-  MOM_surface_forcing RHO_0: 1035.0
-  MOM_surface_forcing RESTOREBUOY: False
-  MOM_surface_forcing LATENT_HEAT_FUSION: 3.34E+05
-  MOM_surface_forcing LATENT_HEAT_VAPORIZATION: 2.5E+06
-  MOM_surface_forcing G_EARTH: 9.8
-  MOM_surface_forcing GUST_CONST: 0.0
-  MOM_surface_forcing FIX_USTAR_GUSTLESS_BUG: True
-  MOM_surface_forcing READ_GUST_2D: False
-MOM_restart: unknown
-  MOM_restart PARALLEL_RESTARTFILES: True
-  MOM_restart RESTARTFILE from argument: MOM_forcing.res
-  MOM_restart LARGE_FILE_SUPPORT: True
-  MOM_restart MAX_FIELDS: 100
-  MOM_restart RESTART_CHECKSUMS_REQUIRED: False
-user_revise_forcing: unknown
-  MOM_main (MOM_driver) USE_WAVES: False
-  MOM_wave_interface USE_WAVES: False
-MOM_main (MOM_driver): unknown
-  MOM_main (MOM_driver) DT: 300.0
-  MOM_main (MOM_driver) DT_FORCING: 300.0
-  MOM_main (MOM_driver) TIMEUNIT: 8.64E+04
-  MOM_main (MOM_driver) DAYMAX (Time): 2:0
-  MOM_main (MOM_driver) SINGLE_STEPPING_CALL: True
-  MOM_main (MOM_driver) DT_THERM: 1200.0
-  MOM_main (MOM_driver) DIABATIC_FIRST: False
-  MOM_main (MOM_driver) RESTART_CONTROL: -1
-  MOM_main (MOM_driver) RESTINT (Time): 0:0
-  MOM_main (MOM_driver) WRITE_CPU_STEPS: 1000
-  MOM DEBUG: False
-  MOM_main (MOM_driver) ELAPSED TIME AS MASTER: False
-MOM_write_cputime: unknown
-  MOM_write_cputime MAXCPU: -1.0
-  MOM_write_cputime CPU_TIME_FILE: CPU_stats
-  MOM_write_cputime directory/CPU_TIME_FILE: OUTPUT/CPU_stats
-MOM_file_parser: unknown
-  MOM_file_parser SEND_LOG_TO_STDOUT: False
-  MOM_file_parser REPORT_UNUSED_PARAMS: True
-  MOM_file_parser FATAL_UNUSED_PARAMS: False
-  MOM_file_parser DOCUMENT_FILE: MOM_parameter_doc
-  MOM_file_parser COMPLETE_DOCUMENTATION: True
-  MOM_file_parser MINIMAL_DOCUMENTATION: True

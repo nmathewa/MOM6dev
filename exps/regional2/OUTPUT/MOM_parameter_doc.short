@@ -459,11 +459,23 @@ MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
                                 ! to stop if there is any truncation of velocities.
 
 ! === module MOM_surface_forcing ===
+WIND_CONFIG = "file"            ! default = "zero"
+                                ! The character string that indicates how wind forcing is specified.  Valid
+                                ! options include (file), (data_override), (2gyre), (1gyre), (gyres), (zero),
+                                ! (const), (Neverworld), (scurves), (ideal_hurr), (SCM_ideal_hurr),
+                                ! (SCM_CVmix_tests) and (USER).
+WIND_FILE = "wind_force_era.nc" !
+                                ! The file in which the wind stresses are found in variables STRESS_X and
+                                ! STRESS_Y.
+WINDSTRESS_X_VAR = "TAUX"       ! default = "STRESS_X"
+                                ! The name of the x-wind stress variable in WIND_FILE.
+WINDSTRESS_Y_VAR = "TAUY"       ! default = "STRESS_Y"
+                                ! The name of the y-wind stress variable in WIND_FILE.
 
 ! === module MOM_restart ===
 
 ! === module MOM_main (MOM_driver) ===
-DAYMAX = 2.0                    !   [days]
+DAYMAX = 30.0                   !   [days]
                                 ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
                                 ! also sets the potential end time of the present run segment if the end time is
                                 ! not set via ocean_solo_nml in input.nml.
