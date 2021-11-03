@@ -1,0 +1,2 @@
+rm *.nc
+rm log*
