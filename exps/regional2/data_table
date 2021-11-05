@@ -5,7 +5,7 @@
 #to override fieldname_code with data from a file, set fieldname_file=name in the
 #netCDF data file, factor then will be for unit conversion (=1 for no conversion)
 
-#"ATM" , "p_surf"        , "airprs"      , "./INPUT/cfsr_gom-sec_1994_01hr_mslpPa.nc" , "bilinear" ,  1.0
+"ATM" , "p_surf"        , "airprs"      , "./INPUT/cfsr_gom-sec_1994_01hr_mslpPa.nc" , "bilinear" ,  1.0
 #"ATM" , "p_bot"         , "airprs"      , "./INPUT/cfsr_gom-sec_1994_01hr_mslpPa.nc" , "bilinear" ,  1.0
 #"ATM" , "t_bot"         , "airtmp"      , "./INPUT/cfsr_gom-sea_1994_01hr_TaKqa.nc"   , "bilinear" ,  1.0
 #"ATM" , "sphum_bot"     , "vapmix"      , "./INPUT/cfsr_gom-sea_1994_01hr_TaKqa.nc"   , "bilinear" ,  1.0
