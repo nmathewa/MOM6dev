@@ -52,21 +52,7 @@
        divert_stocks_report = .TRUE.            ! default=F 
        do_area_weighted_flux = .FALSE.
 /
-
- &fms_io_nml
-       threading_read='multi'
-       threading_write='single'
-       fileset_write='single' 
-       max_files_r = 200
-       max_files_w = 200
-/
-
- &fms_nml
-       clock_grain='LOOP' ! 'COMPONENT' ! 'ROUTINE' !
-       domains_stack_size = 20000000	
-       stack_size =20000000
-/
-
+s
  &generic_tracer_nml
        do_generic_tracer=.false.
        do_generic_CFC=.false.                 ! no CFCs
