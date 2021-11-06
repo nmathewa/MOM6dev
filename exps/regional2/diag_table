@@ -121,15 +121,15 @@
 # Mean Sea Ice fields:
 #=====================
 
-"ice_model","SSH",      "ssh", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","SST",      "sst", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","SSS",      "sss", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-#"ice_model","U0",       "ssu", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-#"ice_model","V0",       "ssv", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","siconc",   "sic", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","sithick",  "sih", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","sitemptop","sit", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","siu",      "siu", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","siv",      "siv", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","FW_X",     "six", "sicm%4yr_%3dy_%2hr","all","mean","none",2
-"ice_model","FW_Y",     "siy", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","SSH",      "ssh", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","SST",      "sst", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","SSS",      "sss", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+##"ice_model","U0",       "ssu", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+##"ice_model","V0",       "ssv", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","siconc",   "sic", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","sithick",  "sih", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","sitemptop","sit", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","siu",      "siu", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","siv",      "siv", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","FW_X",     "six", "sicm%4yr_%3dy_%2hr","all","mean","none",2
+#"ice_model","FW_Y",     "siy", "sicm%4yr_%3dy_%2hr","all","mean","none",2
