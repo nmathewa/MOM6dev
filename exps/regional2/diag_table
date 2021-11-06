@@ -11,11 +11,11 @@
 #"ocnp%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
 #"ocnp%4yr_%3dy_%2hr",12,"hours", 1, "days","Time", 1,"days"
 "ocnm%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
-#"ocns%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
+"ocns%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
 
 # Sea Ice diagnostics files
 #"sice%4yr_%3dy_%2hr", 1,"hours", 1, "days","Time", 1,"days"
-"sicm%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
+#"sicm%4yr_%3dy_%2hr", 1,"days",  1, "days","Time", 1,"days"
 
 
 #Field Section: Field lines contain 8 fields.
@@ -79,10 +79,10 @@
 #======================
 
 
-#"ocean_model","SSH",       "ssh", "ocns%4yr_%3dy_%2hr","all","none","none",2
-#"ocean_model","SST",       "sst", "ocns%4yr_%3dy_%2hr","all","none","none",2
-#"ocean_model","SSS",       "sss", "ocns%4yr_%3dy_%2hr","all","none","none",2
-#"ocean_model","ubt",       "ubt", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","SSH",       "ssh", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","SST",       "sst", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","SSS",       "sss", "ocns%4yr_%3dy_%2hr","all","none","none",2
+"ocean_model","ubt",       "ubt", "ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","vbt",       "vbt", "ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","u",           "u",   "ocns%4yr_%3dy_%2hr","all","none","none",2
 #"ocean_model","v",           "v",   "ocns%4yr_%3dy_%2hr","all","none","none",2
