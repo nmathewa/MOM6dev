@@ -54,7 +54,7 @@
  &fms_nml
             clock_grain='ROUTINE'
             clock_flags='NONE'
-            domains_stack_size = 12247200
+            domains_stack_size = 97977600
             stack_size =0
 /
 
