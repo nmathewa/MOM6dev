@@ -2516,14 +2516,14 @@
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {vert_remap_h_tendency,vert_remap_h_tendency_xyave}
-"taux"  [Used] (CMOR equivalent is "tauuo")
+"taux"  [Unused] (CMOR equivalent is "tauuo")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Zonal surface stress from ocean interactions with atmos and ice
     ! units: Pa
     ! standard_name: surface_downward_x_stress
     ! cell_methods: xq:point yh:mean
     ! variants: {taux,tauuo}
-"tauy"  [Used] (CMOR equivalent is "tauvo")
+"tauy"  [Unused] (CMOR equivalent is "tauvo")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Meridional surface stress ocean interactions with atmos and ice
     ! units: Pa

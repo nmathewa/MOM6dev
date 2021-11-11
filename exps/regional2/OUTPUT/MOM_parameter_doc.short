@@ -100,7 +100,7 @@ TOPO_CONFIG = "file"            !
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     dense - Denmark Strait-like dense water formation and overflow.
                                 !     USER - call a user modified routine.
-TOPO_FILE = "pytopog.nc"        ! default = "topog.nc"
+TOPO_FILE = "test_topo.nc"      ! default = "topog.nc"
                                 ! The file from which the bathymetry is read.
 MINIMUM_DEPTH = 3.0             !   [m] default = 0.0
                                 ! If MASKING_DEPTH is unspecified, then anything shallower than MINIMUM_DEPTH is
@@ -464,7 +464,7 @@ WIND_CONFIG = "file"            ! default = "zero"
                                 ! options include (file), (data_override), (2gyre), (1gyre), (gyres), (zero),
                                 ! (const), (Neverworld), (scurves), (ideal_hurr), (SCM_ideal_hurr),
                                 ! (SCM_CVmix_tests) and (USER).
-WIND_FILE = "wind_force_era.nc" !
+WIND_FILE = "sw_lw_forcing.nc"  !
                                 ! The file in which the wind stresses are found in variables STRESS_X and
                                 ! STRESS_Y.
 WINDSTRESS_X_VAR = "TAUX"       ! default = "STRESS_X"
@@ -475,7 +475,7 @@ WINDSTRESS_Y_VAR = "TAUY"       ! default = "STRESS_Y"
 ! === module MOM_restart ===
 
 ! === module MOM_main (MOM_driver) ===
-DAYMAX = 30.0                   !   [days]
+DAYMAX = 5.0                    !   [days]
                                 ! The final time of the whole simulation, in units of TIMEUNIT seconds.  This
                                 ! also sets the potential end time of the present run segment if the end time is
                                 ! not set via ocean_solo_nml in input.nml.
