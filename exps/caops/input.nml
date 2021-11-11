@@ -26,16 +26,4 @@
             current_date   = 0001,01,01,00,00,00
             months         = 0,
             days           = 30,
-            dt_cpld        = 3600,
-            dt_atmos       = 3600,
-            do_atmos       = .false.,
-            do_land        = .false.,
-            do_ice         = .true.,
-            do_ocean       = .true.,
-            do_flux        = .true.,
-            atmos_npes     =  NMPI,
-	    ocean_npes     =  NMPI,
-            concurrent     = .false.     
-            use_lag_fluxes = .false.    
-            check_stocks   = 0
 /
