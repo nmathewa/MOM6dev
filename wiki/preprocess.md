@@ -1,6 +1,14 @@
 
 # Input data processing (Pre-processing)
 
+## Example datasets 
+
+```BASH 
+lftp ftp://ftp.gfdl.noaa.gov/perm/Alistair.Adcroft/MOM6-testing
+
+```
+using "mget" we can download the data
+
 ## Grid creation
 
 ### 1. GRID creation
