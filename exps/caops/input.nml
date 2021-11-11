@@ -22,7 +22,7 @@
            layout = 0, 0
 /
  &coupler_nml
-            calendar       = 'GREGORIAN',
+            calendar       = 'NOLEAP',
             current_date   = 0001,01,01,00,00,00
             months         = 0,
             days           = 30,
