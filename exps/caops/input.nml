@@ -25,7 +25,7 @@
             calendar       = 'GREGORIAN',
             current_date   = 0001,01,01,00,00,00
             months         = 0,
-            days           = DD,
+            days           = 30,
             dt_cpld        = 3600,
             dt_atmos       = 3600,
             do_atmos       = .false.,
