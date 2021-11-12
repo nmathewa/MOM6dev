@@ -185,22 +185,22 @@ MINIMUM_DEPTH = 9.5             !   [m] default = 0.0
                                 ! MINIMUM_DEPTH is assumed to be land and all fluxes are masked out.
                                 ! If MASKING_DEPTH is specified, then all depths shallower than
                                 ! MINIMUM_DEPTH but depper than MASKING_DEPTH are rounded to MINIMUM_DEPTH.
-INIT_LAYERS_FROM_Z_FILE = False  !   [Boolean] default = False
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! If true, intialize the layer thicknesses, temperatures,
                                 ! and salnities from a Z-space file on a latitude-
                                 ! longitude grid.
-!TEMP_SALT_Z_INIT_FILE = "WOA05_pottemp_salt.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "WOA5_pottemp_salt_cust63.nc" ! default = "temp_salt_z.nc"
 
-TEMP_SALT_Z_INIT_FILE = "GOLD_IC.2010.11.15.nc"
+!TEMP_SALT_Z_INIT_FILE = "GOLD_IC.2010.11.15.nc"
 
 ! The name of the z-space input file used to initialize
                                 ! the layer thicknesses, temperatures and salinities.
-!Z_INIT_FILE_PTEMP_VAR = "PTEMP" ! default = "ptemp"
+Z_INIT_FILE_PTEMP_VAR = "PTEMP" ! default = "ptemp"
                                 ! The name of the potential temperature variable in
-Z_INIT_FILE_SALT_VAR = "salt"
-Z_INIT_FILE_PTEMP_VAR = "ptemp"
+!Z_INIT_FILE_SALT_VAR = "salt"
+!Z_INIT_FILE_PTEMP_VAR = "ptemp"
 ! TEMP_SALT_Z_INIT_FILE.
-!Z_INIT_FILE_SALT_VAR = "SALT"   ! default = "salt"
+Z_INIT_FILE_SALT_VAR = "SALT"   ! default = "salt"
                                 ! The name of the salinity variable in
                                 ! TEMP_SALT_Z_INIT_FILE.
 ADJUST_THICKNESS = True         !   [Boolean] default = False
