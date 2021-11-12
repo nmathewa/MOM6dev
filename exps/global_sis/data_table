@@ -15,20 +15,20 @@
 "ICE" , "fprec"         , "SNOW"        , "./INPUT/ncar_precip.clim.nc"  , .false. ,  0.9933
 "ICE" , "runoff"        , "runoff"      , "./INPUT/runoff.nc"            , .false.  ,  1.0
 "ICE" , "calving"       , ""            , ""                             , .true.  ,  0.0
-"ICE" , "dhdt"          , ""            , ""                             , .true.  ,  80.0
+"ICE" , "dhdt"          , ""            , ""                             , .true.  ,  1.0
 "ICE" , "dedt"          , ""            , ""                             , .true.  ,  2.0e-6
-"ICE" , "drdt"          , ""            , ""                             , .true.  , 10.0
+"ICE" , "drdt"          , ""            , ""                             , .true.  , 1.0
 "ICE", "sic_obs"        , "SIC"         ,"./INPUT/sst_ice_clim.nc"       , .false. ,  0.00
 "ICE", "sit_obs"        , "SIT"         ,"./INPUT/sst_ice_clim.nc"       , .false. ,  0.00
 "ICE", "sst_obs"        , "SST"         ,"./INPUT/sst_ice_clim.nc"       , .false. ,  1.0
-"LND" , "t_surf"        , ""            , ""                             , .true.  ,  273.0
-"LND" , "t_ca"          , ""            , ""                             , .true.  ,  273.0
+"LND" , "t_surf"        , ""            , ""                             , .true.  ,  1.0
+"LND" , "t_ca"          , ""            , ""                             , .true.  ,  1.0
 "LND" , "q_ca"          , ""            , ""                             , .true.  ,  0.0
 "LND" , "rough_mom"     , ""            , ""                             , .true.  ,  0.01
 "LND" , "rough_heat"    , ""            , ""                             , .true.  ,  0.1
 "LND" , "albedo"        , ""            , ""                             , .true.  ,  0.1
-#"LND" , "t_ca"         , ""            , ""                             , .true.  ,  273.0
-#"LND" , "t_surf"       , ""            , ""                             , .true.  ,  273.0
+#"LND" , "t_ca"         , ""            , ""                             , .true.  ,  1.0
+#"LND" , "t_surf"       , ""            , ""                             , .true.  ,  1.0
 "LND" , "sphum_surf"    , ""            , ""                             , .true.  ,  0.0
 "LND" , "sphum_ca"      , ""            , ""                             , .true.  ,  0.0
 "LND" , "t_flux"        , ""            , ""                             , .true.  ,  0.0
