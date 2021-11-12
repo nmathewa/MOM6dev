@@ -5,7 +5,7 @@
 "ATM" , "u_bot"         , "U_10_MOD"    , "./INPUT/u_10_mod.clim.nc"     , .false. ,  1.0
 "ATM" , "v_bot"         , "V_10_MOD"    , "./INPUT/v_10_mod.clim.nc"     , .false. ,  1.0
 "ATM" , "z_bot"         , ""            , ""                             , .false. , 1.0
-"ATM" , "gust"          , ""            , ""                             , .false. ,  1.0e-4
+"ATM" , "gust"          , ""            , ""                             , .false. ,  1.0
 "ICE" , "lw_flux_dn"    , "LWDN_MOD"    , "./INPUT/ncar_rad.clim.nc"     , .false. ,  1.0
 "ICE" , "sw_flux_vis_dir_dn", "SWDN_MOD", "./INPUT/ncar_rad.clim.nc", .false. , 0.285
 "ICE" , "sw_flux_vis_dif_dn", "SWDN_MOD", "./INPUT/ncar_rad.clim.nc", .false. , 0.285
@@ -37,9 +37,9 @@
 "LND" , "sw_flux"       , ""            , ""                             , .true.  ,  0.0
 "LND" , "lprec"         , ""            , ""                             , .true.  ,  0.0
 "LND" , "fprec"         , ""            , ""                             , .true.  ,  0.0
-"LND" , "dhdt"          , ""            , ""                             , .true.  ,  5.0
+"LND" , "dhdt"          , ""            , ""                             , .true.  ,  1.0
 "LND" , "dedt"          , ""            , ""                             , .true.  ,  2e-6
 "LND" , "dedq"          , ""            , ""                             , .true.  ,  0.0
-"LND" , "drdt"          , ""            , ""                             , .true.  ,  5.0
+"LND" , "drdt"          , ""            , ""                             , .true.  ,  1.0
 "LND" , "drag_q"        , ""            , ""                             , .true.  ,  0.0
 "LND" , "p_surf"        , ""            , ""                             , .true.  ,  1.e5
