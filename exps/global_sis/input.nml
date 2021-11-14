@@ -8,7 +8,7 @@
 /
 
  &atmos_model_nml
-           layout = 32, 32
+           layout = 4, 4
 /
 
  &coupler_nml
@@ -54,7 +54,7 @@
  &fms_nml
             clock_grain='ROUTINE'
             clock_flags='NONE'
-            domains_stack_size = 5000000
+            domains_stack_size = 97977600
             stack_size =0
 /
 
@@ -63,8 +63,8 @@
 /
 
  &ice_model_nml
-           layout = 32, 32
-           io_layout = 8, 4
+           layout = 4, 4
+           io_layout = 4, 4
            nsteps_dyn=144
            nsteps_adv=2
            num_part = 6
@@ -122,4 +122,3 @@
             make_exchange_reproduce = .false.
             interp_method = 'second_order'
 /
-

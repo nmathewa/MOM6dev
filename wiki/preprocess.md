@@ -9,6 +9,8 @@ lftp ftp://ftp.gfdl.noaa.gov/perm/Alistair.Adcroft/MOM6-testing
 ```
 using "mget" we can download the data
 
+- some missing datasets are downloaded from [this link](https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/ocn/mom/tx0.25v1/)
+
 ## Grid creation
 
 ### 1. GRID creation

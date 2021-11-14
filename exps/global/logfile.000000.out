@@ -23,7 +23,7 @@ READ_INPUT_NML: input.nml
  
 
 MPP module unknown
-MPP started with NPES=    20
+MPP started with NPES=     2
 Using MPI library for message passing...
 Realtime clock resolution=  1.0000E-09 sec ( 999999999 ticks/sec)
 Clock rolls over after   9.2234E+09 sec ( 9223372036854775806 ticks)
@@ -44,7 +44,7 @@ MPP_DOMAINS module unknown
 
 MPP_IO module unknown
 
-Using netCDF library version 4.8.1 of Sep  4 2021 13:24:12 $
+Using netCDF library version 4.7.3 of Jan 23 2020 04:18:16 $
 
 ================================================================================
 FMS_IO_MOD
@@ -133,6 +133,7 @@ MOM: unknown
   MOM NKBL: 2
   MOM GLOBAL_INDEXING: False
   MOM FIRST_DIRECTION: 0
+  MOM ALTERNATE_FIRST_DIRECTION: False
   MOM CHECK_BAD_SURFACE_VALS: False
   MOM DEFAULT_2018_ANSWERS: False
   MOM SURFACE_2018_ANSWERS: False
@@ -156,15 +157,15 @@ MOM_domains: unknown
   MOM_domains NIHALO: 4
   MOM_domains NJHALO: 4
   MOM_domains MASKTABLE: MOM_mask_table
-  MOM_domains NIPROC: 5
-  MOM_domains NJPROC: 4
-  MOM_domains LAYOUT: 5, 4
+  MOM_domains NIPROC: 2
+  MOM_domains NJPROC: 1
+  MOM_domains LAYOUT: 2, 1
   MOM_domains IO_LAYOUT: 1, 1
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_inc domain decomposition:     5 X    4
+MOM_inc domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_debugging: unknown
   MOM_debugging DEBUG: False
@@ -217,10 +218,10 @@ unknown
 MOM_io: unknown
 MOM_hor_index: unknown
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_fixed_initialization: unknown
   MOM_fixed_initialization DEBUG: False
@@ -233,10 +234,10 @@ MOM_grid_init: unknown
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR: INPUT
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR/GRID_FILE: INPUT/ocean_hgrid.nc
 
-MOM_MOSAIC domain decomposition:     5 X    4
+MOM_MOSAIC domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_MOSAIC domain decomposition:     5 X    4
+MOM_MOSAIC domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   MOM_initialize_topography TOPO_CONFIG: file
   initialize_topography_from_file INPUTDIR: INPUT
@@ -270,10 +271,10 @@ MOM_verticalGrid: unknown
   MOM_verticalGrid M to THICKNESS rescaled by 2^-n: 1.0
   MOM_verticalGrid THICKNESS to M rescaled by 2^n: 1.0
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_tracer_registry: unknown
 MOM_EOS: unknown
@@ -299,10 +300,12 @@ MOM_tracer_flow_control: unknown
   MOM_tracer_flow_control USE_OIL_TRACER: False
   MOM_tracer_flow_control USE_ADVECTION_TEST_TRACER: False
   MOM_tracer_flow_control USE_OCMIP2_CFC: False
+  MOM_tracer_flow_control USE_CFC_CAP: False
   MOM_tracer_flow_control USE_generic_tracer: False
   MOM_tracer_flow_control USE_PSEUDO_SALT_TRACER: False
   MOM_tracer_flow_control USE_BOUNDARY_IMPULSE_TRACER: False
   MOM_tracer_flow_control USE_DYED_OBC_TRACER: False
+  MOM_tracer_flow_control USE_NW2_TRACERS: False
 ideal_age_example: unknown
   ideal_age_example DO_IDEAL_AGE: True
   ideal_age_example DO_IDEAL_VINTAGE: False
@@ -324,10 +327,10 @@ MOM_coord_initialization: unknown
   set_coord_from_file COORD_VAR: Layer
   set_coord_from_file INPUTDIR/COORD_FILE: INPUT/GOLD_IC.2010.11.15.nc
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_state_initialization: unknown
   MOM_state_initialization DEBUG: False
@@ -394,6 +397,7 @@ MOM_MEKE: unknown
   MOM_MEKE MEKE_VISCOSITY_COEFF_KU: 0.0
   MOM_MEKE MEKE_VISCOSITY_COEFF_AU: 0.0
   MOM_MEKE MEKE_FIXED_MIXING_LENGTH: 0.0
+  MOM_MEKE MEKE_FIXED_TOTAL_DEPTH: True
   MOM_MEKE MEKE_ALPHA_DEFORM: 0.0
   MOM_MEKE MEKE_ALPHA_RHINES: 0.0
   MOM_MEKE MEKE_ALPHA_EADY: 0.0
@@ -651,10 +655,10 @@ MOM_barotropic: unknown
   MOM_barotropic DTBT: -0.95
   MOM_barotropic BT_USE_OLD_CORIOLIS_BRACKET_BUG: False
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     5 X    4
+MOM_in domain decomposition:     2 X    1
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   MOM_barotropic DTBT as used: 79.65440164284439
   MOM_barotropic estimated maximum DTBT: 83.84673857141516
@@ -947,7 +951,7 @@ MOM_main (MOM_driver): unknown
   MOM_main (MOM_driver) DT: 3600.0
   MOM_main (MOM_driver) DT_FORCING: 7200.0
   MOM_main (MOM_driver) TIMEUNIT: 8.64E+04
-  MOM_main (MOM_driver) DAYMAX (Time): 1:0
+  MOM_main (MOM_driver) DAYMAX (Time): 30:0
   MOM_main (MOM_driver) SINGLE_STEPPING_CALL: True
   MOM_main (MOM_driver) DT_THERM: 7200.0
   MOM_main (MOM_driver) DIABATIC_FIRST: False
@@ -965,54 +969,3 @@ MOM_file_parser: unknown
   MOM_file_parser REPORT_UNUSED_PARAMS: True
   MOM_file_parser FATAL_UNUSED_PARAMS: False
   MOM_file_parser DOCUMENT_FILE: MOM_parameter_doc
-  MOM_file_parser COMPLETE_DOCUMENTATION: True
-  MOM_file_parser MINIMAL_DOCUMENTATION: True
-
-================================================================================
-DIAG_OUTPUT_MOD
-unknown
-
-                                     time
-Total runtime                        34.489838
-Initialization                        0.779407
-Main loop                            27.841876
-Termination                           5.809176
-Ocean Initialization                  3.492851
-Ocean                                25.023897
-Ocean dynamics                       17.946602
-Ocean thermodynamics and tracers      5.695984
-Ocean Other                           1.331741
-(Ocean tracer advection)              2.022476
-(Ocean diabatic driver)               3.673495
-(Ocean continuity equation *)         0.000000
-(Ocean set BBL viscosity)             0.196427
-(Ocean message passing *)             0.140940
-(Ocean MOM_initialize_state)          0.085838
-(Ocean thickness diffusion *)         1.184995
-(Ocean mixed layer restrat)           0.014832
-(Ocean collective diagnostics)        1.028195
-(Ocean Z-space diagnostics)           0.000000
-(Ocean ALE)                           0.000000
-(Ocean diagnostics framework)         0.911489
-(Ocean tides)                         0.001278
-(Ocean Coriolis & mom advection)      0.985675
-(Ocean continuity equation)           4.688530
-(Ocean pressure force)                1.180824
-(Ocean vertical viscosity)            2.529011
-(Ocean horizontal viscosity)          1.482747
-(Ocean momentum increments)           0.236825
-(Ocean message passing)               1.399324
-(Ocean barotropic mode calc)          0.051499
-(Ocean barotropic mode stepping)      2.822194
-(Ocean barotropic forcing calc)       0.291064
-(Ocean kappa_shear)                   0.809454
-(Ocean diabatic entrain)              0.538908
-(Ocean mixed layer)                   0.874779
-(Ocean vert remap)                    0.000005
-(Ocean set_diffusivity)               1.236959
-(Ocean KPP)                           0.000000
-(Ocean tracer_columns)                0.089453
-(Ocean advect tracer)                 1.336690
-(Ocean diffuse tracer)                0.220682
-(Ocean epipycnal diffuse tracer)      0.445668
-(Ocean surface forcing)               0.053954
