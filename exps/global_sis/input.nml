@@ -63,7 +63,7 @@
 /
 
  &ice_model_nml
-           layout = 32, 32
+           layout = 4, 4
            io_layout = 8, 4
            nsteps_dyn=144
            nsteps_adv=2
