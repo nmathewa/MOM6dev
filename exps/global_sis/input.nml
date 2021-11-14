@@ -64,7 +64,7 @@
 
  &ice_model_nml
            layout = 4, 4
-           io_layout = 8, 4
+           io_layout = 4, 4
            nsteps_dyn=144
            nsteps_adv=2
            num_part = 6
