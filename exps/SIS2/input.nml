@@ -29,7 +29,7 @@
             dt_atmos = 7200,
             do_atmos = .false.,
             do_land = .false.,
-            do_ice = .false.,
+            do_ice = .true.,
             do_ocean = .true.,
             atmos_npes = 0,
             ocean_npes = 0,
