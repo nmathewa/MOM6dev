@@ -40,7 +40,17 @@ make_topog --mosaic ocean_mosaic_india.nc --topog_type realistic --topog_file ge
 
 - [HYCOM]()
 
-## Forcing Conditions 
+# Forcing Conditions 
+
+For the forcing should work atmospheric and land components should be compiled (recommended option is build with Sea Ice (SIS2))
+
+### Data Table
+
+![](Screenshot%20from%202021-11-15%2014-17-47.png)
+
+data table should set up accordingly (with forcing datasets)
+
+
 
 ### OLR flux 
 
@@ -48,3 +58,4 @@ make_topog --mosaic ocean_mosaic_india.nc --topog_type realistic --topog_file ge
 - watt/m^2
 - [data download](https://www.ncei.noaa.gov/products/climate-data-records/outgoing-longwave-radiation-daily)
 - [NCAR air-sea flux data](https://rda.ucar.edu/datasets/ds260.2/)
+
