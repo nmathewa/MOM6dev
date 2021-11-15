@@ -17,7 +17,7 @@ NIGLOBAL = 360                  !
 NJGLOBAL = 210                  !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-! LAYOUT = 10, 6                !
+ LAYOUT = 10, 6                !
                                 ! The processor layout that was actually used.
 
 ! === module MOM ===
