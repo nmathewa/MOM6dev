@@ -511,7 +511,8 @@ REGULARIZE_SURFACE_LAYERS = True !   [Boolean] default = False
                                 ! much lateral variations to allow for sensible lateral barotropic transports.
 
 ! === module MOM_opacity ===
-PEN_SW_NBANDS = 3               ! default = 1
+!PEN_SW_NBANDS = 3               ! default = 1
+PEN_SW_NBANDS = 1
                                 ! The number of bands of penetrating shortwave radiation.
 
 ! === module MOM_tracer_advect ===
