@@ -466,10 +466,10 @@ MAX_RINO_IT = 25                !   [nondim] default = 50
 
 ! === module MOM_diabatic_aux ===
 ! The following parameters are used for auxiliary diabatic processes.
-VAR_PEN_SW = True               !   [Boolean] default = False
+VAR_PEN_SW = False               !   [Boolean] default = False
                                 ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
                                 ! the e-folding depth of incoming short wave radiation.
-CHL_FILE = "seawifs_1998-2006_GOLD_smoothed_2X.nc" !
+!CHL_FILE = "seawifs_1998-2006_GOLD_smoothed_2X.nc" !
                                 ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
                                 ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
 
@@ -574,7 +574,7 @@ FLUXCONST = 0.5                 !   [m day-1] default = 0.0
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
 CD_TIDES = 0.0025               !   [nondim] default = 1.0E-04
                                 ! The drag coefficient that applies to the tides.
-READ_GUST_2D = True             !   [Boolean] default = False
+READ_GUST_2D = False             !   [Boolean] default = False
                                 ! If true, use a 2-dimensional gustiness supplied from an input file
 GUST_CONST = 0.02               !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
@@ -582,11 +582,11 @@ GUST_2D_FILE = "gustiness_qscat.nc" !
                                 ! The file in which the wind gustiness is found in variable gustiness.
 
 ! Debugging parameters set to non-default values
-U_TRUNC_FILE = "U_velocity_truncations" ! default = ""
+!U_TRUNC_FILE = "U_velocity_truncations" ! default = ""
                                 ! The absolute path to a file into which the accelerations leading to zonal
                                 ! velocity truncations are written. Undefine this for efficiency if this
                                 ! diagnostic is not needed.
-V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
+!V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
                                 ! The absolute path to a file into which the accelerations leading to meridional
                                 ! velocity truncations are written. Undefine this for efficiency if this
                                 ! diagnostic is not needed.
