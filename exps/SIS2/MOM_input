@@ -110,7 +110,7 @@ MINIMUM_DEPTH = 0.5             !   [m] default = 0.0
                                 ! assumed to be land and all fluxes are masked out. If MASKING_DEPTH is
                                 ! specified, then all depths shallower than MINIMUM_DEPTH but deeper than
                                 ! MASKING_DEPTH are rounded to MINIMUM_DEPTH.
-CHANNEL_CONFIG = "global_1deg"  ! default = "none"
+CHANNEL_CONFIG = "none"  ! default = "none"
                                 ! A parameter that determines which set of channels are
                                 ! restricted to specific  widths.  Options are:
                                 !     none - All channels have the grid width.
