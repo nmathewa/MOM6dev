@@ -1,6 +1,6 @@
 ! Blank file in which we can put "overrides" for parameters
 ! === module MOM_surface_forcing ===
-!BUOY_CONFIG = "none"            !
+!!BUOY_CONFIG = "none"            !
                                 ! The character string that indicates how buoyancy forcing
                                 ! is specified. Valid options include (file), (zero),
                                 ! (linear), (USER), and (NONE).
@@ -44,7 +44,7 @@ WIND_CONFIG = "file"            !
                                 ! The character string that indicates how wind forcing
                                 ! is specified. Valid options include (file), (2gyre),
                                 ! (1gyre), (gyres), (zero), and (USER).
-WIND_FILE = "sw_lw_forcing.nc" !
+!WIND_FILE = "sw_lw_forcing.nc" !
                                 ! The file in which the wind stresses are found in
                                 ! variables STRESS_X and STRESS_Y.
 WINDSTRESS_X_VAR = "TAUX"       ! default = "STRESS_X"
