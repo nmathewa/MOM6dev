@@ -116,7 +116,7 @@ INTERPOLATE_SPONGE_TIME_SPACE = True  ! Set True if using the newer sponging cod
                                       ! of sponge restoring data.
 
 ! === module MOM_sponge ===
-SPONGE_UV =  True             !   [Boolean] default = False
+!SPONGE_UV =  True             !   [Boolean] default = False
                                 ! Apply sponges in u and v, in addition to tracers.
 
 ! === Open Boundaries ===
