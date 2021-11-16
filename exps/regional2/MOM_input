@@ -116,7 +116,7 @@ INTERPOLATE_SPONGE_TIME_SPACE = True  ! Set True if using the newer sponging cod
                                       ! of sponge restoring data.
 
 ! === module MOM_sponge ===
-!SPONGE_UV =  True             !   [Boolean] default = False
+SPONGE_UV =  True             !   [Boolean] default = False
                                 ! Apply sponges in u and v, in addition to tracers.
 
 ! === Open Boundaries ===
@@ -353,7 +353,7 @@ TOPO_FILE = "test_topo.nc"    ! default = "topog.nc"
                                 ! The file from which the bathymetry is read.
 MAXIMUM_DEPTH = 8200.0          !   [m]
                                 ! The maximum depth of the ocean.
-MINIMUM_DEPTH =  20.0             !   [m] default = 0.0
+MINIMUM_DEPTH =  3.0             !   [m] default = 0.0
                                 ! If MASKING_DEPTH is unspecified, then anything shallower than
                                 ! MINIMUM_DEPTH is assumed to be land and all fluxes are masked out.
                                 ! If MASKING_DEPTH is specified, then all depths shallower than
@@ -392,10 +392,10 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
 INIT_UV_FROM_Z_FILE = True      !   [Boolean] default = False
 !                                ! If true, initialize the UV from a Z-space file on a
                                 ! latitude-longitude grid
-TEMP_SALT_Z_INIT_FILE = "2015_new.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "2015.nc4" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize
                                 ! the layer thicknesses, temperatures and salinities.
-UV_Z_INIT_FILE = "2015_new.nc4" ! default = "uv_z.nc"
+UV_Z_INIT_FILE = "2015.nc4" ! default = "uv_z.nc"
 !                                ! The name of the z-space input file used to initialize
                                 ! u-vel (U) and v-vel (V).
 Z_INIT_FILE_PTEMP_VAR = "water_temp" ! default = "ptemp"
