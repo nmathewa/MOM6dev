@@ -36,6 +36,12 @@ parameter_filename = 'SIS_input',
     concurrent = .false.
     use_lag_fluxes=.true. /
 
+
+&diag_integral_nml
+file_name  = 'diag_integral.out',
+time_units = 'days',
+output_interval = -1.0
+/
 &data_override_nml
  /
 
@@ -69,3 +75,47 @@ construct_table_wrt_liq_and_ice = .true. /
     make_exchange_reproduce = .true.
     interp_method = 'second_order' /
 
+    &ocean_vert_pp_nml
+
+    /
+    
+     &ocean_vert_tidal_nml
+           use_this_module=.true.
+           use_wave_dissipation=.true.
+           use_drag_dissipation=.true.
+           read_wave_dissipation=.false.
+           fixed_wave_dissipation=.false.
+           read_tide_speed=.true.
+           read_roughness=.false.
+           reading_roughness_amp=.false.
+           reading_roughness_length=.false.
+           roughness_scale=30e3
+           tide_speed_data_on_t_grid=.true.
+           drhodz_min=1e-12
+           mixing_efficiency_n2depend=.true.
+           max_wave_diffusivity=100.0e-4
+           wave_energy_flux_max=0.10
+           decay_scale=300.0
+           shelf_depth_cutoff=160.0
+           background_diffusivity=0.0
+           background_viscosity=1.e-4
+    /
+    
+     &ocean_xlandinsert_nml
+           use_this_module=.false.
+           verbose_init=.false.
+    /
+    
+     &ocean_xlandmix_nml
+           use_this_module=.false.
+           verbose_init=.false.
+           xlandmix_kmt=.false.
+    /
+    
+     &oda_core_nml
+    
+    /
+    
+     &oda_nml
+    
+    /
