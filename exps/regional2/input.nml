@@ -13,13 +13,15 @@
         restart_output_dir = 'RESTART/',
         parameter_filename = 'SIS_input',
                              'SIS_override' /
-/
+ &fms_io_nml
+         fms_netcdf_restart=.true.
+         threading_read='multi'
+ /
+
  &fms_nml
-            clock_grain        = 'ROUTINE'
-            clock_flags        = 'NONE'
-            domains_stack_size = 5000000
-            stack_size         = 0
-/
+       clock_grain='MODULE'
+       domains_stack_size = 4838400
+       clock_flags='SYNC' /
 
 &coupler_nml
        months = 0,
