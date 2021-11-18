@@ -111,7 +111,7 @@ SPONGE_V_VAR = "water_v"     ! default = "v"
 !
 SPONGE_IDAMP_VAR = "rmu"        ! default = "IDAMP"
                                 ! The name of the inverse damping rate variable in SPONGE_DAMPING_FILE.
-INTERPOLATE_SPONGE_TIME_SPACE = True  ! Set True if using the newer sponging code which
+INTERPOLATE_SPONGE_TIME_SPACE = False  ! Set True if using the newer sponging code which
                                       ! performs on-the-fly regridding in lat-lon-time.
                                       ! of sponge restoring data.
 
@@ -297,7 +297,7 @@ ALE_COORDINATE_CONFIG = "HYBRID:mom6_vgrid.nc,sigma2,dz" ! default = "UNIFORM"
                                 ! thicknesses (in m). In sigma-coordinate mode, the list
                                 ! is of non-dimensional fractions of the water column.
                                 ! HYBRID target densities for itnerfaces
-BOUNDARY_EXTRAPOLATION = True   !   [Boolean] default = False
+BOUNDARY_EXTRAPOLATION = False   !   [Boolean] default = False
                                 ! When defined, a proper high-order reconstruction
                                 ! scheme is used within boundary cells rather
                                 ! than PCM. E.g., if PPM is used for remapping, a
