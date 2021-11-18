@@ -6,6 +6,13 @@
          parameter_filename = 'MOM_input',
                               'MOM_override'
 
+ &SIS_input_nml
+        output_directory = './',
+        input_filename = 'n'
+        restart_input_dir = 'INPUT/',
+        restart_output_dir = 'RESTART/',
+        parameter_filename = 'SIS_input',
+                             'SIS_override' /
 /
  &fms_nml
             clock_grain        = 'ROUTINE'
