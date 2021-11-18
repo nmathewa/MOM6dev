@@ -313,7 +313,7 @@ REMAPPING_SCHEME = "PLM"     ! default = "PLM";  HYCOM:  hybmap=3
                                 ! PPM_IH4     (3rd-order accurate)
                                 ! PQM_IH4IH3  (4th-order accurate)
                                 ! PQM_IH6IH5  (5th-order accurate)
-REMAP_AFTER_INITIALIZATION = False !   [Boolean] default = True
+REMAP_AFTER_INITIALIZATION = True !   [Boolean] default = True
                                 ! If true, applies regridding and remapping immediately after
                                 ! initialization so that the state is ALE consistent. This is a
                                 ! legacy step and should not be needed if the initialization is
