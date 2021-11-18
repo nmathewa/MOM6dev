@@ -33,10 +33,10 @@ NIGLOBAL = 262                  ! HYCOM: idm=263
 NJGLOBAL = 192                  ! HYCOM: jdm=193
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in SIS2_memory.h at compile time.
-NIHALO = 4                      ! default = 4
+NIHALO = 1                      ! default = 4
                                 ! The number of halo points on each side in the x-direction.  How this is set
                                 ! varies with the calling component and static or dynamic memory configuration.
-NJHALO = 4                      ! default = 4
+NJHALO = 1                      ! default = 4
                                 ! The number of halo points on each side in the y-direction.  How this is set
                                 ! varies with the calling component and static or dynamic memory configuration.
 
