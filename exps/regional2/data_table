@@ -1,5 +1,5 @@
-#"ATM", "cfc_11_flux_pcair_atm","CFC_11","INPUT/cfc.bc.nc",.false., 1.0e-12
-#"ATM", "cfc_12_flux_pcair_atm","CFC_12","INPUT/cfc.bc.nc",.false., 1.0e-12
+"ATM", "cfc_11_flux_pcair_atm","CFC_11","INPUT/cfc.bc.nc",.false., 1.0e-12
+"ATM", "cfc_12_flux_pcair_atm","CFC_12","INPUT/cfc.bc.nc",.false., 1.0e-12
 "ATM" , "p_surf"        , "SLP" , "./INPUT/slp.clim.nc"                     , .false. ,  1.0
 "ATM" , "p_bot"         , "SLP" , "./INPUT/slp.clim.nc"                     , .false. ,  1.0
 "ATM" , "t_bot"         , "T_10_MOD"    , "./INPUT/t_10_mod.clim.nc"     , .false. ,  1.0
@@ -8,6 +8,7 @@
 "ATM" , "v_bot"         , "V_10_MOD"    , "./INPUT/v_10_mod.clim.nc"     , .false. ,  1.0
 "ATM" , "z_bot"         , ""            , ""                             , .false. , 10.0
 "ATM" , "gust"          , ""            , ""                             , .false. ,  0.0
+"ATM" , "sphum"          , ""            , ""                             , .false. ,  0.0
 #"ICE" , "lw_flux_dn"    , "LWDN_MOD"    , "./INPUT/ncar_rad_clim.nc"     , .false. ,  1.0
 #"ICE" , "sw_flux_vis_dir_dn", "SWDN_MOD", "./INPUT/ncar_rad_clim.nc", .false. , 0.285
 #"ICE" , "sw_flux_vis_dif_dn", "SWDN_MOD", "./INPUT/ncar_rad_clim.nc", .false. , 0.285
