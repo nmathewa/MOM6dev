@@ -409,7 +409,7 @@ Z_INIT_FILE_SALT_VAR = "salinity"   ! default = "salt"
 !Z_INIT_FILE_V_VAR = "water_v"   ! default = "v"
 !                                ! The name of the z-space input file used to initialize v-vel, only.
 
-Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+Z_INIT_ALE_REMAPPING = False     !   [Boolean] default = False
                                 ! If True, then remap straight to model coordinate from file.
 
 Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
@@ -840,7 +840,7 @@ OPACITY_LAND_VALUE = 10.0       !   [m-1] default = 10.0
                                 ! 10 m-1 - a value for muddy water.
 
 ! === module MOM_tracer_advect ===
-TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
+T!RACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
                                 ! The horizontal transport scheme for tracers:
                                 !   PLM    - Piecewise Linear Method
                                 !   PPM:H3 - Piecewise Parabolic Method (Huyhn 3rd order)
