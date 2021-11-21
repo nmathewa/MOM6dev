@@ -67,5 +67,5 @@
 
  &xgrid_nml
             make_exchange_reproduce = .false.
-            interp_method = 'second_order' /
+            interp_method = 'first_order' /
 
