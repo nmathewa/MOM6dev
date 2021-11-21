@@ -409,7 +409,7 @@ Z_INIT_FILE_SALT_VAR = "salinity"   ! default = "salt"
 !Z_INIT_FILE_V_VAR = "water_v"   ! default = "v"
 !                                ! The name of the z-space input file used to initialize v-vel, only.
 
-Z_INIT_ALE_REMAPPING = False     !   [Boolean] default = False
+Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
                                 ! If True, then remap straight to model coordinate from file.
 
 Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
