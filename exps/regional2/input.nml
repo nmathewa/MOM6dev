@@ -65,7 +65,4 @@
       construct_table_wrt_liq = .true.,
       construct_table_wrt_liq_and_ice = .true. /
 
- &xgrid_nml
-            make_exchange_reproduce = .false.
-            interp_method = 'first_order' /
 
