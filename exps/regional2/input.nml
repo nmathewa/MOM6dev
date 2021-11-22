@@ -18,20 +18,23 @@
  /
 
  &coupler_nml
-            calendar       = 'NOLEAP',
-            current_date   = 2013,01,01,00,00,00,
-            months         = 0,
-            days           = 30,
-            dt_cpld        = 3600,
-            dt_atmos       = 3600,
-            do_atmos       = .false.,
-            do_land        = .false.,
-            do_ice         = .true.,
-            do_ocean       = .true.,
-            do_flux        = .true.,
-            concurrent     = .false.     
-            use_lag_fluxes = .false.    
-/
+            months = 0,
+            days   = 30,
+            current_date = 1900,1,1,0,0,0,
+            hours = 0
+            minutes = 0
+            seconds = 0
+            calendar = 'NOLEAP',
+            dt_cpld  = 7200,
+            dt_atmos = 7200,
+            do_atmos = .false.,
+            do_land = .false.,
+            do_ice = .true.,
+            do_ocean = .true.,
+            atmos_npes = 0,
+            ocean_npes = 0,
+            concurrent = .false.
+            use_lag_fluxes=.true. /
 
  &data_override_nml
          /
@@ -62,4 +65,7 @@
       construct_table_wrt_liq = .true.,
       construct_table_wrt_liq_and_ice = .true. /
 
+ &xgrid_nml
+            make_exchange_reproduce = .false.
+            interp_method = 'second_order' /
 
