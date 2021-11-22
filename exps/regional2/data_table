@@ -2,7 +2,7 @@
 #"ATM", "cfc_12_flux_pcair_atm","CFC_12","INPUT/cfc.bc.nc",.false., 1.0e-12
 "ATM" , "p_surf"        , "SLP" , "./INPUT/slp_clim_2012.nc"                     , .false. ,  1.0
 "ATM" , "p_bot"         , "SLP" , "./INPUT/slp_clim_2012.nc"                     , .false. ,  1.0
-"ATM" , "t_bot"         , "T_10_MOD"    , "./INPUT/t_10_mod.clim_2012.nc"     , .false. ,  1.0
+#"ATM" , "t_bot"         , "T_10_MOD"    , "./INPUT/t_10_mod.clim_2012.nc"     , .false. ,  1.0
 "ATM" , "sphum_bot"     , "Q_10_MOD"    , "./INPUT/q_10_mod.clim_2012.nc"     , .false. ,  1.0
 "ATM" , "u_bot"         , "U_10_MOD"    , "./INPUT/u_10_mod.clim_2012.nc"     , .false. ,  1.0
 "ATM" , "v_bot"         , "V_10_MOD"    , "./INPUT/v_10_mod.clim_2012.nc"     , .false. ,  1.0
