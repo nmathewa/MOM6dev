@@ -19,7 +19,7 @@
 
  &coupler_nml
             calendar       = 'NOLEAP',
-            current_date   = 2013,01,01,00,00,00
+            current_date   = 2013,01,01,00,00,00,
             months         = 0,
             days           = 30,
             dt_cpld        = 3600,
