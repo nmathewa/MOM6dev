@@ -24,7 +24,7 @@
             hours = 0
             minutes = 0
             seconds = 0
-            calendar = 'GREOGORIAN',
+            calendar = 'NOLEAP',
             dt_cpld  = 7200,
             dt_atmos = 7200,
             do_atmos = .false.,
