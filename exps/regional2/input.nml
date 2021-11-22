@@ -19,8 +19,8 @@
 
  &coupler_nml
             months = 0,
-            days   = 30,
-            current_date = 2013,01,01
+            days   = 365,
+            current_date = 2013 01 01
             hours = 0
             minutes = 0
             seconds = 0
