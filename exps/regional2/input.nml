@@ -24,7 +24,7 @@
             hours = 0
             minutes = 0
             seconds = 0
-            calendar = 'gregorian',
+            calendar = 'GREGORIAN',
             dt_cpld  = 7200,
             dt_atmos = 7200,
             do_atmos = .false.,
