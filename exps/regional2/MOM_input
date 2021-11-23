@@ -404,9 +404,9 @@ Z_INIT_FILE_PTEMP_VAR = "water_temp" ! default = "ptemp"
 Z_INIT_FILE_SALT_VAR = "salinity"   ! default = "salt"
                                 ! The name of the salinity variable in
                                 ! TEMP_SALT_Z_INIT_FILE.
-!Z_INIT_FILE_U_VAR = "water_u"   ! default = "u"
+Z_INIT_FILE_U_VAR = "water_u"   ! default = "u"
 !                                ! The name of the z-space input file used to initialize u-vel, only.
-!Z_INIT_FILE_V_VAR = "water_v"   ! default = "v"
+Z_INIT_FILE_V_VAR = "water_v"   ! default = "v"
 !                                ! The name of the z-space input file used to initialize v-vel, only.
 
 Z_INIT_ALE_REMAPPING = False     !   [Boolean] default = False
