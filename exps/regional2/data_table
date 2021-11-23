@@ -1,9 +1,9 @@
 #"ATM", "cfc_11_flux_pcair_atm","CFC_11","INPUT/cfc.bc.nc",.false., 1.0e-12
 #"ATM", "cfc_12_flux_pcair_atm","CFC_12","INPUT/cfc.bc.nc",.false., 1.0e-12
-"ATM" , "p_surf"        , "SLP2" , "./INPUT/slp_clim_2013_nw.nc"                     , .false. ,  1.0
-"ATM" , "p_bot"         , "SLP2" , "./INPUT/slp_clim_2013_nw.nc"                     , .false. ,  1.0
+"ATM" , "p_surf"        , "SLP2" , "./INPUT/slp_clim_2013_nw.nc"                     , .false. ,  100.0
+"ATM" , "p_bot"         , "SLP2" , "./INPUT/slp_clim_2013_nw.nc"                     , .false. ,  100.0
 "ATM" , "t_bot"         , "AIR"    , "./INPUT/airt_clim_2013_k.nc"     , .false. ,  1.0  
-!"ATM" , "sphum_bot"     , "SPHUM"    , "./INPUT/sphum_clim_2013_nw.nc"     , .false. ,  0.001
+"ATM" , "sphum_bot"     , "SPHUM"    , "./INPUT/sphum_clim_2013_nw.nc"     , .false. ,  0.001
 "ATM" , "u_bot"         , "U_10"    , "./INPUT/uvel_clim_2013_fl.nc"     , .false. ,  1.0
 "ATM" , "v_bot"         , "V_10"    , "./INPUT/vvel_clim_2013_fl.nc"     , .false. ,  1.0
 "ATM" , "z_bot"         , ""            , ""                             , .false. , 10.0
