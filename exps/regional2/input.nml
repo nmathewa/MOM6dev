@@ -19,7 +19,7 @@
 
  &coupler_nml
             months = 0,
-            days   = 10,
+            days   = 350,
             current_date = 2013,1,1,0,0,0,
             hours = 0
             minutes = 0
