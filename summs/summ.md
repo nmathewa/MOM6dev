@@ -39,8 +39,13 @@ All the units, and attributes in match with the MOM6 (MOM5, since MOM6 does not 
   
 ### segments setup
 
-1. OBC_SEGMENT_001
+```
+OBC_SEGMENT_001 = "I=99,J=5:7,SIMPLE
+OBC_SEGMENT_002 = "J=5,I=98:99,SIMPLE
+OBC_SEGMENT_003 = "J=4,I=76:90,SIMPLE
+OBC_SEGMENT_004 = "I=76,J=4:7,SIMPLE
 
+```
 
 ### Avaialable oboundary conditions
 
