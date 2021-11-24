@@ -31,3 +31,41 @@ All the units, and attributes in match with the MOM6 (MOM5, since MOM6 does not 
 
 # Setting up open boundary conditions 
 
+![](Untitled%20Diagram.drawio.png)
+
+
+- 3 ( or 4 open boundary segments )
+- OBC_NUMBER_OF_SEGMENTS = 3
+  
+### segments setup
+
+1. OBC_SEGMENT_001
+
+
+### Avaialable oboundary conditions
+
+- SIMPLE - the boundary values of normal velocities are specified. User-specified fields for open boundaries can be set via OBC_USER_CONFIG in MOM_input, DOME, for instance. This user code is currently the only way to provide the cross-boundary transport required for SIMPLE boundaries. Supercritical is another example.
+
+- SIMPLE_TAN - the boundary values of tangential velocities are specified. Does not need any user code for transports.
+
+- SIMPLE_GRAD - the boundary value of the normal gradient of tangential flow is specified.
+
+- GRADIENT - zero gradient of all fields near the boundary.
+
+- FLATHER - a radiation boundary condition on the barotropic flow which attempts to comply with exterior values, tidal or otherwise.
+
+- ORLANSKI - a radiation boundary condition on the baroclinic flow.
+
+- OBLIQUE - a radiation boundary condition for baroclinic flows using oblique phase speeds (Raymond and Kuo, 1984).
+
+- NUDGED - a modifier on the radiation conditions (ORLANSKI and OBLIQUE) to nudge to exterior velocity values.
+
+
+- ORLANSKI_TAN - a radiation boundary condition for the baroclinic flow tangential to the boundary.
+
+- NUDGED_TAN - a modifier on the radiation condition to nudge tangential flow to exterior velocity values.
+
+- ORLANSKI_GRAD - a radiation boundary condition for dvdx or dudy, contributing to the vorticity and strain computations.
+
+- NUDGED_GRAD - a modifier on the radiation condition to nudge dvdx or dudy to external values.
+
