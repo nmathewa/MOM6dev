@@ -46,6 +46,8 @@ OBC_SEGMENT_003 = "J=4,I=76:90,SIMPLE
 OBC_SEGMENT_004 = "I=76,J=4:7,SIMPLE
 
 ```
+### Data setup
+
 
 ### Avaialable oboundary conditions
 

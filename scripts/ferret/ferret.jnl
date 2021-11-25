@@ -1,0 +1,8 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Linux 5.8.0-1040-azure - 09/02/21
+ ! 24-Nov-21 12:03     
+
+set mode verify
+use time_axis.jnl
+exit
