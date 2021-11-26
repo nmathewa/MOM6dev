@@ -80,3 +80,11 @@ data table should set up accordingly (with forcing datasets)
 - [data download](https://www.ncei.noaa.gov/products/climate-data-records/outgoing-longwave-radiation-daily)
 - [NCAR air-sea flux data](https://rda.ucar.edu/datasets/ds260.2/)
 
+
+# References
+
+1. [Boundary condition pynotes](https://github.com/ESMG/regionalMOM6_notebooks/blob/master/creating_obc_input_files/panArctic_OBC_from_global_MOM6.ipynb)
+2. [ocean model grid genreator tool](https://github.com/nikizadehgfdl/ocean_model_grid_generator)
+3. [COSIMA pan antarctic MOM6 model configs](https://github.com/COSIMA/mom6-panan)
+
+
