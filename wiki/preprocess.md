@@ -21,7 +21,7 @@ make_hgrid --grid_type regular_lonlat_grid --nxbnd 2 --nybnd 2 --xbnd 77,99 --yb
 ### 2.mosaic creation
 
 ```BASH
-make_solo_mosaic --num_tiles 1 --dir . --mosaic_name ocean_mosaic_india --tile_file mosaic.nc --periodx 0 --periody 0
+make_solo_mosaic --num_tiles 1 --dir . --mosaic_name ocean_mosaic --tile_file mosaic.nc --periodx 0 --periody 0
 ```
 
 
@@ -31,7 +31,7 @@ make_solo_mosaic --num_tiles 1 --dir . --mosaic_name ocean_mosaic_india --tile_f
 
 
 ```BASH
-make_topog --mosaic ocean_mosaic_india.nc --topog_type realistic --topog_file gebco_test.nc --topog_field depth --scale_factor 1
+make_topog --mosaic ocean_mosaic.nc --topog_type realistic --topog_file gebco_test.nc --topog_field depth --scale_factor 1
 ```
 
 For running the atmospheric, land and ice modulues (for forcing not coupled), the atmospheric and land coupled grids should be generated 
@@ -60,11 +60,21 @@ For the forcing should work atmospheric and land components should be compiled (
 
 - Date calendar must be set ("NOLEAP" is used so far)
 
-- There must be no null/nan values, must be interpolated (interpolate nan) for all time steps (rioxarray is used refer to momtools)
-- Units of variables should match with MOM6 requirement (refer next subsection "Variables_info")
-- Data Table must be match with variable names
+- There must be no null/nan values, must be interpolated (interpolate nan) for all time steps (rioxarray is used, refer to momtools)
+- Units of variables should match with MOM6 requirement (refer next section tree "Variables_info")
+- Data Table variable names,file names must be match with file names
 - variable nc domains must be larger than the grid extends
 
+## Variable Table
+
+| Variable name | data_table id | units | type | forcing type |
+| --------------|---------------|-------|------|--------------|
+Salinity (S) |  -- | PSU | IC | 
+| water Temperature | | Degree C |
+| hori and meri components | | |
+Sea level pressure | p_surf,p_bot | Pa | forcing |"ATM"
+| Air Temperature | t_bot | Kelvin | forcing| "ATM"  
+| 
 ### Data Table
 
 ![](Screenshot%20from%202021-11-15%2014-17-47.png)
