@@ -34,6 +34,18 @@ make_solo_mosaic --num_tiles 1 --dir . --mosaic_name ocean_mosaic_india --tile_f
 make_topog --mosaic ocean_mosaic_india.nc --topog_type realistic --topog_file gebco_test.nc --topog_field depth --scale_factor 1
 ```
 
+For running the atmospheric, land and ice modulues (for forcing not coupled), the atmospheric and land coupled grids should be generated 
+
+- for creating all domain files 
+
+```BASH
+make_quick_mosaic --input_mosaic ocean_mosaic.nc --mosaic_name grid_spec --ocean_topog topog.nc
+
+```
+- Then the below files will be generated
+
+
+
 ## Initial conditions
 
 - [ECMWRF ERA5 reanlysis](https://www.ecmwf.int/en/research/climate-reanalysis/ocean-reanalysis)
@@ -43,6 +55,15 @@ make_topog --mosaic ocean_mosaic_india.nc --topog_type realistic --topog_file ge
 # Forcing Conditions 
 
 For the forcing should work atmospheric and land components should be compiled (recommended option is build with Sea Ice (SIS2))
+
+## prerequesties
+
+- Date calendar must be set ("NOLEAP" is used so far)
+
+- There must be no null/nan values, must be interpolated (interpolate nan) for all time steps (rioxarray is used refer to momtools)
+- Units of variables should match with MOM6 requirement (refer next subsection "Variables_info")
+- Data Table must be match with variable names
+- variable nc domains must be larger than the grid extends
 
 ### Data Table
 
