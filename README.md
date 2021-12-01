@@ -13,6 +13,13 @@ MOM6 development private
 
 # Current domain
 
+![](summs/Untitled%20Diagram.drawio.png)
+
+# Outputs [sims done on 29/11/21]
+
+- 2013 one year , daily surface conditions
+
+
 # wiki
 
 # Datasets
