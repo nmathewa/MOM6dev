@@ -2,13 +2,16 @@
 
 # To do
 
+
+- [ ] - make seperate obc conditions 
 - [x] - function for masking @forcing
 - [ ] - data type of dimension error, create an default template (netcdf Xarray)
 
 
 # MOM6dev
-MOM6 development privat
+MOM6 development private
 
+# Current domain
 
 # wiki
 
