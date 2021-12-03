@@ -81,6 +81,8 @@ Sea level pressure | p_surf,p_bot | Pa | forcing |"ATM"
 
 data table should set up accordingly (with forcing datasets)
 
+# Open boundary conditions
+
 
 
 ### OLR flux 
