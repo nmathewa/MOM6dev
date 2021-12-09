@@ -1,3 +1,5 @@
 #ignore all .nc  and tar files
 *.nc
 *.tar.gz
+*.zip
+*.nc4
