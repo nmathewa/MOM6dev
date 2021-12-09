@@ -34,10 +34,10 @@ west_obc = xr.open_dataset(obc_dir+"section_west.nc")
 
 south_obc = xr.open_dataset(obc_dir+"section_south.nc")
 
-cur_depth = south_obc.st_ocean.values
+cur_depth = south_obc.zl.values
 
-reg_south_obc = south_obc.interp(st_ocean=hy_depth)
-reg_west_obc = west_obc.interp(st_ocean=hy_depth)
+reg_south_obc = south_obc.interp(zl=hy_depth)
+reg_west_obc = west_obc.interp(zl=hy_depth)
 
 
 reg_south_obc.to_netcdf(obc_dir+"section_south40.nc")
@@ -45,8 +45,10 @@ reg_west_obc.to_netcdf(obc_dir+"section_west40.nc")
 
 #%%
 
-tfil_reg_south_obc = reg_south_obc.rename({'st_ocean': 'zl','__xarray_dataarray_variable__':'v'}).sel(time=slice("2013-01-01", "2013-12-31"))
+tfil_reg_south_obc = reg_south_obc.rename({'values':'v'}).sel(time=slice("2013-01-01", "2013-12-31"))
 
+tfil_reg_west_obc = reg_west_obc.rename({'values':'u'}).sel(time=slice("2013-01-01", "2013-12-31"))
 
 tfil_reg_south_obc.to_netcdf(obc_dir+"section_south40tt.nc")
+tfil_reg_west_obc.to_netcdf(obc_dir+"section_west40tt.nc")
 

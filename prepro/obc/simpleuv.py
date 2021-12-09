@@ -11,7 +11,7 @@ import xesmf
 from HCtFlood.kara import flood_kara
 import bottleneck
 import os
-
+import numpy as np
 #%%
 
 os.chdir("/home/nma/HDD/archives/IOMOM5Op/")
@@ -43,12 +43,13 @@ south = xr.Dataset()
 south['lon'] = grid['x'].isel(nyp=0)
 south['lat'] = grid['y'].isel(nyp=0)
 
+
 # western boundary
 west = xr.Dataset()
 west['lon'] = grid['x'].isel(nxp=0)
 west['lat'] = grid['y'].isel(nxp=0)
 
-
+#%%
 
 regrid_south = xesmf.Regridder(ds_cut.rename({'xu_ocean': 'lon', 'yu_ocean': 'lat'}), south, 'bilinear', 
                                locstream_out=True, periodic=False, filename='regrid_south.nc')
@@ -71,10 +72,38 @@ drowned_u_west = u_west.ffill(dim='nyp').ffill(dim='st_ocean')
 drowned_v_south = v_south.ffill(dim='nxp').ffill(dim='st_ocean')
 
 
+
+
 drowned_v_south.isel(time=0).plot(figsize=[8, 6], yincrease=False, cmap='jet')
 
-#%%
-drowned_u_west.to_netcdf(exp_dir+"section_west.nc")
+#%% adding dim
 
-drowned_v_south.to_netcdf(exp_dir+"section_south.nc")
+#dd= drowned_u_west.expand_dims({"nxp":drowned_u_west.lon[0]})
+
+n_west_array = np.expand_dims(drowned_u_west.values,axis=3)
+
+n_south_array = np.expand_dims(drowned_v_south.values,axis=2)
+
+#%%
+west_final = xr.Dataset({
+    "values" : (["time","zl","yh","xq"],n_west_array),},
+    coords = {"time":(["time",],drowned_u_west.time.values),
+              "zl":(["zl",],drowned_u_west.st_ocean.values),
+              "yh":(["yh",],drowned_u_west.lat.values),
+              "xq":(["xq"],[drowned_u_west.lon.values[0]])})
+
+
+south_final = xr.Dataset({
+    "values" : (["time","zl","yh","xq"],n_south_array),},
+    coords = {"time":(["time",],drowned_v_south.time.values),
+              "zl":(["zl",],drowned_v_south.st_ocean.values),
+              "yh":(["yh",],[drowned_v_south.lat.values[0]]),
+              "xq":(["xq"],drowned_v_south.lon.values)})
+
+
+
+#%%
+west_final.to_netcdf(exp_dir+"section_west.nc")
+
+south_final.to_netcdf(exp_dir+"section_south.nc")
 
