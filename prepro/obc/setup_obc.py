@@ -17,7 +17,7 @@ caops_dir = "/home/nma/HDD/archives/IOMOM5Op/caops/"
 sam_obc = xr.open_dataset(caops_dir+"obc_east.nc")
 
 
-
+dz = sam_obc.zl.values
 #%% vgrid file
 
 dirv = "/home/nma/mom/MOM6dev/prepro/obc/gen_vgrid/"
@@ -51,4 +51,8 @@ tfil_reg_west_obc = reg_west_obc.rename({'values':'u'}).sel(time=slice("2013-01-
 
 tfil_reg_south_obc.to_netcdf(obc_dir+"section_south40tt.nc")
 tfil_reg_west_obc.to_netcdf(obc_dir+"section_west40tt.nc")
+
+#%%
+
+
 
