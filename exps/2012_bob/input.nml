@@ -27,7 +27,7 @@
             calendar = 'NOLEAP',
             dt_cpld  = 7200,
             dt_atmos = 7200,
-            do_atmos = .true.,
+            do_atmos = .false.,
             do_land = .false.,
             do_ice = .true.,
             do_ocean = .true.,
