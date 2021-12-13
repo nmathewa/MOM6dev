@@ -20,14 +20,14 @@
  &coupler_nml
             months = 0,
             days   = 10,
-            current_date = 2013,1,1,0,0,0,
+            current_date = 2012,1,1,0,0,0,
             hours = 0
             minutes = 0
             seconds = 0
             calendar = 'NOLEAP',
             dt_cpld  = 7200,
             dt_atmos = 7200,
-            do_atmos = .false.,
+            do_atmos = .true.,
             do_land = .false.,
             do_ice = .true.,
             do_ocean = .true.,
