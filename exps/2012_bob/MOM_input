@@ -352,7 +352,7 @@ TOPO_CONFIG = "file"            !
                                 !     seamount - Gaussian bump for spontaneous motion test case.
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     USER - call a user modified routine.
-TOPO_FILE = "bob_topo_fake.nc"    ! default = "topog.nc"
+TOPO_FILE = "final_topog_fake.nc"    ! default = "topog.nc"
                                 ! The file from which the bathymetry is read.
 MAXIMUM_DEPTH = 5000.0          !   [m]
                                 ! The maximum depth of the ocean.
