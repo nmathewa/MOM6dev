@@ -74,7 +74,9 @@ drowned_v_south = v_south.ffill(dim='nxp').ffill(dim='st_ocean')
 
 
 
-drowned_v_south.isel(time=0).plot(figsize=[8, 6], yincrease=False, cmap='jet')
+#drowned_v_south.isel(time=0).plot(figsize=[8, 6], yincrease=False, cmap='jet')
+
+
 
 #%% adding dim
 
@@ -84,9 +86,11 @@ n_west_array = np.expand_dims(drowned_u_west.values,axis=3)
 
 n_south_array = np.expand_dims(drowned_v_south.values,axis=2)
 
+#dz_vals = 
+
 #%%
 west_final = xr.Dataset({
-    "values" : (["time","zl","yh","xq"],n_west_array),},
+    "u" : (["time","zl","yh","xq"],n_west_array),},
     coords = {"time":(["time",],drowned_u_west.time.values),
               "zl":(["zl",],drowned_u_west.st_ocean.values),
               "yh":(["yh",],drowned_u_west.lat.values),
@@ -94,7 +98,7 @@ west_final = xr.Dataset({
 
 
 south_final = xr.Dataset({
-    "values" : (["time","zl","yh","xq"],n_south_array),},
+    "v" : (["time","zl","yh","xq"],n_south_array),},
     coords = {"time":(["time",],drowned_v_south.time.values),
               "zl":(["zl",],drowned_v_south.st_ocean.values),
               "yh":(["yh",],[drowned_v_south.lat.values[0]]),
