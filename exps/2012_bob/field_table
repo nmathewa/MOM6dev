@@ -1,6 +1,6 @@
-#"TRACER", "atmos_mod", "sphum"
-#           "longname",     "specific humidity"
-#           "units",        "kg/kg" /
+"TRACER", "atmos_mod", "sphum"
+           "longname",     "specific humidity"
+           "units",        "kg/kg" /
 
 # prognotic cloud scheme tracers
   "TRACER", "atmos_mod", "liq_wat"
