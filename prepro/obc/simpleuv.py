@@ -108,7 +108,7 @@ south_final = xr.Dataset({
 
 
 #%%
-west_final.to_netcdf(exp_dir+"section_west1.nc")
+west_final.to_netcdf(exp_dir+"section_west2.nc")
 
-south_final.to_netcdf(exp_dir+"section_south1.nc")
+south_final.to_netcdf(exp_dir+"section_south2.nc")
 

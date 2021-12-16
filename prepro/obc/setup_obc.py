@@ -7,8 +7,8 @@ Regrid vertical
 """
 
 import xarray as xr
-#import xesmf
-#import os
+import xesmf
+import os
 import numpy as np
 
 #%% sample obc files
@@ -33,9 +33,9 @@ hy_depth = IC_grid.DEPTH.values
 #%% new_obcs 
 obc_dir = "/home/nma/mom/MOM6dev/prepro/obc/"
 
-west_obc = xr.open_dataset(obc_dir+"section_west1.nc")
+west_obc = xr.open_dataset(obc_dir+"section_west2.nc")
 
-south_obc = xr.open_dataset(obc_dir+"section_south1.nc")
+south_obc = xr.open_dataset(obc_dir+"section_south2.nc")
 
 cur_depth = south_obc.zl.values
 
@@ -67,9 +67,9 @@ reg_west_obc.to_netcdf(obc_dir+"section_west40.nc")
 
 #%%
 
-tfil_reg_south_obc = fin_reg_south.rename({'values':'v'}).sel(time=slice("2013-01-01", "2013-12-31"))
+tfil_reg_south_obc = fin_reg_south.sel(time=slice("2012-12-31", "2013-12-31"))
 
-tfil_reg_west_obc = fin_reg_west.rename({'values':'u'}).sel(time=slice("2013-01-01", "2013-12-31"))
+tfil_reg_west_obc = fin_reg_west.sel(time=slice("2012-12-31", "2013-12-31"))
 
 
 
