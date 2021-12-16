@@ -32,7 +32,7 @@ ds = xr.merge([uu,vv])
 
 ds_cut = ds.sel(xu_ocean=slice(65,100), yu_ocean=slice(0,28))
 
-ds_cut['u'].isel(time=0, st_ocean=0).plot(figsize=[10,6],cmap='jet')
+#ds_cut['u'].isel(time=0, st_ocean=0).plot(figsize=[10,6],cmap='jet')
 
 
 #%%
@@ -89,6 +89,7 @@ n_south_array = np.expand_dims(drowned_v_south.values,axis=2)
 #dz_vals = 
 
 #%%
+
 west_final = xr.Dataset({
     "u" : (["time","zl","yh","xq"],n_west_array),},
     coords = {"time":(["time",],drowned_u_west.time.values),
@@ -98,16 +99,16 @@ west_final = xr.Dataset({
 
 
 south_final = xr.Dataset({
-    "v" : (["time","zl","yh","xq"],n_south_array),},
+    "v" : (["time","zl","yq","xh"],n_south_array),},
     coords = {"time":(["time",],drowned_v_south.time.values),
               "zl":(["zl",],drowned_v_south.st_ocean.values),
-              "yh":(["yh",],[drowned_v_south.lat.values[0]]),
-              "xq":(["xq"],drowned_v_south.lon.values)})
+              "yq":(["yq",],[drowned_v_south.lat.values[0]]),
+              "xh":(["xh"],drowned_v_south.lon.values)})
 
 
 
 #%%
-west_final.to_netcdf(exp_dir+"section_west.nc")
+west_final.to_netcdf(exp_dir+"section_west1.nc")
 
-south_final.to_netcdf(exp_dir+"section_south.nc")
+south_final.to_netcdf(exp_dir+"section_south1.nc")
 

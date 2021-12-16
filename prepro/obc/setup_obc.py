@@ -7,8 +7,8 @@ Regrid vertical
 """
 
 import xarray as xr
-import xesmf
-import os
+#import xesmf
+#import os
 import numpy as np
 
 #%% sample obc files
@@ -33,9 +33,9 @@ hy_depth = IC_grid.DEPTH.values
 #%% new_obcs 
 obc_dir = "/home/nma/mom/MOM6dev/prepro/obc/"
 
-west_obc = xr.open_dataset(obc_dir+"section_west.nc")
+west_obc = xr.open_dataset(obc_dir+"section_west1.nc")
 
-south_obc = xr.open_dataset(obc_dir+"section_south.nc")
+south_obc = xr.open_dataset(obc_dir+"section_south1.nc")
 
 cur_depth = south_obc.zl.values
 
@@ -52,11 +52,11 @@ final_dzuw = u_west_dz_new.transpose(2,3,1,0)
 fin_reg_west = reg_west_obc.assign({"dz_U11":(["time","zl","yh","xq"],final_dzuw)})
 
 
-v_south_dz_new = np.array(len(reg_south_obc.xq.values)*[np.array(len(reg_south_obc.yh.values)*[np.array(len(reg_south_obc.time.values)*[np.insert(np.diff(hy_depth),
+v_south_dz_new = np.array(len(reg_south_obc.xh.values)*[np.array(len(reg_south_obc.yq.values)*[np.array(len(reg_south_obc.time.values)*[np.insert(np.diff(hy_depth),
                                                                                       0,1)])])])
 final_dzvs = v_south_dz_new.transpose(2,3,1,0)
 
-fin_reg_south = reg_south_obc.assign({"dz_V11":(["time","zl","yh","xq"],final_dzvs)})
+fin_reg_south = reg_south_obc.assign({"dz_V11":(["time","zl","yq","xh"],final_dzvs)})
 
 
 
