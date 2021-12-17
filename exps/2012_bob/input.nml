@@ -41,13 +41,13 @@
 
  &fms_io_nml
          fms_netcdf_restart=.true.
-         !threading_read='multi'
+         threading_read='multi'
  /
 
  &fms_nml
-       !clock_grain='MODULE'
-       !domains_stack_size = 4838400
-       !clock_flags='SYNC' /
+       clock_grain='MODULE'
+       domains_stack_size = 4838400
+       clock_flags='SYNC' /
 
  &ice_albedo_nml
       t_range = 10. /
