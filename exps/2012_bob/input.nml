@@ -47,7 +47,8 @@
  &fms_nml
        clock_grain='MODULE'
        domains_stack_size = 4838400
-       !clock_flags='DETAILED' /
+       !clock_flags='SYNC' 
+       /
 
  &ice_albedo_nml
       t_range = 10. /
