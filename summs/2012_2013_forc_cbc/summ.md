@@ -56,9 +56,20 @@ All the units, and attributes in match with the MOM6 (MOM5, since MOM6 does not 
 
 # Open boundary condition Simulation
 
-
+- The model is run on same duration
+- The U , V and tracers from North Indian Ocean simulation (MOM5)
+- Interploated to HYCOM 41 level 
+- Edges are regridded to our domain
 
 ## Boundary Condition Setup 
 
+![](domain.png)
 
 
+### Southern boundary
+
+![](final_south.png)
+
+### Western boundary 
+
+![](final_west.png)
