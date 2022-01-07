@@ -17,6 +17,61 @@ sudo apt-get install netcdf-bin
 
 ```
 
+# General Linux based installation (CentOS, Arch)
+
+## GNU installation
+
+1. GMP
+   ```bash
+   tar -vxf gmp-6.1.0.tar.bz2
+   cd gmp-6.1.0/
+   mkdir build
+   ./configure --prefix=/path/to/GMP
+   make 
+   sudo make install
+   
+   export LD_LIBRARY_PATH=/path/to/GMP/gmp-6.1.0/lib:$LD_LIBRARY_PATH
+   ```
+
+2. MPFR
+   ```bash
+   tar -xvf mpfr-3.1.4.tar.bz2   
+   cd mpfr-3.1.4/
+   mkdir build
+   ./configure --prefix=/path/to/MPFR --with-gmp=/path/to/GMP/gmp-6.1.0
+   make 
+   sudo make install
+   
+   export LD_LIBRARY_PATH=/path/to/MPFR/mpfr-3.1.4/lib:$LD_LIBRARY_PATH
+   ```
+3. MPC
+   ```bash
+   tar -zvxf mpc-1.0.3.tar.gz   
+   cd mpc-1.0.3/
+   mkdir build
+   ./configure --prefix=/path/to/MPC/mpc-1.0.3 --with-gmp=/path/to/GMP/gmp-6.1.0 --with-mpfr=/path/to/MPFR/mpfr-3.1.4
+   make 
+   sudo make install
+   
+   export LD_LIBRARY_PATH=/path/to/MPC/mpc-1.0.3/lib:$LD_LIBRARY_PATH
+   ```
+4. GNU
+   ```bash
+   tar -vxf gcc-9.1.0.tar.xz   
+   cd gcc-9.1.0/
+   mkdir obj build
+   cd obj
+   .../configure --disable-multilib --enable-languages="c,c++,fortran" --prefix=/path/to/GNU --disable-static --enable-shared --with-gmp=/path/to/GMP/gmp-6.1.0 --with-mpfr=/path/to/MPFR/mpfr-3.1.4 --with-mpc=/path/to/MPC/mpc-1.0.3
+
+   make 
+   make install
+   
+   export PATH=/path/to/GNU/bin:$PATH
+   export LD_LIBRARY_PATH=/path/to/GNU/lib64:$LD_LIBRARY_PATH
+   ```
+## OpenMPI installation
+
+
 ### 2. FMS shared library
 
 - Setting up the paths and make file
