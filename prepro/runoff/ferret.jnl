@@ -1,0 +1,15 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Linux 5.8.0-1040-azure - 09/02/21
+ ! 13-Jan-22 13:44     
+
+set mode verify
+use runoff_sample_NIO.nc
+sh da
+fill/L=6
+fill/
+fill/l-6
+fill/l=6
+fill/l=7
+fill/RIV89/l=6
+fill/l=7 RIV89
