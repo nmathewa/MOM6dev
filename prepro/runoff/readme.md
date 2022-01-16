@@ -7,3 +7,20 @@
 3. So volume should divide by area of spread
 
 ![](run_sam_months.png)
+
+
+
+# Steps
+
+1. Load the datasets 
+
+```python
+import xarray as xr
+
+runoff = xr.open_dataset("runoff_final.nc",decode_times=False)
+
+
+```
+> decode_times = False, problem with time axis in xarray (cftime), which refer to this  [issue](https://github.com/nmathewa/MOM6dev/issues/16)
+
+2. 

@@ -1,15 +1,17 @@
  ! NOAA/PMEL TMAP
  ! PyFerret v7.63 (optimized)
  ! Linux 5.8.0-1040-azure - 09/02/21
- ! 13-Jan-22 13:44     
+ ! 16-Jan-22 08:48     
 
 set mode verify
-use runoff_sample_NIO.nc
+use precipt_1213_ERA.nc
 sh da
-fill/L=6
-fill/
-fill/l-6
-fill/l=6
-fill/l=7
-fill/RIV89/l=6
-fill/l=7 RIV89
+define axis/t=1-jan-2012:31-dec-2013:1/units=days/calendar=noleap/t0=31-dec-2011 tax
+let TP_MOD = TP[gt=tax@asn]
+set mem/size=2000
+save/file=preci_final1213.nc/append TP_MOD
+use preci_final1213.nc
+sh da
+exit()
+exit()
+exit
