@@ -12,7 +12,7 @@
 
 # Steps
 
-1. Load the datasets 
+1. Load the preproceeed datasets 
 
 ```python
 import xarray as xr
@@ -23,4 +23,8 @@ runoff = xr.open_dataset("runoff_final.nc",decode_times=False)
 ```
 > decode_times = False, problem with time axis in xarray (cftime), which refer to this  [issue](https://github.com/nmathewa/MOM6dev/issues/16)
 
-2. 
+2. Interpolating the nan values (to ocean points) 
+   ![](filled_nan.png)
+
+
+3. Clipping for ocean only regions
