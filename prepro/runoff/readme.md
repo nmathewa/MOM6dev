@@ -28,3 +28,8 @@ runoff = xr.open_dataset("runoff_final.nc",decode_times=False)
 
 
 3. Clipping for ocean only regions
+
+   ![](masked_clip.png)
+   
+
+
