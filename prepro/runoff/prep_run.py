@@ -46,3 +46,6 @@ run_clip = n_val.sro.rio.clip(geodf.geometry.apply(mapping))
 
 #%%
 
+run_clip[0,:,:].plot()
+
+plt.savefig("masked_clip.png")

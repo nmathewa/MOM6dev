@@ -1,0 +1,13 @@
+ ! NOAA/PMEL TMAP
+ ! PyFerret v7.63 (optimized)
+ ! Linux 5.11.0-1021-azure - 12/10/21
+ ! 18-Jan-22 09:30     
+
+set mode verify
+sp rm -f filled_runoff_test1.nc
+use new_runoff.nc
+define axis/t=1-jan-2013:31-dec-2013:1/units=months/calender=noleap/t0=31-dec-2011 tax
+let sro_mod = sro[gt=tax@asn]
+set mem/size=2000
+save/file=final_runoff_test1.nc/append sro_mod
+exit
