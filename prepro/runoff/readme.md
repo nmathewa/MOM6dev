@@ -3,7 +3,7 @@
 ## Requirements
 
 1. The runoff points in the land should be extended to the ocean
-2. need discharge in m/s
+2. need runopff flux (kg/s)/m^2  (currently in mm/sec)
 3. So volume should divide by area of spread
 
 ![](run_sam_months.png)
@@ -33,3 +33,18 @@ runoff = xr.open_dataset("runoff_final.nc",decode_times=False)
    
 
 
+### To convert volume to flux
+
+1. get cell area 
+   #### Using CDO
+   ```bash 
+   cdo gridarea yourdata.nc gridarea.nc 
+   ```
+   #### script
+
+   - Create an array wit cell area
+
+
+# References
+
+- https://www.pmel.noaa.gov/maillists/tmap/ferret_users/fu_2004/msg00023.html

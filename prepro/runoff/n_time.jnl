@@ -1,0 +1,5 @@
+use new_runoff.nc
+define axis/t=01-jan-2012:01-dec-2013:`365.25/12`/unit=days/calendar=noleap/t0=31-dec-2011 tax
+let sro_mod = runoff[gt=tax@asn]
+sp rm -f final_runoff_test1.nc
+save/file=final_runoff_test1.nc/append sro_mod
