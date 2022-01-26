@@ -843,7 +843,7 @@ OPACITY_LAND_VALUE = 10.0       !   [m-1] default = 10.0
                                 ! 10 m-1 - a value for muddy water.
 
 ! === module MOM_tracer_advect ===
-T!RACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
+!RACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
                                 ! The horizontal transport scheme for tracers:
                                 !   PLM    - Piecewise Linear Method
                                 !   PPM:H3 - Piecewise Parabolic Method (Huyhn 3rd order)
