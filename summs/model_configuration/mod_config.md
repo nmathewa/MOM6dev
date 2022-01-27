@@ -14,7 +14,7 @@ The model has 41 vertical levels (HYCOM) and spacing gradually increases up to 5
 All 4 sides are treated as solid rigid walls among them southern wall is fake rigid boundary. 
 
 
-Equation of state used in the model is based on *Wright (1997)*. Vertical mising uses the KPP scheme with nonlocal mixing. Chlorophyll schemes are not used for estimating shortwave penetration.
+Equation of state used in the model is based on *Wright (1997)*. Vertical mixing uses the KPP scheme with nonlocal mixing. Chlorophyll schemes are not used for estimating shortwave penetration.
 
 
 | Field | Data Source | References | Frequency |
@@ -22,9 +22,14 @@ Equation of state used in the model is based on *Wright (1997)*. Vertical mising
 | Air Temperature (K) | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
 | Short wave Downward flux (K) | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
 | Longwave downward flux  (K) | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
-| Specific Humidity (K) | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
-| 10m U wind | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
-| 10m V wind | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
-| Precipitation | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
-| Runoff rate | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
-| Sea Level Pressure | hPa | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
+| Specific Humidity  | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
+| 10m U wind (m/s)| ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
+| 10m V wind (m/s)| ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
+| Precipitation  | ERA 5 Interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
+| Runoff flux  | GRUN |GRUN: An observations-based global gridded runoff dataset from 1902 to 2014 | monthly |
+| Sea Level Pressure | ERA5 interim reanalysis | The ERA5 Global Reanalysis  Hersbach, H. et al. May 2020. QJRMS | daily |
+
+
+# Experiment
+
+The model was start with Initial conditions (HYCOM) with SST,currents and SSS from 1 st January 2012. Using daily forcing datasets the model is set to run for 2 years.
