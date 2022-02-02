@@ -16,7 +16,7 @@
 #"ICE" , "sw_flux_nir_dif_dn", "SWDN", "./INPUT/sw_2013_final.nc", .false. , 0.215
 "ICE" , "lprec"         , "TP_MOD"        , "./INPUT/preci_final1213.nc"  , .false. ,  1
 #"ICE" , "fprec"         , "SNOW"        , "./INPUT/ncar_precip_clim.nc"  , .false. ,  1.0
-#"ICE" , "runoff"        , "SRO_MOD"      , "./INPUT/final_runoff_test2.nc" , .false.  ,  1.0
+"ICE" , "runoff"        , "SRO_MOD"      , "./INPUT/final_runoff_test2.nc" , .false.  ,  1.0
 "ICE" , "calving"       , ""            , ""                             , .true.  ,  0.0
 "ICE" , "dhdt"          , ""            , ""                             , .true.  ,  80.0
 "ICE" , "dedt"          , ""            , ""                             , .true.  ,  2.0e-6
