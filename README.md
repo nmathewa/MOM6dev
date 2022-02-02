@@ -2,7 +2,7 @@
 
 # To do
 
-
+- [ ] - High-res simulations (with 3 hourly forcing)
 - [ ] - make seperate obc conditions 
 - [x] - function for masking @forcing
 - [ ] - data type of dimension error, create an default template (netcdf Xarray)
