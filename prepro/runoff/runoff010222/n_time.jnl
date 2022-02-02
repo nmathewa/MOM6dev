@@ -1,4 +1,4 @@
-use new_runoff_ed.nc
+use final_namednc2.nc
 define axis/t=01-jan-2012:01-dec-2013:`365.25/12`/unit=days/calendar=noleap/t0=31-dec-2011 tax
 let sro_mod = runoff[gt=tax@asn]
 sp rm -f final_runoff_test2.nc

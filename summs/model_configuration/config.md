@@ -9,7 +9,7 @@ titlepage-background: "background.pdf"
 table-use-row-colors : true
 ...
 
-The model used is recent version of Geophysical Fluid Dynamics Laboratory (GFDL), Modular ocean model version 6 (MOM6) is a hydrostatic, primitive equation, free surface,Boussinesq ocean model with ALE vertical grid remapping to use any kind of vertical coordinates and generalized orthogonal horizontal coordinates. Equations governing ocean dynamics and thermodynamics are discretized on a fixed eulerian grid, with Arkawa C grid defining the horizonatal arrangement of model variables.
+The model used is recent version of Geophysical Fluid Dynamics Laboratory (GFDL), which is publicaly available in the NOAA-GFDL public domain. Modular ocean model version 6 (MOM6) is a hydrostatic, primitive equation, free surface,Boussinesq ocean model with ALE vertical grid remapping to use any kind of vertical coordinates and generalized orthogonal horizontal coordinates. Equations governing ocean dynamics and thermodynamics are discretized on a fixed eulerian grid, with Arkawa C grid defining the horizonatal arrangement of model variables.
 
 ## Model Grid and Domain
 
