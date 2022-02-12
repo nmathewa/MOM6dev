@@ -65,6 +65,44 @@ For the forcing should work atmospheric and land components should be compiled (
 - Data Table variable names,file names must be match with file names
 - variable nc domains must be larger than the grid extends
 
+## Pre processing a raw ERA5 file
+
+- The ERA5 forcing data file needs to be processed before they can be input to MOM6
+- Suppose we have a temperature file of given domain of given time resolution(suppose temp.nc of BOB of 1 hour resolution). We use "cdo" and "nco".
+
+1.) Convert to double/float the variables:
+```
+cdo -b 64 copy temp.nc o.nc
+```
+
+2.) If the time variable is not converted to float/double:
+```
+ncap2 -s 'time = float(time)' temp.nc o.nc 
+```
+
+3.) Creating the time axis
+```
+cdo -r -f nc settaxis,2012-01-01,00:00:00,1hour temp.nc o.nc
+```
+format is : 'cdo -r -f nc settaxis,start-date,start-time,frequency infile.nc outfile.nc'
+frequency can be 1hour,1day,1month
+
+4.) Delete the leap day if required
+```
+cdo delete,month=2,day=29 temp.nc o.nc 
+```
+
+5.) Change the attribute of time variable
+```
+ncatted -O -a calendar,time,o,c,NOLEAP temp.nc o.nc 
+```
+
+6.) Remap to a particular grid 
+```
+cdo remapycon,other_grid.nc infile.nc outfile.nc
+```
+other_grid.nc is the grid which we want for infile.nc 
+
 ## Variable Table
 
 | Variable name | data_table id | units | type | forcing type |
