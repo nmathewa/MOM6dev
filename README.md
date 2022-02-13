@@ -3,6 +3,11 @@
 # To do
 
 - [ ] - High-res simulations (with 3 hourly forcing)
+  - [x] - Create forcing datasets
+  - [ ] - Simulation analysis
+- [ ] - Long term simulation 6 year (2007 - 2013)
+  - [ ] - Prepare forcing
+  - [ ] - analysis   
 - [ ] - make seperate obc conditions 
 - [x] - function for masking @forcing
 - [ ] - data type of dimension error, create an default template (netcdf Xarray)
