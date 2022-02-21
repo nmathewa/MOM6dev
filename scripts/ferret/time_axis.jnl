@@ -1,9 +1,9 @@
 !use v_10_mod.clim_2012.nc
-use airt_clim_2013_fill.nc
-define axis/t=1-jan-2013:31-dec-2013:1/units=days/calendar=noleap/t0=31-dec-2012 tax
+use new_runoff.nc
+define axis/t=1-jan-2012:31-dec-2013:1/units=days/calendar=noleap/t0=31-dec-2011 tax
 
-let air_k = air[gt=tax@asn]
+let SRO_MOD2 = SRO_MOD[gt=tax@asn]
 set mem/size=2000
 sp rm -f airt_clim_2013_fl.nc
 
-save/file=airt_clim_2013_fl.nc/append air_k
+save/file=new_runoff2.nc/append SRO_MOD2
