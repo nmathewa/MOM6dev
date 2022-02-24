@@ -79,7 +79,7 @@ READ_INPUT_NML: input.nml
  
 
 MPP module unknown
-MPP started with NPES=    16
+MPP started with NPES=   144
 Using MPI library for message passing...
 Realtime clock resolution=  1.0000E-09 sec ( 999999999 ticks/sec)
 Clock rolls over after   9.2234E+09 sec ( 9223372036854775806 ticks)
@@ -148,10 +148,10 @@ unknown
  DO_ICE=T,
  DO_OCEAN=T,
  DO_FLUX=T,
- ATMOS_NPES=16         ,
- OCEAN_NPES=16         ,
- ICE_NPES=16         ,
- LAND_NPES=16         ,
+ ATMOS_NPES=144        ,
+ OCEAN_NPES=144        ,
+ ICE_NPES=144        ,
+ LAND_NPES=144        ,
  ATMOS_NTHREADS=1          ,
  OCEAN_NTHREADS=1          ,
  RADIATION_NTHREADS=1          ,
@@ -296,7 +296,7 @@ unknown
 coupler_types_mod
 unknown
 
-atmos model domain decomposition:     4 X    4
+atmos model domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
 ================================================================================
@@ -362,7 +362,7 @@ unknown
 $Id$
 $Name$
 
-land model domain decomposition:     4 X    4
+land model domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 &DATA_OVERRIDE_NML
  DEBUG_DATA_OVERRIDE=F,
@@ -432,22 +432,22 @@ MOM_domains: unknown
   MOM_domains NIHALO: 4
   MOM_domains NJHALO: 4
   MOM_domains MASKTABLE: MOM_mask_table
-  MOM_domains NIPROC: 4
-  MOM_domains NJPROC: 4
-  MOM_domains LAYOUT: 4, 4
+  MOM_domains NIPROC: 12
+  MOM_domains NJPROC: 12
+  MOM_domains LAYOUT: 12, 12
   MOM_domains IO_LAYOUT: 1, 1
 
-ice model domain decomposition:     4 X    4
+ice model domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-ice modelc domain decomposition:     4 X    4
+ice modelc domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_hor_index: unknown
 
-ice model domain decomposition:     4 X    4
+ice model domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-ice model domain decomposition:     4 X    4
+ice model domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 SIS_restart: unknown
   SIS_restart PARALLEL_RESTARTFILES: False
@@ -465,10 +465,10 @@ MOM_grid_init: unknown
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR: INPUT
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR/GRID_FILE: INPUT/bob_hor.nc
 
-MOM_MOSAIC domain decomposition:     4 X    4
+MOM_MOSAIC domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_MOSAIC domain decomposition:     4 X    4
+MOM_MOSAIC domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   SIS_initialize_topography TOPO_CONFIG: file
   initialize_topography_from_file INPUTDIR: INPUT
@@ -514,13 +514,13 @@ SIS_tracer_registry: unknown
 SIS_tracer_flow_control: unknown
   SIS_tracer_flow_control USE_ICE_AGE_TRACER: False
 
-ice model aux domain decomposition:     4 X    4
+ice model aux domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-ice model aux domain decomposition:     4 X    4
+ice model aux domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-ice_nohalo domain decomposition:     4 X    4
+ice_nohalo domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 ice_grid: unknown
   ice_grid NCAT_ICE: 5
@@ -531,7 +531,7 @@ ice_grid: unknown
 SIS_diag_mediator: unknown
   SIS_diag_mediator GRID_CONFIG: mosaic
 
-ice_nohalo domain decomposition:     4 X    4
+ice_nohalo domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   SIS_state_initialization CONCENTRATION_INIT_CONFIG: data_override
   SIS_state_initialization ICE_THICKNESS_INIT_CONFIG: data_override
@@ -780,15 +780,15 @@ MOM_domains: unknown
   MOM_domains NIHALO: 4
   MOM_domains NJHALO: 4
   MOM_domains MASKTABLE: MOM_mask_table
-  MOM_domains NIPROC: 4
-  MOM_domains NJPROC: 4
-  MOM_domains LAYOUT: 4, 4
+  MOM_domains NIPROC: 12
+  MOM_domains NJPROC: 12
+  MOM_domains LAYOUT: 12, 12
   MOM_domains IO_LAYOUT: 1, 1
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_inc domain decomposition:     4 X    4
+MOM_inc domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_debugging: unknown
   MOM_debugging DEBUG: False
@@ -798,10 +798,10 @@ MOM_checksums: unknown
 MOM_io: unknown
 MOM_hor_index: unknown
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_fixed_initialization: unknown
   MOM_fixed_initialization DEBUG: False
@@ -814,10 +814,10 @@ MOM_grid_init: unknown
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR: INPUT
   MOM_grid_init set_grid_metrics_from_mosaic INPUTDIR/GRID_FILE: INPUT/bob_hor.nc
 
-MOM_MOSAIC domain decomposition:     4 X    4
+MOM_MOSAIC domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_MOSAIC domain decomposition:     4 X    4
+MOM_MOSAIC domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   MOM_initialize_topography TOPO_CONFIG: file
   initialize_topography_from_file INPUTDIR: INPUT
@@ -851,10 +851,10 @@ MOM_verticalGrid: unknown
   MOM_verticalGrid M to THICKNESS rescaled by 2^-n: 1.0
   MOM_verticalGrid THICKNESS to M rescaled by 2^n: 1.0
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_tracer_registry: unknown
   MOM NK_RHO_VARIES: 0
@@ -926,10 +926,10 @@ MOM_coord_initialization: unknown
   MOM_ALE REGRID_FILTER_SHALLOW_DEPTH: 0.0
   MOM_ALE REGRID_FILTER_DEEP_DEPTH: 0.0
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_state_initialization: unknown
   MOM_state_initialization DEBUG: False
@@ -1178,10 +1178,10 @@ MOM_barotropic: unknown
   MOM_barotropic DTBT: -0.9
   MOM_barotropic BT_USE_OLD_CORIOLIS_BRACKET_BUG: False
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
   MOM_barotropic DTBT as used: 20.738355584314633
   MOM_barotropic estimated maximum DTBT: 23.042617315905147
@@ -1443,7 +1443,7 @@ user_revise_forcing: unknown
   ocean_model_init USE_WAVES: False
   MOM_wave_interface USE_WAVES: False
 
-MOM_in domain decomposition:     4 X    4
+MOM_in domain decomposition:    12 X   12
    pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
 MOM_file_parser: unknown
   MOM_file_parser SEND_LOG_TO_STDOUT: False
@@ -1575,3 +1575,96 @@ $Name$
 
 namelist option USE_FIXED_ROUGH is no longer supported
 use variable ROUGH_SCHEME instead
+
+================================================================================
+DIAG_OUTPUT_MOD
+unknown
+
+ice model domain decomposition:    12 X   12
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+ice model domain decomposition:    12 X   12
+   pe,   is,  ie,  js,  je,    isd, ied, jsd, jed
+
+                                     time
+Total runtime                     34993.506040
+Initialization                        3.670159
+  Init: atmos_model_init              0.055194
+  Init: land_model_init               0.016712
+  Init: ice_model_init                0.594803
+  Init: ocean_model_init              2.206330
+  Init: flux_exchange_init            0.225061
+Main loop                         34986.446304
+Termination                           3.312247
+(Ocean advect tracer)              2273.549888
+Ice                                 772.868409
+Ice Fast                             15.849226
+Ice Slow                            757.003565
+Ice Fast/Slow Exchange                0.002773
+Ocean Initialization                  2.106821
+Ocean                             34135.614380
+Ocean dynamics                    26410.239950
+Ocean thermodynamics and tracers   6888.344172
+Ocean Other                         822.276675
+(Ocean tracer advection)           3337.336287
+(Ocean diabatic driver)            3550.968012
+(Ocean continuity equation *)         0.000000
+(Ocean set BBL viscosity)            58.029541
+(Ocean message passing *)          1408.138327
+(Ocean MOM_initialize_state)          1.749338
+(Ocean mixed layer restrat)           0.000000
+(Ocean collective diagnostics)      439.982230
+(Ocean Z-space diagnostics)           0.000000
+(Ocean ALE)                         442.709969
+(Ocean diagnostics framework)       719.138375
+(Ocean Coriolis & mom advection)    826.751849
+(Ocean continuity equation)        3577.030746
+(Ocean pressure force)             2550.484459
+(Ocean vertical viscosity)         1682.838848
+(Ocean horizontal viscosity)       1311.511309
+(Ocean momentum increments)         182.855333
+(Ocean message passing)            7007.448134
+(Ocean barotropic mode calc)         24.002641
+(Ocean barotropic mode stepping)   8449.026833
+(Ocean barotropic forcing calc)     182.128789
+Ocean KPP calculate)                 34.061758
+(Double diffusion via CVMix)         31.281591
+(Ocean diabatic entrain)              0.000000
+(Ocean vert remap)                   56.424134
+(Ocean set_diffusivity)             201.864632
+(Ocean KPP)                         912.738332
+(Ocean tracer_columns)                0.038473
+(Ocean diffuse tracer)             1034.458073
+(Ocean epipycnal diffuse tracer)      0.000000
+Ocean surface forcing                 7.350172
+Land-ice-atm coupler                 20.895550
+SFC boundary layer                   11.763102
+Ice-ocean coupler                     0.197971
+generate_sfc_xgrid                    0.577224
+flux_ocean_to_ice                     0.047460
+flux_ice_to_ocean                     0.154055
+ATM                                 810.867778
+ ATM: atmos loop                     31.416701
+  A-L: atmos_tracer_driver_gathe      0.000000
+  A-L: sfc_boundary_layer            11.856790
+  A-L: update_atmos_model_dynami      0.000000
+  A-L: serial radiation               0.001219
+  A-L: update_atmos_model_down        0.000000
+  A-L: flux_down_from_atmos           7.280454
+  A-L: update_land_model_fast         0.000968
+  A-L: update_ice_model_fast         11.409925
+  A-L: flux_up_to_atmos               0.821704
+  A-L: update_atmos_model_up          0.000811
+  A-L: update_atmos_model_state       0.000517
+ ATM: update_land_model_slow          0.000400
+ ATM: flux_land_to_ice                0.522960
+ Ice: set_ice_surface fast            4.453416
+ Ice: update_ice_model_slow fast      6.082392
+ Ice: set_ice_surface slow            2.193174
+ Ice: update_ice_model_slow slow    755.118503
+ Ice: flux_ice_to_ocean_stocks        0.073123
+ Ice: set_ice_surface exchange        0.005339
+ Ice: update_ice_model_slow exch      0.005783
+OCN                               34153.829792
+flux_check_stocks                     0.000000
+intermediate restart                  0.000000
