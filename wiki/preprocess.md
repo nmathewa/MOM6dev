@@ -21,9 +21,8 @@ make_hgrid --grid_type regular_lonlat_grid --nxbnd 2 --nybnd 2 --xbnd 77,99 --yb
 ### 2.mosaic creation
 
 ```BASH
-make_solo_mosaic --num_tiles 1 --dir . --mosaic_name ocean_mosaic --tile_file mosaic.nc --periodx 0 --periody 0
+make_solo_mosaic --num_tiles 1 --dir . --mosaic_name bob_mos --tile_file mom_grid.nc --periodx 0 --periody 0
 ```
-
 
 ### 3. Topog creation
 
