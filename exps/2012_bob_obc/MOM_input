@@ -262,7 +262,7 @@ COORD_CONFIG = "file"           !
                                 !     ts_profile - use temperature and salinity profiles
                                 !       (read from COORD_FILE) to set layer densities.
                                 !     USER - call a user modified routine.
-COORD_FILE = "mom6_vgrid.nc"    !
+COORD_FILE = "grid_sys/bob_vgrid.nc"    !
                                 ! The file from which the coordinate densities are read.
 
 !ALE_COORDINATE_CONFIG = "FILE:mom6_vgrid.nc,interfaces=st_edges_ocean"
