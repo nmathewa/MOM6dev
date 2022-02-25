@@ -331,7 +331,7 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "grid_sys/horizontal_grid.nc"  ! default "ocean_hgrid.nc"(?);
+GRID_FILE = "horizontal_grid.nc"  ! default "ocean_hgrid.nc"(?);
                                 ! Name of the file from which to read horizontal grid data.
 TOPO_CONFIG = "file"            !
                                 ! This specifies how bathymetry is specified:
