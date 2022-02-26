@@ -116,3 +116,4 @@ RECATEGORIZE_ICE = False        !   [Boolean] default = True
 
 ! === module SIS_optics ===
 ! This module calculates the albedo and absorption profiles for shortwave radiation.
+TOPO_FILE = "grid_sys/bob_topo_full.nc"  
