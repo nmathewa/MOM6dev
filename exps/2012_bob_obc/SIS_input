@@ -53,7 +53,7 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "grid_sys/horizontal_grid.nc"    !
+GRID_FILE = "horizontal_grid.nc"    !
                                 ! Name of the file from which to read horizontal grid data.
 !MAXIMUM_DEPTH = 6000.0         !   [m]
                                 ! The (diagnosed) maximum depth of the ocean.
@@ -116,4 +116,4 @@ RECATEGORIZE_ICE = False        !   [Boolean] default = True
 
 ! === module SIS_optics ===
 ! This module calculates the albedo and absorption profiles for shortwave radiation.
-TOPO_FILE = "grid_sys/bob_topo_full.nc"  
+TOPO_FILE = "bob_topo_full.nc"  

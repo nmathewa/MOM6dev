@@ -262,7 +262,7 @@ COORD_CONFIG = "file"           !
                                 !     ts_profile - use temperature and salinity profiles
                                 !       (read from COORD_FILE) to set layer densities.
                                 !     USER - call a user modified routine.
-COORD_FILE = "grid_sys/bob_vgrid.nc"    !
+COORD_FILE = "bob_vgrid.nc"    !
                                 ! The file from which the coordinate densities are read.
 
 !ALE_COORDINATE_CONFIG = "FILE:mom6_vgrid.nc,interfaces=st_edges_ocean"
@@ -281,7 +281,7 @@ REGRID_COMPRESSIBILITY_FRACTION = 0.01 !   [not defined] default = 0.0
                                 ! When interpolating potential density profiles we can add
                                 ! some artificial compressibility solely to make homogenous
                                 ! regions appear stratified.
-ALE_COORDINATE_CONFIG = "HYBRID:grid_sys/bob_vgrid.nc,sigma2,dz" ! default = "UNIFORM"
+ALE_COORDINATE_CONFIG = "HYBRID:bob_vgrid.nc,sigma2,dz" ! default = "UNIFORM"
                                 ! Determines how to specify the coordinate
                                 ! resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter ALE_RESOLUTION
@@ -331,7 +331,7 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "grid_sys/horizontal_grid.nc"  ! default "ocean_hgrid.nc"(?);
+GRID_FILE = "horizontal_grid.nc"  ! default "ocean_hgrid.nc"(?);
                                 ! Name of the file from which to read horizontal grid data.
 TOPO_CONFIG = "file"            !
                                 ! This specifies how bathymetry is specified:
@@ -352,7 +352,7 @@ TOPO_CONFIG = "file"            !
                                 !     seamount - Gaussian bump for spontaneous motion test case.
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     USER - call a user modified routine.
-TOPO_FILE = "grid_sys/bob_topo_full.nc"    ! default = "topog.nc"
+TOPO_FILE = "bob_topo_full.nc"    ! default = "topog.nc"
                                 ! The file from which the bathymetry is read.
 MAXIMUM_DEPTH = 5000.0          !   [m]
                                 ! The maximum depth of the ocean.
