@@ -121,7 +121,7 @@ INTERPOLATE_SPONGE_TIME_SPACE = False  ! Set True if using the newer sponging co
 
 ! === Open Boundaries ===
 OBC_NUMBER_OF_SEGMENTS = 1      ! [Integer] The number of open boundary segments.
-OBC_SEGMENT_001 = "J=4,I=77:90,SIMPLE"
+OBC_SEGMENT_001 = "J=4,I=90:77,SIMPLE"
 !OBC_SEGMENT_002 = "I=77,J=4:7,SIMPLE"
 !OBC_SEGMENT_003 = "J=N,I=N:0,FLATHER"
 !OBC_SEGMENT_001_DATA = "U=file:obc_south.nc(u11),V=file:obc_south.nc(v11),SSH=file:obc_south.nc(ssh),TEMP=file:obc_south.nc(pt),SALT=file:obc_south.nc(s)"
