@@ -120,6 +120,9 @@ data table should set up accordingly (with forcing datasets)
 
 # Open boundary conditions
 
+## Simple 
+
+
 
 
 ### OLR flux 
