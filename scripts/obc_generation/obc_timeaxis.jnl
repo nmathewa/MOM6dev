@@ -1,0 +1,9 @@
+use south_only.nc
+define axis/t=1-jan-2012:31-dec-2013:1/units=days/calendar=noleap/t0=31-dec-2011 time
+
+let v11_segment_001 = V_segment_001[gt=time@asn]
+let dz_v11 = dz_v[gt=tax@asn]
+set mem/size=2000
+sp rm -f nsouth_only.nc
+
+save/file=nsouth_only.nc/append v11_segment_001,dz_v11
