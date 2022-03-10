@@ -27,7 +27,7 @@ marp: true
 ![bg left 100%](../model_configuration/grid_system.png)
 
 
-- 0.036 degrees resolution
+- 0.062 degrees resolution
 - 4N , 25N and 77E to 99E
 - 1-min ETOPO1
 - 41 levels vertical resolution (HYCOM)
