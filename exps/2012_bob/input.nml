@@ -25,8 +25,8 @@
             minutes = 0
             seconds = 0
             calendar = 'NOLEAP',
-            dt_cpld  = 7200,
-            dt_atmos = 7200,
+            dt_cpld  = 3600,
+            dt_atmos = 3600,
             do_atmos = .false.,
             do_land = .false.,
             do_ice = .true.,
