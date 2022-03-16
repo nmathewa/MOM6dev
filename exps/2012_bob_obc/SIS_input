@@ -121,4 +121,4 @@ TOPO_FILE = "bob_topo_full.nc"
 
 
 
-MAXTRUNC = 100000
+!MAXTRUNC = 100000
