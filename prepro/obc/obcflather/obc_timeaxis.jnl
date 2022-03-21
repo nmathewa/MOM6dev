@@ -1,4 +1,4 @@
-use south_only.nc
+use nsouth.nc
 
 define axis/t=1-jan-2012:31-dec-2013:1/units=days/calendar=noleap/t0=31-dec-2011 time
 
