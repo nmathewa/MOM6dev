@@ -1,9 +1,13 @@
 # UBUNTU
 
-```git submodule update --init --recursive```
 
 
 ## Cloning and compiling
+
+
+
+
+
 
 ### 1. Libraries installtion (Ubuntu)
 
@@ -19,6 +23,51 @@ sudo apt-get install libnetcdff-dev
 sudo apt-get install netcdf-bin
 
 ```
+
+### 2. Cloning and updating repo
+
+
+``` BASH
+git clone --recursive https://github.com/NOAA-GFDL/MOM6-examples.git MOM6-examples 
+cd MOM6-examples
+git submodule update --init --recursive
+
+```
+
+### 3. FMS shared code
+
+```BASH
+
+mkdir -p build/gnu/shared/repro/
+
+cd build/gnu/shared/repro/
+../../../../src/mkmf/bin/list_paths -l ../../../../src/FMS
+
+../../../../src/mkmf/bin/mkmf -t ../../../../src/mkmf/templates/linux-gnu.mk -p libfms.a -c "-Duse_libMPI -Duse_netCDF" path_names
+
+make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 libfms.a -j
+
+
+```
+
+### 4. Compiling MOM6 in MOM6-SIS2 coupled mode
+
+```BASH
+
+mkdir -p build/gnu/ice_ocean_SIS2/repro/
+
+cd build/gnu/ice_ocean_SIS2/repro/
+
+../../../../src/mkmf/bin/list_paths -l ./ ../../../../src/MOM6/config_src/{infra/FMS1,memory/dynamic_symmetric,drivers/FMS_cap,external} ../../../../src/MOM6/src/{*,*/*}/ ../../../../src/{atmos_null,coupler,land_null,ice_param,icebergs,SIS2,FMS/coupler,FMS/include}/
+
+../../../../src/mkmf/bin/mkmf -t ../../../../src/mkmf/templates/linux-gnu.mk -o '-I../../shared/repro' -p MOM6 -l '-L../../shared/repro -lfms' -c '-Duse_AM3_physics -D_USE_LEGACY_LAND_' path_names
+
+make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 MOM6 -j
+
+
+```
+
+
 
 # General Linux based installation (CentOS, Arch)
 
