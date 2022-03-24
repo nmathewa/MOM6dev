@@ -1,5 +1,8 @@
 # UBUNTU
 
+```git submodule update --init --recursive```
+
+
 ## Cloning and compiling
 
 ### 1. Libraries installtion (Ubuntu)
