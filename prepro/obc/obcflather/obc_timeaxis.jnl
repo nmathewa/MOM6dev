@@ -22,26 +22,3 @@ sp rm -f nsouth_only.nc
 save/file=nsouth_only.nc/append v11_segment_001,u11_segment_001,pt_segment_001,s_segment_001,ssh_segment_001,dz_v11_segment_001,dz_u11_segment_001,dz_pt_segment_001,dz_s_segment_001
 
 
-use nwest.nc
-
-define axis/t=1-jan-2012:31-dec-2013:1/units=days/calendar=noleap/t0=31-dec-2011 time
-
-let v11_segment_002 = v[gt=time@asn]
-let u11_segment_002 = u[gt=time@asn]
-let pt_segment_002 = temp[gt=time@asn]
-let s_segment_002 = salt[gt=time@asn]
-let ssh_segment_002 = ssh[gt=time@asn]
-
-
-
-let dz_v11_segment_002 = dz_v[gt=time@asn]
-let dz_u11_segment_002 = dz_u[gt=time@asn]
-let dz_s_segment_002 = dz_salt[gt=time@asn]
-let dz_pt_segment_002 = dz_temp[gt=time@asn]
-
-
-set mem/size=2000
-sp rm -f nsouth_west.nc
-
-save/file=nwest_only.nc/append v11_segment_002,u11_segment_002,pt_segment_002,s_segment_002,ssh_segment_002,dz_v11_segment_002,dz_u11_segment_002,dz_pt_segment_002,dz_s_segment_002
-
