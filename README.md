@@ -18,14 +18,12 @@ MOM6 development private
 
 # Current domain
 
-![](summs/Untitled%20Diagram.drawio.png)
+![](summs/2012_2013_forc_cbc/domain.png)
 
 # Outputs [sims done on 29/11/21]
 
 - 2013 one year , daily surface conditions
 
-
-# wiki
 
 # Datasets
 
@@ -37,20 +35,3 @@ MOM6 development private
   - [hamberg link](https://www.cen.uni-hamburg.de/en/icdc/data/ocean/easy-init-ocean/ecmwf-oras5.html)
 
 
-# Depth preparation
-
-
-![](data_ana/depth_create.png)
-
-```python
-n_bath = griddata((xf,yf),valsf,(xx[None,:],yy[:,None]),method="linear")
-```
-
-```BASH
-pandoc phd_propos.md -o proposal_init.pdf --from markdown --template eisvogel --listing
-```
-
-
-# Simulated SSH
-
-![](exps/caops/docs/caops1/SSH.gif)
