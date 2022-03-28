@@ -61,4 +61,37 @@ git push
 
 With Tmux we can easily switch between multiple programs in one terminal, detach them and reattach them to a different terminal
 
+1. Installation
+```BASH
+sudo apt-get install tmux
+sudo yum install tmux
+sudo pacman -S tmux
+```
+
+2. Create a session 
+```BASH 
+tmux
+```
+or
+
+```
+tmux new -s mom6
+```
+
+3. attach a session
+
+```BASH
+tmux ls
+
+tmux attach -t mom6
+
+```
+
 # CONDA
+
+1. Create an new enviornment
+```BASH
+conda create --name mom6
+```
+- mom6 is the enviornment name
+- [conda cheatsheet](https://docs.conda.io/projects/conda/en/4.6.0/_downloads/52a95608c49671267e40c689e0bc00ca/conda-cheatsheet.pdf)
