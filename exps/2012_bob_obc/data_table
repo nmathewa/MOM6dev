@@ -3,7 +3,7 @@
 #"ATM" , "p_surf"        , "SLP2" , "./INPUT/slp_clim_2013_nw.nc"                     , .false. ,  0.01
 "ATM" , "p_bot"         , "pres" , "./INPUT/forces/test1/pres_final.nc"                     , .false. ,  0.01
 "ATM" , "t_bot"         , "temp"    , "./INPUT/forces/test1/temp_final.nc"     , .false. ,  1.0  
-"ATM" , "sphum_bot"     , "SPHUM"    , "./INPUT/sphum_1213.nc"     , .false. ,  0.001
+"ATM" , "sphum_bot"     , "SPHUM"    , "./INPUT/forces/sphum_1213.nc"     , .false. ,  0.001
 "ATM" , "u_bot"         , "UU10"    , "./INPUT/forces/test1/wind_final.nc"     , .false. ,  1.0
 "ATM" , "v_bot"         , "VV10"    , "./INPUT/forces/test1/wind_final.nc"     , .false. ,  1.0
 #"ATM" , "z_bot"         , ""            , ""                             , .false. , 10.0
