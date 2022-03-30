@@ -140,3 +140,4 @@ data table should set up accordingly (with forcing datasets)
 3. [COSIMA pan antarctic MOM6 model configs](https://github.com/COSIMA/mom6-panan)
 
 4. [regrid runoff](https://github.com/adcroft/regrid_runoff)
+5. [make regional mom6](https://github.com/favorliao/Reginal-MOM6)
