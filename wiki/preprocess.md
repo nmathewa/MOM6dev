@@ -53,6 +53,8 @@ make_quick_mosaic --input_mosaic ocean_mosaic.nc --mosaic_name grid_spec --ocean
 
 # Forcing Conditions 
 
+- [ERA5 reanalysis](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview)
+
 For the forcing should work atmospheric and land components should be compiled (recommended option is build with Sea Ice (SIS2))
 
 ## prerequesties
@@ -139,4 +141,5 @@ data table should set up accordingly (with forcing datasets)
 2. [ocean model grid genreator tool](https://github.com/nikizadehgfdl/ocean_model_grid_generator)
 3. [COSIMA pan antarctic MOM6 model configs](https://github.com/COSIMA/mom6-panan)
 
-
+4. [regrid runoff](https://github.com/adcroft/regrid_runoff)
+5. [make regional mom6](https://github.com/favorliao/Reginal-MOM6)
