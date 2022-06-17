@@ -123,6 +123,8 @@ make NETCDF=3 REPRO=1 FC=mpif77 CC=mpicc LD=mpif77 MOM6 -j
 ## OpenMPI installation
 
 
+# ParamPravega Installation 
+
 
 
 
