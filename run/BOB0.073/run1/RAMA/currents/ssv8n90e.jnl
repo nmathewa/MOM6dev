@@ -1,0 +1,7 @@
+use/D=1 cur8n90e_dy.cdf
+let/units="cm/s"/D=1/title="RAMA" obs = V_321
+use/D=2 ssv_model_8n90e.nc
+let/units="cm/s"/title="Model" model = SSV
+plot/D=1/thick/line=1 obs 
+plot/over/D=2/thick/line=2 model 
+frame/file = "ssv_8n90e.png"

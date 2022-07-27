@@ -1,7 +1,7 @@
-use/D=1 cur8n90e_dy.cdf
+use/D=1 cur15n90e_dy.cdf
 let/units="cm/s"/D=1/title="RAMA" obs = U_320
-use/D=2 ssu_model_8n90e.nc
+use/D=2 ssu_model_15n90e.nc
 let/units="cm/s"/title="Model" model = SSU
 plot/D=1/thick/line=1 obs 
 plot/over/D=2/thick/line=2 model 
-frame/file = "ssu_8n90e.png"
+frame/file = "ssu_15n90e.png"
