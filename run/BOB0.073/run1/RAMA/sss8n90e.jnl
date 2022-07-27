@@ -1,0 +1,7 @@
+use/D=1 sss8n90e_dy.cdf
+let/units="psu"/D=1/title="RAMA" obs = S_41
+use/D=2 sss_model_8n90e.nc
+let/units="psu"/title="Model" model = SSS
+plot/D=1/thick/line=1/vlimits=32:36:0.25 obs 
+plot/over/D=2/thick/line=2/vlimits=32:36:0.25 model 
+frame/file = "sss_8n90e.png"
