@@ -1,0 +1,7 @@
+use/D=1 sst12n90e_dy.cdf
+let/units="deg C"/D=1/title="RAMA" obs = T_25
+use/D=2 sst_model_12n90e.nc
+let/units="deg C"/title="Model" model = SST
+plot/D=1/thick/line=1/vlimits=24:35:1.0 obs 
+plot/over/D=2/thick/line=2/vlimits=24:35:1.0 model 
+frame/file = "sst_12n90e.png"
