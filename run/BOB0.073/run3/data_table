@@ -15,9 +15,9 @@
 "ICE" , "sw_flux_vis_dif_dn", "msdwswrf"    , "./INPUT/flux.nc"     , "bilinear" ,  0.285
 "ICE" , "sw_flux_nir_dir_dn", "msdwswrf"    , "./INPUT/flux.nc"     , "bilinear" ,  0.215
 "ICE" , "sw_flux_nir_dif_dn", "msdwswrf"    , "./INPUT/flux.nc"     , "bilinear" ,  0.215
-"ICE" , "lprec"         , "mtpr"        ,  "./INPUT/preci.nc"     , "bilinear" ,  1.0
+#"ICE" , "lprec"         , "mtpr"        ,  "./INPUT/preci.nc"     , "bilinear" ,  1.0
 # This is TRRM rainfall below, above is ERA
-#"ICE" , "lprec"         , "precipitation"        ,  "./INPUT/trrm_bob.nc"     , "bilinear" ,  1.0
+"ICE" , "lprec"         , "precipitation"        ,  "./INPUT/trrm_bob.nc"     , "bilinear" ,  1.0
 "ICE" , "fprec"         , ""            , ""                             , "none"  ,  0.0
 "ICE" , "runoff"        , "friver"       , "./INPUT/runoff_1213.nc"      , "bilinear"  ,  1.0
 "ICE" , "calving"       , ""            , ""                             , "none"  ,  0.0
