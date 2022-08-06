@@ -18,3 +18,14 @@ make_solo_mosaic --num_tiles 1 --dir . --mosaic_name bob_mosaic --tile_file hori
 make_topog --mosaic bob_mosaic.nc --topog_type realistic --topog_file gebco_bob.nc --topog_field elevation --scale_factor 1
 ```
 
+## Coupled mosaic file
+```
+make_quick_mosaic --input_mosaic bob_mosaic.nc grid_spec --ocean_topog topog.nc
+```
+generated files due to this are:
+* atmos_mosaic_tile1Xland_mosaic_tile1.nc 
+* land_mosaic_tile1Xocean_mosaic_tile1.nc
+* atmos_mosaic_tile1Xocean_mosaic_tile1.nc  
+* mosaic.nc
+* land_mask.nc        
+* ocean_mask.nc
