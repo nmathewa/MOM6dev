@@ -1,3 +1,3 @@
 use temp.nc
-let d20 = temp[z=@loc:20]
+let d20 = temp[z=0:500@loc:20]
 save/file = d20.nc d20
