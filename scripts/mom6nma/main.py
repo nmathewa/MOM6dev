@@ -4,7 +4,7 @@ test package to set up the input datasets for MOM6 ocean model
 
 
 import os
-from grid_create import create_lat_lon_regular
+from grid_create import create_grid
 
 #os.chdir("/home/mathew/hdd/UBU20/hdd/IISC_PA/Tools/mom6nma/")
 
@@ -20,3 +20,8 @@ x,y,area,dx,dy,angle = create_lat_lon_regular(x1lon, x2lon, y1lat, y2lat, xres, 
 
 
 print("grid elements created")
+
+#%%
+
+ff = create_grid()
+

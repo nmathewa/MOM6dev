@@ -8,8 +8,56 @@ gridcreation
 """
 
 import numpy as np
+import os 
+import subprocess as sub
+import pandas as pd
+
+class create_grid:
+    def __init__(self,latitude,longitude,res_x , res_y,create_method='FRE'):
+        
+        self.create = create_method
+        if self.create == 'FRE':    
+            try : 
+                sub.check_output('make_hgrid --help')
+            except FileNotFoundError:
+                print ("FRE_nc_tools not found")
+                print("Switching to python engine")
+                self.create = 'python'
+        else :
+            self.fre = True
+        
+        dom = pd.Series()
+        latc,lonc = latitude,longitude
+        lat1,lat2 = latc - (res_y/2) , latc + (res_y/2) 
+        lon1,lon2 = latc - (res_x/2) , latc + (res_x/2) 
+        
+        dom['lat1'] = lat1
+        dom['lat2'] = lat2
+        dom['lon1'] = lon1
+        dom['lon2'] = lon2
+        
+        dom['xres'] = res_x
+        dom['yres'] = res_y
+        
+        self.dom = dom
+    
+    def get_dom(self):
+        return self.dom
+    
+    def create_ngrid(self):
+        lon1 = self.dom['lon1']
+        lon2 = self.dom['lon2']
+        lat1 = self.dom['lat1']
+        lat2 = self.dom['lat2']
+        xres = self.dom['xres']
+        yres = self.dom['yres']
+        
+        
+        if self.fre :
+            sub.run('make_hgrid --grid_type regular_lonlat_grid --nxbnd 2 --nybnd 2 --xbnd '+lon1+','+lon2+' --ybnd '+lat1+','+lat2+' --nlon '+xres+' --nlat '+yres+' --verbose')
 
 
+    
 def create_lat_lon_regular(lonx1,lonx2,laty1,laty2,resx,resy):
     nx = np.arange(resx)
     ny = np.arange(resy)
