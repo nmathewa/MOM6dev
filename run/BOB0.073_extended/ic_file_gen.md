@@ -48,4 +48,5 @@ use xq, yh grid for u and yh,xq for v
 cdo remapbic,grid_v.txt v.nc o.nc
 ```
 
-
+### Flooding and interpolating the NaN values
+use python file make_ic.py which has input files as vertical grid file, the three remapped ic files to finally get the input files for the case(one for tracers and two for u and v)
