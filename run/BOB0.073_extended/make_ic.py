@@ -1,6 +1,7 @@
 # This will make a IC file for MOM6
 # Do regridding prior to this using cdo and with
 # ocean_geometry.nc file.
+# Adapted from https://github.com/jsimkins2/nwa25/tree/main/setup/initial
 # BOB0.073 extended
 
 import xarray as xr
