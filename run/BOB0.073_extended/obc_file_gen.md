@@ -57,3 +57,6 @@ depth_levels = target_grid["zl"]
 west_obc = obc_file.interp(depth=depth_levels)
 west_obc.to_netcdf("SOUTH.nc")
 ```
+
+## Adding the layer depths
+For each variable we have to add the layer depth with DZ_$VARIABLE_NAME$ to the file. This is done using the prepro.py file. 
