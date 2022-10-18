@@ -44,3 +44,16 @@ yinc      = 0.0732323232323232
 ```
 Then remap the raw files by the above grid description file. Similarly do for u points and v points and other boundaries.
 
+## Vertical remapping
+Now, do the vertical remapping to the target grid of the model using Python.(Below for southern boundary)
+```
+import xarray as xr
+
+obc_file = xr.open_dataset("south.nc")
+target_grid = xr.open_dataset("~/HDD_data/vinay/testing/run/new/ic_file/ic_tracer.nc")
+
+depth_levels = target_grid["zl"]
+
+west_obc = obc_file.interp(depth=depth_levels)
+west_obc.to_netcdf("SOUTH.nc")
+```
